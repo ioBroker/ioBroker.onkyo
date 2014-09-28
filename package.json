@@ -1,0 +1,6 @@
+{
+"private": true,
+"dependencies": {
+"eiscp": "git://github.com/tillbaks/node-eiscp.git"
+}
+}
