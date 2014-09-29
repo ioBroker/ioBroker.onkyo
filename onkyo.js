@@ -22,7 +22,8 @@ var adapter = require(__dirname + '/../../lib/adapter.js')({
         if(!state.ack)
         {
             // Determine whether it's a raw or high-level command.
-            // Raw commands are all uppercase and have no "="
+            // Raw commands are all uppercase and digits and
+            // notably have no "="
             if(state.val.match(/^[A-Z0-9]+$/))
                 eiscp.raw(state.val);
             else
@@ -69,7 +70,6 @@ function main()
 {
     // The adapters config (in the instance object everything under the attribute "native") is accessible via
     // adapter.config:
-    adapter.log.info('Connecting to AVR ' + adapter.config.avrAddress + ":" +adapter.config.avrPort);
     eiscp.on("error",function(e){
         adapter.log.info("Error: "+e);
     });
@@ -95,5 +95,15 @@ function main()
         notifyCommand("command",cmd.iscp_command);
     });
 
-    eiscp.connect({host:adapter.config.avrAddress, port:adapter.config.avrPort});
+    var options={reconnect:true};
+
+    if(adapter.config.avrAddress && adapter.config.avrAddress.length>0)
+    {
+        adapter.log.info('Connecting to AVR ' + adapter.config.avrAddress + ":" +adapter.config.avrPort);
+        options.host=adapter.config.avrAddress;
+        options.port=adapter.config.avrPort;
+    }
+    else
+        adapter.log.info("Starting AVR discovery");
+    eiscp.connect(options);
 }
