@@ -17,7 +17,7 @@ of https://github.com/tillbaks/node-eiscp like
     zone2.power=on
     main.balance=3
 
-or a raw commands EISCP in the form of "PWR01".
+or a raw EISCP command in the form of "PWR01".
 
 Another special state maintained by the adapter is "connected". It's a boolean
 showing whether node-eiscp is currently connected to a receiver.
