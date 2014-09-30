@@ -21,13 +21,27 @@ var adapter = require(__dirname + '/../../lib/adapter.js')({
 
         if(!state.ack)
         {
-            // Determine whether it's a raw or high-level command.
-            // Raw commands are all uppercase and digits and
-            // notably have no "="
-            if(state.val.match(/^[A-Z0-9]+$/))
-                eiscp.raw(state.val);
+            var ids=id.split(".",3)[2];
+            if(ids=="command")
+            {
+                // Determine whether it's a raw or high-level command.
+                // Raw commands are all uppercase and digits and
+                // notably have no "="
+                if (state.val.match(/^[A-Z0-9]+$/))
+                    eiscp.raw(state.val);
+                else
+                    eiscp.command(state.val);
+            }
             else
-                eiscp.command(state.val);
+            {
+                // Assume it's a high-level command
+                var newVal=state.val;
+                if(newVal===true)
+                    newVal="on";
+                else if(newVal===false)
+                    newVal="off";
+                eiscp.command(ids+"="+newVal);
+            }
         }
 
     },
@@ -41,11 +55,8 @@ var adapter = require(__dirname + '/../../lib/adapter.js')({
         }
     },
 
-    /*
-     * We only care for one state "command"
-     */
     ready: function () {
-        adapter.subscribeStates('command');
+        adapter.subscribeStates('*');
         main();
     }
 
@@ -76,6 +87,12 @@ function main()
     eiscp.on("connect",function(){
         adapter.log.info("Successfully connected to AVR");
         adapter.setState("connected",{val: true, ack: true})
+        // Query some initial information
+        eiscp.raw("PWRQSTN");
+        eiscp.raw("MVLQSTN");
+        eiscp.raw("SLIQSTN");
+        eiscp.raw("SLAQSTN");
+        eiscp.raw("LMDQSTN");
     });
     eiscp.on("close",function(){
         adapter.log.info("AVR disconnected");

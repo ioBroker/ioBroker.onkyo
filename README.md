@@ -24,9 +24,16 @@ showing whether node-eiscp is currently connected to a receiver.
 
 ## ChangeLog
 
+### 0.0.3
+* (owagner) allow setting of states other than "command". This will trigger a high level
+  command with the state name being set to the new value. Note that this will fail for
+  many newer models, as they are not yet properly represented in node-eiscp's
+  command table. Use the raw command in that case
+* send some initial queries upon connect to get basic state information from the AVR
+
 ### 0.0.2
 * (owagner) support node-eiscp's Autodiscovery mechanism
-* (owagner) updated README, notably removing bogus reference to singly threading
+* (owagner) updated README, notably removing bogus reference to single instancing
 
 ### 0.0.1
 * (owagner) initial version
