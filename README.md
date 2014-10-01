@@ -24,6 +24,10 @@ showing whether node-eiscp is currently connected to a receiver.
 
 ## ChangeLog
 
+### 0.0.4
+* (owagner) use verify_commands=false, to be able to send high-level commands
+  to unknown AVR models
+
 ### 0.0.3
 * (owagner) allow setting of states other than "command". This will trigger a high level
   command with the state name being set to the new value. Note that this will fail for

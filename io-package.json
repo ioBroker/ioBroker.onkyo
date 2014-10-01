@@ -3,7 +3,7 @@
         "name":                     "onkyo",
         "title":                    "Onkyo EISCP",
         "desc":                     "Control Onkyo AVRs with EISCP protocol",
-        "version":                  "0.0.3",
+        "version":                  "0.0.4",
         "mode":                     "daemon",
         "platform":                 "Javascript/Node.js",
         "loglevel":                 "info",

@@ -112,7 +112,7 @@ function main()
         notifyCommand("command",cmd.iscp_command);
     });
 
-    var options={reconnect:true};
+    var options={reconnect:true,verify_commands:false};
 
     if(adapter.config.avrAddress && adapter.config.avrAddress.length>0)
     {
