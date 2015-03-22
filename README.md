@@ -22,11 +22,17 @@ or a raw EISCP command in the form of "PWR01".
 Another special state maintained by the adapter is "connected". It's a boolean
 showing whether node-eiscp is currently connected to a receiver.
 
+To DO:
+- Auto-discovery like SONOS
+- Using eiscp.get_commands
+
 ## ChangeLog
 
+### 0.1.0
+* (bluefox) update adapter for new concept
+
 ### 0.0.4
-* (owagner) use verify_commands=false, to be able to send high-level commands
-  to unknown AVR models
+* (owagner) use verify_commands=false, to be able to send high-level commands to unknown AVR models
 
 ### 0.0.3
 * (owagner) allow setting of states other than "command". This will trigger a high level

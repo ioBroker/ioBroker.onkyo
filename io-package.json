@@ -3,7 +3,7 @@
         "name":                     "onkyo",
         "title":                    "Onkyo EISCP",
         "desc":                     "Control Onkyo AVRs with EISCP protocol",
-        "version":                  "0.0.4",
+        "version":                  "0.1.0",
         "mode":                     "daemon",
         "platform":                 "Javascript/Node.js",
         "loglevel":                 "info",
@@ -18,7 +18,7 @@
         "extIcon":                  "https://raw.githubusercontent.com/ioBroker/ioBroker.onkyo/master/admin/onkyo.png"
     },
     "native": {
-        "avrAddress":  "setme",
+        "avrAddress":  "",
         "avrPort": 60128
     },
     "objects": [

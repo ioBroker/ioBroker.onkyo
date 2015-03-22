@@ -4,41 +4,70 @@
 <script type="text/javascript" src="../../socket.io/socket.io.js"></script>
 <script type="text/javascript" src="../../lib/js/jquery-ui-1.10.3.full.min.js"></script>
 <link rel="stylesheet" type="text/css" href="../../css/adapter.css"/>
+<script type="text/javascript" src="../../js/translate.js"></script>
 <script type="text/javascript" src="../../js/adapter-settings.js"></script>
 <script type="text/javascript">
-    function load(settings) {
-        console.log('load', settings)
+    systemDictionary = {
+        "ONKYO adapter settings": {
+            "de": "ONKYO Einstellungen",
+            "ru": "ONKYO Настройки"
+        },
+        "Onkyo AVR Address": {
+            "de": "Onkyo AVR Adresse",
+            "ru": "Onkyo AVR Адрес"
+        },
+        "(leave empty for Autodiscovery)": {
+            "de": "(lass es leer für Autodiscovery)",
+            "ru": "(оставить пустым для автопоиска)"
+        },
+        "AVR EISCP Port": {
+            "de": "AVR EISCP Port",
+            "ru": "AVR EISCP порт"
+        }
+    };
+
+    function load(settings, onChange) {
+        $('.value').each(function () {
+            $(this).change(function () {
+                onChange();
+            }).keyup(function () {
+                onChange();
+            });
+        });
         for (var key in settings) {
-            $('#' + key + '.value').val(settings[key]);
-            if (settings[key]) {
-                $('#' + key + '.check').attr('checked', true);
+            if ($('#' + key + '.value').attr('type') == 'checkbox') {
+                $('#' + key + '.value').prop('checked', settings[key]);
             } else {
-                $('#' + key + '.check').removeAttr('checked');
+                $('#' + key + '.value').val(settings[key]);
             }
         }
+        onChange(false);
     }
     function save(callback) {
         var obj = {};
         $('.value').each(function () {
             var $this = $(this);
-            obj[$this.attr('id')] = $this.val();
+            if ($this.attr('type') == 'checkbox') {
+                obj[$this.attr('id')] = $this.prop('checked');
+            } else {
+                obj[$this.attr('id')] = $this.val();
+            }
         });
-        $('.check').each(function () {
-            var $this = $(this);
-            obj[$this.attr('id')] = $this.is(':checked');
-        });
+
         callback(obj);
     }
 </script>
 <div id="adapter-container">
+    <table><tr><td><img src="onkyo.png"></td><td><h3 class="translate">ONKYO adapter settings</h3></td></tr></table>
     <p>&nbsp;</p>
     <table>
         <tr>
-            <td>Onkyo AVR Address<br/>(leave empty for Autodiscovery)</td>
+            <td class="translate">Onkyo AVR Address</td>
             <td><input type="text" id="avrAddress" class="value"></td>
+            <td class="translate">(leave empty for Autodiscovery)</td>
         </tr>
         <tr>
-            <td>AVR EISCP Port</td>
+            <td class="translate">AVR EISCP Port</td>
             <td><input type="number" id="avrPort" class="value"></td>
         </tr>
     </table>

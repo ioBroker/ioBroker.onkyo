@@ -1,6 +1,43 @@
 {
-"private": true,
-"dependencies": {
-"eiscp": "git://github.com/tillbaks/node-eiscp.git"
-}
+  "name": "iobroker.onkyo",
+  "version": "0.1.0",
+  "description": "Control Onkyo AVRs with EISCP protocol from ioBroker",
+  "author": "Oliver Wagner <owagner@tellerulam.com>",
+  "contributors": [
+    "Oliver Wagner <owagner@tellerulam.com>",
+    "bluefox <bluefox@ccu.io>"
+  ],
+  "homepage": "https://github.com/ioBroker/ioBroker.onkyo",
+  "license": "MIT",
+  "keywords": [
+    "ioBroker",
+    "onkyo",
+    "homematic",
+    "home automation"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ioBroker/ioBroker.onkyo"
+  },
+  "dependencies": {
+	"eiscp": "git://github.com/tillbaks/node-eiscp.git"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.4",
+    "grunt-replace": "~0.7.6",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-jscs": "~0.6.1",
+    "grunt-http": "~1.4.1",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-compress": "~0.8.0",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-exec": "~0.4.5"
+  },
+  "bugs": {
+    "url": "https://github.com/ioBroker/ioBroker.onkyo/issues"
+  },
+  "main": "onkyo.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
 }
