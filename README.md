@@ -28,6 +28,10 @@ To DO:
 
 ## ChangeLog
 
+### 0.1.1
+* (bluefox) replace git with tarball
+
+
 ### 0.1.0
 * (bluefox) update adapter for new concept
 
