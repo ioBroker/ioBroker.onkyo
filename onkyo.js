@@ -60,6 +60,13 @@ var adapter = utils.adapter({    // name has to be set and has to be equal to ad
  * We convert "on"/"off" textual strings into bools
  */
 function notifyCommand(cmdstring, value) {
+    if (!cmdstring) {
+        adapter.error('Empty command string! (value: ' + value);
+        return;
+    } else {
+        adapter.debug('Received: ' + cmdstring + '[' + value + ']');
+    }
+
     // Convert into boolean?
     if (value == "on") {
         value = true;
@@ -80,7 +87,6 @@ function notifyCommand(cmdstring, value) {
             } else {
                 type = 'media';
             }
-
 
             adapter.setObject(cmdstring, {
                 common: {
