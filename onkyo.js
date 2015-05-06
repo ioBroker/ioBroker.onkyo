@@ -142,11 +142,11 @@ function main() {
         });
 
         // Query some initial information
-        eiscp.raw('PWRQSTN');
+        eiscp.raw('PWRQSTN'); // Returns Power State
         eiscp.raw('MVLQSTN');
-        eiscp.raw('SLIQSTN');
-        eiscp.raw('SLAQSTN');
-        eiscp.raw('LMDQSTN');
+        eiscp.raw('SLIQSTN'); // Returns Current Input
+        eiscp.raw('SLAQSTN'); // Returns Current Audio Selection
+        eiscp.raw('LMDQSTN'); // Returns Current Listening Mode
 
         eiscp.get_commands('main', function (err, cmds) {
             adapter.log.info('Please send following info to developer: ' + JSON.stringify(cmds));
