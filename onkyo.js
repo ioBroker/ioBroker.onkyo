@@ -7,6 +7,8 @@ var eiscp = require('eiscp');
 // you have to require the adapter module and pass a options object
 var utils = require(__dirname + '/lib/utils'); // Get common adapter utils
 
+var objects = {};
+
 var adapter = utils.adapter({    // name has to be set and has to be equal to adapters folder name and main file name excluding extension
     name:  'onkyo',
     // is called if a subscribed state changes
@@ -16,7 +18,7 @@ var adapter = utils.adapter({    // name has to be set and has to be equal to ad
         if (!state.ack) {
             var ids = id.split(".", 3)[2];
 
-            if (ids == "command") {
+            if (ids == 'command') {
                 // Determine whether it's a raw or high-level command.
                 // Raw commands are all uppercase and digits and
                 // notably have no "="
@@ -33,8 +35,7 @@ var adapter = utils.adapter({    // name has to be set and has to be equal to ad
                 } else if (newVal === false || newVal === 'false') {
                     newVal = "off";
                 }
-
-                eiscp.command(ids + "=" + newVal);
+                eiscp.command(objects[id].native.command + "=" + newVal);
             }
         }
 
@@ -61,10 +62,10 @@ var adapter = utils.adapter({    // name has to be set and has to be equal to ad
  */
 function notifyCommand(cmdstring, value) {
     if (!cmdstring) {
-        adapter.error('Empty command string! (value: ' + value);
+        adapter.log.error('Empty command string! (value: ' + value);
         return;
     } else {
-        adapter.debug('Received: ' + cmdstring + '[' + value + ']');
+        adapter.log.debug('Received: ' + cmdstring + '[' + value + ']');
     }
 
     // Convert into boolean?
@@ -73,36 +74,47 @@ function notifyCommand(cmdstring, value) {
     } else if (value == "off") {
         value = false;
     }
-
-    adapter.getObject(cmdstring, function (err, obj) {
-        if (!obj) {
-            var type;
-            // detect automatically type of state
-            if (cmdstring.indexOf('volume') != -1) {
-                type = 'media.volume';
-            } else if (cmdstring.indexOf('power') != -1) {
-                type = 'button';
-            } else if (cmdstring.indexOf('source') != -1) {
-                type = 'media.source';
-            } else {
-                type = 'media';
-            }
-
-            adapter.setObject(cmdstring, {
-                common: {
-                    name: cmdstring,
-                    type: type
-                },
-                native: {
-
-                },
-                type: 'number'
-            }, function (err, obj) {
-
-            });
+    var found = false;
+    for (var id in objects) {
+        if (objects[id].native.command == cmdstring) {
+            adapter.setState(id, {val: value, ack: true});
+            found = true;
+            break;
         }
-    });
-    adapter.setState(cmdstring, {val: value, ack: true});
+    }
+
+    if (!found) {
+        adapter.getObject(cmdstring, function (err, obj) {
+            if (!obj) {
+                var type;
+                // detect automatically type of state
+                if (cmdstring.indexOf('volume') != -1) {
+                    type = 'media.volume';
+                } else if (cmdstring.indexOf('power') != -1) {
+                    type = 'button';
+                } else if (cmdstring.indexOf('source') != -1) {
+                    type = 'media.source';
+                } else {
+                    type = 'media';
+                }
+
+                adapter.setObject(cmdstring, {
+                    common: {
+                        name: cmdstring,
+                        type: type
+                    },
+                    native: {
+                        command: cmdstring
+                    },
+                    type: 'number'
+                }, function (err, obj) {
+
+                });
+            }
+        });
+
+        adapter.setState(cmdstring, {val: value, ack: true});
+    }
 }
 
 function main() {
@@ -115,6 +127,20 @@ function main() {
     eiscp.on('connect', function () {
         adapter.log.info('Successfully connected to AVR');
         adapter.setState('connected', {val: true, ack: true});
+
+        // Try to read initial values
+        adapter.getStatesOf('', '', function (err, objs) {
+            if (objs) {
+                for (var i = 0; i < objs.length; i++) {
+                    objects[objs[i]._id] = objs[i];
+                    if (objs[i].native && objs[i].native.values && objs[i].native.values.indexOf('query') != -1) {
+                        adapter.log.info('Initial query: ' + objs[i].native.command);
+                        eiscp.command(objs[i].native.command + "=query");
+                    }
+                }
+            }
+        });
+
         // Query some initial information
         eiscp.raw('PWRQSTN');
         eiscp.raw('MVLQSTN');

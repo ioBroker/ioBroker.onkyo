@@ -3,7 +3,7 @@
         "name":                     "onkyo",
         "title":                    "Onkyo EISCP",
         "desc":                     "Control Onkyo AVRs with EISCP protocol",
-        "version":                  "0.1.1",
+        "version":                  "0.1.2",
         "mode":                     "daemon",
         "platform":                 "Javascript/Node.js",
         "loglevel":                 "info",
@@ -25,6 +25,94 @@
 
     ],
     "instanceObjects": [
-
+        {
+            "_id": "command",
+            "type": "state",
+            "common": {
+                "name":  "Command",
+                "type":  "number",
+                "role":  "media.command",
+                "read":  true,
+                "write": true
+            },
+            "native": {
+                "command": "command"
+            }
+        },
+        {
+            "_id": "master-volume",
+            "type": "state",
+            "common": {
+                "name":  "Master volume",
+                "type":  "number",
+                "role":  "media.volume",
+                "read":  true,
+                "write": true
+            },
+            "native": {
+                "command": "master-volume",
+                "values": ["INTRANGES","level-up","level-down","level-up-1db-step","level-down-1db-step","query"]
+            }
+        },
+        {
+            "_id": "volume",
+            "type": "state",
+            "common": {
+                "name":  "Volume",
+                "type":  "number",
+                "role":  "media.volume",
+                "read":  true,
+                "write": true
+            },
+            "native": {
+                "command": "volume",
+                "values": ["INTRANGES","level-up","level-down","level-up-1db-step","level-down-1db-step","query"]
+            }
+        },
+        {
+            "_id": "mute",
+            "type": "state",
+            "common": {
+                "name":  "Mute",
+                "type":  "boolean",
+                "role":  "media.mute",
+                "read":  true,
+                "write": true
+            },
+            "native": {
+                "command": "audio-muting",
+                "values": ["off","on","toggle","query"]
+            }
+        },
+        {
+            "_id": "power",
+            "type": "state",
+            "common": {
+                "name":  "Power state",
+                "type":  "boolean",
+                "role":  "button",
+                "read":  true,
+                "write": true
+            },
+            "native": {
+                "command": "system-power",
+                "values": ["standby","on","query"]
+            }
+        },
+        {
+            "_id": "input",
+            "type": "state",
+            "common": {
+                "name":  "Input selector",
+                "type":  "string",
+                "role":  "media.input",
+                "read":  true,
+                "write": true
+            },
+            "native": {
+                "command": "input-selector",
+                "values": ["dvd","bd","tape-1","tv","tape","tape2","phono","cd","fm","am","tuner","music-server","p4s","dlna","internet-radio","iradio-favorite","query"]
+            }
+        }
     ]
 }
