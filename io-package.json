@@ -113,6 +113,17 @@
                 "command": "input-selector",
                 "values": ["dvd","bd","tape-1","tv","tape","tape2","phono","cd","fm","am","tuner","music-server","p4s","dlna","internet-radio","iradio-favorite","query"]
             }
+        },
+        {
+            "_id": "connected",
+            "type": "state",
+            "common": {
+                "name":  "Input selector",
+                "type":  "string",
+                "role":  "indicator",
+                "read":  true,
+                "write": false
+            }
         }
     ]
 }
