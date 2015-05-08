@@ -85,7 +85,7 @@ function notifyCommand(cmdstring, value) {
 
     var found = false;
     for (var id in objects) {
-        if (objects[id].native.command == cmdstring) {
+        if (objects[id].native && objects[id].native.command == cmdstring) {
             adapter.setState(id, {val: value, ack: true});
             found = true;
             break;
