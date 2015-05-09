@@ -39,7 +39,7 @@ var adapter = utils.adapter({    // name has to be set and has to be equal to ad
                 if (!objects[id]) {
                     adapter.log.error('Unknown object: ' + id + ' or no connection');
                 } else {
-                    if (!objects[id].native || !!objects[id].native.command) {
+                    if (!objects[id].native || !objects[id].native.command) {
                         adapter.log.warn('non controllable state: ' + id);
                     } else {
                         eiscp.command(objects[id].native.command + "=" + newVal);
