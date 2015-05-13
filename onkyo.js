@@ -129,7 +129,7 @@ function main() {
     // The adapters config (in the instance object everything under the attribute "native") is accessible via
     // adapter.config:
     eiscp.on("error", function (e) {
-        adapter.log.info("Error: " + e);
+        adapter.log.error("Error: " + e);
     });
 
     // Try to read all states
@@ -139,6 +139,8 @@ function main() {
                 objects[objs[i]._id] = objs[i];
             }
         }
+
+        var options = {reconnect: true, verify_commands: false};
 
         // Connect to receiver
         eiscp.connect(options);
@@ -191,7 +193,9 @@ function main() {
         notifyCommand('command', cmd.iscp_command);
     });
 
-    var options = {reconnect: true, verify_commands: false};
+    eiscp.on("debug", function (message) {
+        adapter.log.debug(message);
+    });
 
     if (adapter.config.avrAddress) {
         adapter.log.info('Connecting to AVR ' + adapter.config.avrAddress + ':' + adapter.config.avrPort);

@@ -1,6 +1,6 @@
 {
   "name": "iobroker.onkyo",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Control Onkyo AVRs with EISCP protocol from ioBroker",
   "author": "Oliver Wagner <owagner@tellerulam.com>",
   "contributors": [
@@ -20,7 +20,7 @@
     "url": "https://github.com/ioBroker/ioBroker.onkyo"
   },
   "dependencies": {
-	"eiscp": "https://github.com/tillbaks/node-eiscp/tarball/master/"
+	"eiscp": "https://github.com/GermanBluefox/node-eiscp/tarball/master/"
   },
   "devDependencies": {
     "grunt": "~0.4.4",
