@@ -142,6 +142,14 @@ function main() {
 
         var options = {reconnect: true, verify_commands: false};
 
+        if (adapter.config.avrAddress) {
+            adapter.log.info('Connecting to AVR ' + adapter.config.avrAddress + ':' + adapter.config.avrPort);
+            options.host = adapter.config.avrAddress;
+            options.port = adapter.config.avrPort;
+        } else {
+            adapter.log.info('Starting AVR discovery');
+        }
+
         // Connect to receiver
         eiscp.connect(options);
     });
@@ -196,12 +204,4 @@ function main() {
     eiscp.on("debug", function (message) {
         adapter.log.debug(message);
     });
-
-    if (adapter.config.avrAddress) {
-        adapter.log.info('Connecting to AVR ' + adapter.config.avrAddress + ':' + adapter.config.avrPort);
-        options.host = adapter.config.avrAddress;
-        options.port = adapter.config.avrPort;
-    } else {
-        adapter.log.info('Starting AVR discovery');
-    }
 }
