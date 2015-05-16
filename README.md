@@ -28,6 +28,9 @@ To DO:
 
 ## ChangeLog
 
+### 0.1.5
+* (bluefox) fix node-eiscp package
+
 ### 0.1.4
 * (bluefox) add debug outputs
 
