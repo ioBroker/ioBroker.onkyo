@@ -28,6 +28,9 @@ To DO:
 
 ## ChangeLog
 
+### 0.1.6
+* (bluefox) fix creation of specific states
+
 ### 0.1.5
 * (bluefox) fix node-eiscp package
 

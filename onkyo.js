@@ -93,16 +93,16 @@ function notifyCommand(cmdstring, value) {
     }
 
     if (!found) {
-        var type;
+        var role;
         // detect automatically type of state
         if (cmdstring.indexOf('volume') != -1) {
-            type = 'media.volume';
+            role = 'media.volume';
         } else if (cmdstring.indexOf('power') != -1) {
-            type = 'button';
+            role = 'button';
         } else if (cmdstring.indexOf('source') != -1) {
-            type = 'media.source';
+            role = 'media.source';
         } else {
-            type = 'media';
+            role = 'media';
         }
 
         adapter.log.info('Create new object: ' + adapter.namespace + '.' + cmdstring + ', type = ' + type);
@@ -111,12 +111,13 @@ function notifyCommand(cmdstring, value) {
             _id: adapter.namespace + '.' + cmdstring,
             common: {
                 name: cmdstring,
-                type: type
+                role: type,
+                type: 'number'
             },
             native: {
                 command: cmdstring
             },
-            type: 'number'
+            type: 'state'
         };
 
         adapter.setObject(cmdstring, objects[adapter.namespace + '.' + cmdstring], function (err, obj) {
