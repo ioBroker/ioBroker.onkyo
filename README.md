@@ -28,6 +28,9 @@ To DO:
 
 ## ChangeLog
 
+### 0.1.7
+* (bluefox) fix creation of specific states (twice)
+
 ### 0.1.6
 * (bluefox) fix creation of specific states
 

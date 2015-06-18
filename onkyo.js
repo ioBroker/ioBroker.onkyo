@@ -70,7 +70,7 @@ var adapter = utils.adapter({    // name has to be set and has to be equal to ad
  */
 function notifyCommand(cmdstring, value) {
     if (!cmdstring) {
-        adapter.log.error('Empty command string! (value: ' + value);
+        adapter.log.error('Empty command string! (value: ' + value + ')');
         return;
     } else {
         adapter.log.debug('Received: ' + cmdstring + '[' + value + ']');
@@ -105,13 +105,13 @@ function notifyCommand(cmdstring, value) {
             role = 'media';
         }
 
-        adapter.log.info('Create new object: ' + adapter.namespace + '.' + cmdstring + ', type = ' + type);
+        adapter.log.info('Create new object: ' + adapter.namespace + '.' + cmdstring + ', role = ' + role);
 
         objects[adapter.namespace + '.' + cmdstring] = {
             _id: adapter.namespace + '.' + cmdstring,
             common: {
                 name: cmdstring,
-                role: type,
+                role: role,
                 type: 'number'
             },
             native: {
@@ -193,7 +193,7 @@ function main() {
     eiscp.on("data", function (cmd) {
         adapter.log.info('Got message: ' + JSON.stringify(cmd));
         if (cmd.command instanceof Array) {
-            for (var cmdix in cmd.command) {
+            for (var cmdix = 0; cmdix < cmd.command.length; cmdix++) {
                 notifyCommand(cmd.command[cmdix], cmd.argument);
             }
         } else {
