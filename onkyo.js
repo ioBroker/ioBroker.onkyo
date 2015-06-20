@@ -34,7 +34,12 @@ var adapter = utils.adapter({    // name has to be set and has to be equal to ad
                 if (newVal === true || newVal === 'true') {
                     newVal = "on";
                 } else if (newVal === false || newVal === 'false') {
-                    newVal = "off";
+                    if (ids == 'power') {
+				        newVal = "standby";
+				    }	
+                    else {
+					    newVal = "off";
+				    }
                 }
                 if (!objects[id]) {
                     adapter.log.error('Unknown object: ' + id + ' or no connection');
