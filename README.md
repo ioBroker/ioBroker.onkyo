@@ -27,6 +27,8 @@ To DO:
 - Using eiscp.get_commands
 
 ## ChangeLog
+### 0.1.8
+* (installator) fix values to control power and enable using of 1 and 0
 
 ### 0.1.7
 * (bluefox) fix creation of specific states (twice)
