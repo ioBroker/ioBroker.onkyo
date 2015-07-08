@@ -27,6 +27,9 @@ To DO:
 - Using eiscp.get_commands
 
 ## ChangeLog
+### 0.1.9
+* (installator) change power to system-power
+
 ### 0.1.8
 * (installator) fix values to control power and enable using of 1 and 0
 

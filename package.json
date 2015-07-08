@@ -1,6 +1,6 @@
 {
   "name": "iobroker.onkyo",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Control Onkyo AVRs with EISCP protocol from ioBroker",
   "author": "Oliver Wagner <owagner@tellerulam.com>",
   "contributors": [
