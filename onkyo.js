@@ -172,6 +172,7 @@ function main() {
 
         eiscp.get_commands('main', function (err, cmds) {
             cmds.forEach(function (cmd) {
+				eiscp.command(cmd + "=query"); // Create for every command the object
                 eiscp.get_command(cmd, function (err, values) {
                     adapter.log.debug('Please send following info to developer: ' + cmd + ', ' + JSON.stringify(values));
                 });
