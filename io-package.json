@@ -15,6 +15,7 @@
         "license":                  "MIT",
         "readme":                   "https://github.com/ioBroker/ioBroker.onkyo/blob/master/README.md",
         "icon":                     "onkyo.png",
+        "type":                     "hardware",
         "extIcon":                  "https://raw.githubusercontent.com/ioBroker/ioBroker.onkyo/master/admin/onkyo.png"
     },
     "native": {
