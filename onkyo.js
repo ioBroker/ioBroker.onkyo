@@ -18,7 +18,9 @@ var adapter = utils.adapter({    // name has to be set and has to be equal to ad
         if (!state.ack) {
             var ids = id.split(".");
             ids = ids[ids.length - 1];
-
+	    if (ids == 'center-temporary-level') {
+                eiscp.raw('CTL'+newVal);
+	    }
             if (ids == 'command') {
                 // Determine whether it's a raw or high-level command.
                 // Raw commands are all uppercase and digits and
