@@ -27,6 +27,9 @@ To DO:
 - Using eiscp.get_commands
 
 ## ChangeLog
+### 0.1.10
+* (installator) For command CTL sets Center Level -12 - 0 - +12
+
 ### 0.1.9
 * (installator) change power to system-power
 
