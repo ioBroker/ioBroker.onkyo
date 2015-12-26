@@ -23,7 +23,7 @@ var adapter = utils.adapter({    // name has to be set and has to be equal to ad
                 // Determine whether it's a raw or high-level command.
                 // Raw commands are all uppercase and digits and
                 // notably have no "="
-                if (state.val.match(/^[A-Z0-9/-+]+$/)) {
+                if (state.val.match(/^[A-Z0-9\-+]+$/)) {
                     eiscp.raw(state.val);
                 } else {
                     eiscp.command(state.val);
