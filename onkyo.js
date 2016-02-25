@@ -34,7 +34,7 @@ var adapter = utils.adapter({    // name has to be set and has to be equal to ad
                 if (newVal === true || newVal === 'true' || newVal === '1' || newVal === 1) {
                     newVal = "on";
                 } else if (newVal === false || newVal === 'false' || newVal === '0' || newVal === 0) {
-                	if (ids === 'system-power') {
+                	if (ids === 'power') {
 				newVal = "standby";
 			} else {
 		    	newVal = "off";
