@@ -27,6 +27,9 @@ To DO:
 - Using eiscp.get_commands
 
 ## ChangeLog
+### 0.1.12 (2016.02.25)
+* (installator) Fix power state
+
 ### 0.1.11 (2016.01.13)
 * (installator) Fix regexp error
 
