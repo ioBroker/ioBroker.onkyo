@@ -75,10 +75,10 @@ var adapter = utils.adapter({    // name has to be set and has to be equal to ad
               if (ids == 'Audio_Mute_Zone1') {
                   new_val = state.val;
               adapter.log.info('new_val: ' + new_val);
-                  if (new_val == 'true') {
+                  if (new_val == 'true' || new_val == true) {
                       new_val = '01';
                       }
-              if  (new_val == 'false') {
+              if  (new_val == 'false' || new_val == false) {
                     new_val = '00';
                       } 
               new_val = 'AMT' + new_val;
@@ -89,10 +89,10 @@ var adapter = utils.adapter({    // name has to be set and has to be equal to ad
               // Audio_Mute_Zone2                    
               if (ids == 'Audio_Mute_Zone2') {
                   new_val = state.val;
-                  if (new_val == 'true') {
+                  if (new_val == 'true' || new_val == true) {
                       new_val = '01';
                       }
-              if  (new_val == 'false') {
+              if  (new_val == 'false' || new_val == false) {
                     new_val = '00';
                       } 
               new_val = 'ZMT' + new_val;
@@ -155,10 +155,10 @@ var adapter = utils.adapter({    // name has to be set and has to be equal to ad
               // Power_Zone1    PWR
               if (ids == 'Power_Zone1') {
                   new_val = state.val;
-                  if (new_val == 'true') {
+                  if (new_val == 'true' || new_val == true) {
                       new_val = '01';
                       }
-              if  (new_val == 'false') {
+              if  (new_val == 'false' || new_val == false) {
                     new_val = '00';
                       } 
               new_val = 'PWR' + new_val;
@@ -169,15 +169,16 @@ var adapter = utils.adapter({    // name has to be set and has to be equal to ad
               // Power_Zone2    ZPW
               if (ids == 'Power_Zone2') {
                   new_val = state.val;
-                  if (new_val == 'true') {
+                  if (new_val == 'true' || new_val == true) {
                       new_val = '01';
                       }
-              if  (new_val == 'false') {
+              if  (new_val == 'false' || new_val == false) {
                     new_val = '00';
                       } 
               new_val = 'ZPW' + new_val;
               adapter.log.info('new_val: ' + new_val);
               adapter.setState (adapter.namespace + '.' + 'command', {val: new_val, ack: false});
+              adapter.setState (adapter.namespace + '.' + 'command', {val: 'ZVLQSTN', ack: false});
                   }        
               
            }       
