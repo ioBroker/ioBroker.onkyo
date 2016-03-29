@@ -27,6 +27,10 @@ To DO:
 - Using eiscp.get_commands
 
 ## ChangeLog
+### 0.1.20 (2016.03.29)
+* (Eisbaeeer) Add checkbox in settings for VIS objects. Volumes can be set in
+  decimal. Power states, mute states, etc. are now usable with VIS buttons.
+
 ### 0.1.12 (2016.02.25)
 * (installator) Fix power state
 
