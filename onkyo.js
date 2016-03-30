@@ -178,7 +178,15 @@ function main() {
                 });
             });
         });
-
+	eiscp.get_commands('zone2', function (err, cmds) {
+            cmds.forEach(function (cmd) {
+			cmd = 'zone2.' + cmd;
+				eiscp.command(cmd + "=query"); // Create for every command the object
+                eiscp.get_command(cmd, function (err, values) {
+                    adapter.log.debug('Please send following info to developer: ' + cmd + ', ' + JSON.stringify(values));
+                });
+            });
+        });
         setTimeout(function () {
             // Try to read initial values
             for (var id in objects) {
