@@ -108,6 +108,12 @@ function notifyCommand(cmdstring, value) {
         } else {
             role = 'media';
         }
+	if(zone === 'zone2'){
+		cmdstring = 'zone2.'+ cmdstring;
+	}
+	if(zone === 'zone3'){
+		cmdstring = 'zone3.'+ cmdstring;
+	}
 
         adapter.log.info('Create new object: ' + adapter.namespace + '.' + cmdstring + ', role = ' + role);
 
@@ -178,7 +184,25 @@ function main() {
                 });
             });
         });
-
+	eiscp.get_commands('zone2', function (err, cmds) {
+            cmds.forEach(function (cmd) {
+			cmd = 'zone2.' + cmd;
+				eiscp.command(cmd + "=query"); // Create for every command the object
+                eiscp.get_command(cmd, function (err, values) {
+                    adapter.log.debug('Please send following info to developer: ' + cmd + ', ' + JSON.stringify(values));
+                });
+            });
+        });
+	eiscp.get_commands('zone3', function (err, cmds) {
+            cmds.forEach(function (cmd) {
+			cmd = 'zone3.' + cmd;
+				eiscp.command(cmd + "=query"); // Create for every command the object
+                eiscp.get_command(cmd, function (err, values) {
+                    adapter.log.debug('Please send following info to developer: ' + cmd + ', ' + JSON.stringify(values));
+                });
+            });
+        });
+	
         setTimeout(function () {
             // Try to read initial values
             for (var id in objects) {
