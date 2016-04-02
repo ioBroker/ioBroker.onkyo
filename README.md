@@ -28,19 +28,19 @@ To DO:
 
 ## ChangeLog
 ### 0.1.12 (2016.02.25)
-* (installator) Fix power state
+* (instalator) Fix power state
 
 ### 0.1.11 (2016.01.13)
-* (installator) Fix regexp error
+* (instalator) Fix regexp error
 
 ### 0.1.10
-* (installator) For command CTL sets Center Level -12 - 0 - +12
+* (instalator) For command CTL sets Center Level -12 - 0 - +12
 
 ### 0.1.9
-* (installator) change power to system-power
+* (instalator) change power to system-power
 
 ### 0.1.8
-* (installator) fix values to control power and enable using of 1 and 0
+* (instalator) fix values to control power and enable using of 1 and 0
 
 ### 0.1.7
 * (bluefox) fix creation of specific states (twice)
