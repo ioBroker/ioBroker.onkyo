@@ -58,22 +58,6 @@
             }
         },
         {
-            "_id": "volume",
-            "type": "state",
-            "common": {
-                "name":  "Volume",
-                "type":  "number",
-                "role":  "media.volume",
-                "read":  true,
-                "write": true,
-                "def":   null
-            },
-            "native": {
-                "command": "volume",
-                "values": ["INTRANGES","level-up","level-down","level-up-1db-step","level-down-1db-step","query"]
-            }
-        },
-        {
             "_id": "mute",
             "type": "state",
             "common": {
@@ -87,22 +71,6 @@
             "native": {
                 "command": "audio-muting",
                 "values": ["off","on","toggle","query"]
-            }
-        },
-        {
-            "_id": "power",
-            "type": "state",
-            "common": {
-                "name":  "Power state",
-                "type":  "boolean",
-                "role":  "button",
-                "read":  true,
-                "write": true,
-                "def":   null
-            },
-            "native": {
-                "command": "system-power",
-                "values": ["standby","on","query"]
             }
         },
         {
