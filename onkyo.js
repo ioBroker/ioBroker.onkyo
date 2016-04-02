@@ -17,8 +17,12 @@ var adapter = utils.adapter({    // name has to be set and has to be equal to ad
 
         if (!state.ack) {
             var ids = id.split(".");
-            ids = ids[ids.length - 1];
-
+            if (ids.indexOf('zone2') != -1 || ids.indexOf('zone3') != -1){
+				ids = ids[ids.length - 2] +'.'+ ids[ids.length - 1];
+			} else {
+				ids = ids[ids.length - 1];
+			}
+			
             if (ids == 'command') {
                 // Determine whether it's a raw or high-level command.
                 // Raw commands are all uppercase and digits and
@@ -34,11 +38,11 @@ var adapter = utils.adapter({    // name has to be set and has to be equal to ad
                 if (newVal === true || newVal === 'true' || newVal === '1' || newVal === 1) {
                     newVal = "on";
                 } else if (newVal === false || newVal === 'false' || newVal === '0' || newVal === 0) {
-                	if (ids === 'system-power' || ids === 'power') {
-				newVal = "standby";
-			} else {
-		    	newVal = "off";
-			}
+            		if (ids.indexOf('power') != -1) { //To support different zones
+						newVal = "standby";
+					} else {
+		    			newVal = "off";
+					}
                 }
                 if (!objects[id]) {
                     adapter.log.error('Unknown object: ' + id + ' or no connection');
@@ -72,11 +76,14 @@ var adapter = utils.adapter({    // name has to be set and has to be equal to ad
  * Generate state notifications.
  * We convert "on"/"off" textual strings into bools
  */
-function notifyCommand(cmdstring, value) {
+function notifyCommand(cmdstring, value, zone) {
     if (!cmdstring) {
         adapter.log.error('Empty command string! (value: ' + value + ')');
         return;
     } else {
+    	if(zone !== 'main' && cmdstring !== 'command'){
+			cmdstring = zone + '.'+ cmdstring;
+		}
         adapter.log.debug('Received: ' + cmdstring + '[' + value + ']');
     }
 
@@ -178,6 +185,26 @@ function main() {
                 });
             });
         });
+        
+        eiscp.get_commands('zone2', function (err, cmds) {
+            cmds.forEach(function (cmd) {
+			cmd = 'zone2.' + cmd;
+				eiscp.command(cmd + "=query"); // Create for every command the object
+                eiscp.get_command(cmd, function (err, values) {
+                    adapter.log.debug('Please send following info to developer: ' + cmd + ', ' + JSON.stringify(values));
+                });
+            });
+        });
+        
+		eiscp.get_commands('zone3', function (err, cmds) {
+            cmds.forEach(function (cmd) {
+			cmd = 'zone3.' + cmd;
+				eiscp.command(cmd + "=query"); // Create for every command the object
+                eiscp.get_command(cmd, function (err, values) {
+                    adapter.log.debug('Please send following info to developer: ' + cmd + ', ' + JSON.stringify(values));
+                });
+            });
+        });
 
         setTimeout(function () {
             // Try to read initial values
@@ -199,12 +226,12 @@ function main() {
         adapter.log.info('Got message: ' + JSON.stringify(cmd));
         if (cmd.command instanceof Array) {
             for (var cmdix = 0; cmdix < cmd.command.length; cmdix++) {
-                notifyCommand(cmd.command[cmdix], cmd.argument);
+                notifyCommand(cmd.command[cmdix], cmd.argument, cmd.zone);
             }
         } else {
-            notifyCommand(cmd.command, cmd.argument);
+            notifyCommand(cmd.command, cmd.argument, cmd.zone);
         }
-        notifyCommand('command', cmd.iscp_command);
+        notifyCommand('command', cmd.iscp_command, cmd.zone);
     });
 
     eiscp.on("debug", function (message) {
