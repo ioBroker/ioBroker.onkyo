@@ -92,6 +92,8 @@ function notifyCommand(cmdstring, value, zone) {
         value = true;
     } else if (value == "off") {
         value = false;
+    } else if (value == "standby") {
+        value = false;
     }
 
     var found = false;
