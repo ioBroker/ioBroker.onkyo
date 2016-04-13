@@ -1,5 +1,11 @@
 ![Logo](admin/onkyo.png)
 # ioBroker.onkyo
+=================
+
+[![NPM version](http://img.shields.io/npm/v/iobroker.onkyo.svg)](https://www.npmjs.com/package/iobroker.onkyo)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.onkyo.svg)](https://www.npmjs.com/package/iobroker.onkyo)
+
+[![NPM](https://nodei.co/npm/iobroker.onkyo.png?downloads=true)](https://nodei.co/npm/iobroker.onkyo/)
 
 This adapter allows control of Onkyo AVRs using the EISCP protocol.
 
