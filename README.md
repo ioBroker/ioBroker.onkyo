@@ -28,19 +28,11 @@ or a raw EISCP command in the form of "PWR01".
 Another special state maintained by the adapter is "connected". It's a boolean
 showing whether node-eiscp is currently connected to a receiver.
 
-The adapter is also configurable to use with VIS. In this case the objects can be
-set with VIS for e.g. power on|off , mute and the other objects available in iobroker.
-Please check the box in settings to use with VIS. The adapter support 2 zones for VIS.
-
 To DO:
 - Auto-discovery like SONOS
 - Using eiscp.get_commands
 
 ## ChangeLog
-### 0.1.20 (2016.03.29)
-* (Eisbaeeer) Add checkbox in settings for VIS objects. Volumes can be set in
-  decimal. Power states, mute states, etc. are now usable with VIS buttons.
-
 ### 0.1.12 (2016.02.25)
 * (instalator) Fix power state
 
