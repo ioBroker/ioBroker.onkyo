@@ -1,12 +1,11 @@
 {
   "name": "iobroker.onkyo",
-  "version": "0.1.20",
+  "version": "0.1.12",
   "description": "Control Onkyo AVRs with EISCP protocol from ioBroker",
   "author": "Oliver Wagner <owagner@tellerulam.com>",
   "contributors": [
     "Oliver Wagner <owagner@tellerulam.com>",
-    "bluefox <bluefox@ccu.io>",
-    "Lars Weimar <Eisbaeeer@gmail.com>"
+    "bluefox <bluefox@ccu.io>"
   ],
   "homepage": "https://github.com/ioBroker/ioBroker.onkyo",
   "license": "MIT",

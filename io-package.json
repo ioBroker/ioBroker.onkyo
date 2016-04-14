@@ -3,15 +3,14 @@
         "name":                     "onkyo",
         "title":                    "Onkyo EISCP",
         "desc":                     "Control Onkyo AVRs with EISCP protocol",
-        "version":                  "0.1.20",
+        "version":                  "0.1.12",
         "mode":                     "daemon",
         "platform":                 "Javascript/Node.js",
         "loglevel":                 "info",
         "keywords":                 ["onkyo", "avr", "eiscp"],
         "main":                     "onkyo.js",
         "authors": [
-            "Oliver Wagner <owagner@tellerulam.com>",
-            "Lars Weimar <Eisbaeeer@gmail.com>"
+            "Oliver Wagner <owagner@tellerulam.com>"
         ],
         "license":                  "MIT",
         "readme":                   "https://github.com/ioBroker/ioBroker.onkyo/blob/master/README.md",
