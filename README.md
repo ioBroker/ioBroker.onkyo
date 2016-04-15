@@ -33,6 +33,10 @@ To DO:
 - Using eiscp.get_commands
 
 ## ChangeLog
+### 0.1.21 (2016.04.15)
+ (instalator) Convert state standby into boolean
+ (instalator) Includes support for zone2 zone3
+
 ### 0.1.12 (2016.02.25)
 * (instalator) Fix power state
 
