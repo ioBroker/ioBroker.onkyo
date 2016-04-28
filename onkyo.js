@@ -8,19 +8,22 @@ var eiscp = require('eiscp');
 var utils = require(__dirname + '/lib/utils'); // Get common adapter utils
 
 var objects = {};
+var volume = {};
 
 var adapter = utils.adapter({    // name has to be set and has to be equal to adapters folder name and main file name excluding extension
     name:  'onkyo',
     // is called if a subscribed state changes
     stateChange: function (id, state) {
         adapter.log.info('stateChange ' + id + ' ' + JSON.stringify(state));
-
+		var _zone;
         if (!state.ack) {
             var ids = id.split(".");
             if (ids.indexOf('zone2') != -1 || ids.indexOf('zone3') != -1){
 				ids = ids[ids.length - 2] +'.'+ ids[ids.length - 1];
+				_zone = ids[ids.length - 2];
 			} else {
 				ids = ids[ids.length - 1];
+				_zone = 'main';
 			}
 			
             if (ids == 'command') {
@@ -50,7 +53,11 @@ var adapter = utils.adapter({    // name has to be set and has to be equal to ad
                     if (!objects[id].native || !objects[id].native.command) {
                         adapter.log.warn('non controllable state: ' + id);
                     } else {
-                        eiscp.command(objects[id].native.command + "=" + newVal);
+                        if (ids.indexOf('volume') != -1){
+							SetIntervalVol(id, newVal, _zone);
+                        } else {
+							eiscp.command(objects[id].native.command + "=" + newVal);
+						}
                     }
                 }
             }
@@ -72,11 +79,29 @@ var adapter = utils.adapter({    // name has to be set and has to be equal to ad
     }
 });
 
+function SetIntervalVol(id, newVal, _zone){
+	if (newVal >= volume[_zone] + 10) {
+		var vol = volume[_zone];
+		var interval = setInterval(function() {
+			vol = vol + 2;
+				if (vol >= newVal){
+					vol = newVal;
+					clearInterval(interval);
+				}
+			eiscp.command(objects[id].native.command + "=" + vol); 
+			}, 500);
+	} else {
+		eiscp.command(objects[id].native.command + "=" + newVal);
+	}
+}
 /*
  * Generate state notifications.
  * We convert "on"/"off" textual strings into bools
  */
 function notifyCommand(cmdstring, value, zone) {
+	if (cmdstring == 'volume') {
+        volume[zone] = value;
+    }
     if (!cmdstring) {
         adapter.log.error('Empty command string! (value: ' + value + ')');
         return;
