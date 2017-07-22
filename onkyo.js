@@ -14,7 +14,7 @@ var adapter = utils.adapter({    // name has to be set and has to be equal to ad
     name:  'onkyo',
     // is called if a subscribed state changes
     stateChange: function (id, state) {
-        adapter.log.info('stateChange ' + id + ' ' + JSON.stringify(state));
+        adapter.log.debug('stateChange ' + id + ' ' + JSON.stringify(state));
 		var _zone;
         if (!state.ack) {
             var ids = id.split(".");
@@ -250,7 +250,7 @@ function main() {
     });
 
     eiscp.on("data", function (cmd) {
-        adapter.log.info('Got message: ' + JSON.stringify(cmd));
+        adapter.log.debug('Got message: ' + JSON.stringify(cmd));
         if (cmd.command instanceof Array) {
             for (var cmdix = 0; cmdix < cmd.command.length; cmdix++) {
                 notifyCommand(cmd.command[cmdix], cmd.argument, cmd.zone);

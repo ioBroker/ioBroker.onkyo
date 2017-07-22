@@ -33,6 +33,9 @@ To DO:
 - Using eiscp.get_commands
 
 ## ChangeLog
+### 0.2.1 (2017.07.15)
+* changed log level for state change and Got message to debug
+
 ### 0.2.0 (2016.04.15)
 * (instalator) Convert state standby into boolean
 * (instalator) Includes support for zone2 zone3
