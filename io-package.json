@@ -1,41 +1,43 @@
 {
     "common": {
-        "name":                     "onkyo",
-        "title":                    "Onkyo EISCP",
-        "desc":                     "Control Onkyo AVRs with EISCP protocol",
-        "version":                  "0.2.1",
-        "mode":                     "daemon",
-        "platform":                 "Javascript/Node.js",
-        "loglevel":                 "info",
-        "keywords":                 ["onkyo", "avr", "eiscp"],
-        "main":                     "onkyo.js",
+        "name": "onkyo",
+        "title": "Onkyo EISCP",
+        "desc": "Control Onkyo AVRs with EISCP protocol",
+        "version": "0.2.1",
+        "mode": "daemon",
+        "platform": "Javascript/Node.js",
+        "loglevel": "info",
+        "keywords": [
+            "onkyo",
+            "avr",
+            "eiscp"
+        ],
+        "main": "onkyo.js",
         "authors": [
             "Oliver Wagner <owagner@tellerulam.com>"
         ],
-        "license":                  "MIT",
-        "readme":                   "https://github.com/ioBroker/ioBroker.onkyo/blob/master/README.md",
-        "icon":                     "onkyo.png",
-        "type":                     "hardware",
-        "extIcon":                  "https://raw.githubusercontent.com/ioBroker/ioBroker.onkyo/master/admin/onkyo.png"
+        "license": "MIT",
+        "readme": "https://github.com/ioBroker/ioBroker.onkyo/blob/master/README.md",
+        "icon": "onkyo.png",
+        "type": "multimedia",
+        "extIcon": "https://raw.githubusercontent.com/ioBroker/ioBroker.onkyo/master/admin/onkyo.png"
     },
     "native": {
-        "avrAddress":  "",
+        "avrAddress": "",
         "avrPort": 60128
     },
-    "objects": [
-
-    ],
+    "objects": [],
     "instanceObjects": [
         {
             "_id": "command",
             "type": "state",
             "common": {
-                "name":  "Command",
-                "type":  "number",
-                "role":  "media.command",
-                "read":  true,
+                "name": "Command",
+                "type": "number",
+                "role": "media.command",
+                "read": true,
                 "write": true,
-                "def":   ""
+                "def": ""
             },
             "native": {
                 "command": "command"
@@ -45,58 +47,88 @@
             "_id": "master-volume",
             "type": "state",
             "common": {
-                "name":  "Master volume",
-                "type":  "number",
-                "role":  "media.volume",
-                "read":  true,
+                "name": "Master volume",
+                "type": "number",
+                "role": "media.volume",
+                "read": true,
                 "write": true,
-                "def":   null
+                "def": null
             },
             "native": {
                 "command": "master-volume",
-                "values": ["INTRANGES","level-up","level-down","level-up-1db-step","level-down-1db-step","query"]
+                "values": [
+                    "INTRANGES",
+                    "level-up",
+                    "level-down",
+                    "level-up-1db-step",
+                    "level-down-1db-step",
+                    "query"
+                ]
             }
         },
         {
             "_id": "mute",
             "type": "state",
             "common": {
-                "name":  "Mute",
-                "type":  "boolean",
-                "role":  "media.mute",
-                "read":  true,
+                "name": "Mute",
+                "type": "boolean",
+                "role": "media.mute",
+                "read": true,
                 "write": true,
-                "def":   null
+                "def": null
             },
             "native": {
                 "command": "audio-muting",
-                "values": ["off","on","toggle","query"]
+                "values": [
+                    "off",
+                    "on",
+                    "toggle",
+                    "query"
+                ]
             }
         },
         {
             "_id": "input",
             "type": "state",
             "common": {
-                "name":  "Input selector",
-                "type":  "string",
-                "role":  "media.input",
-                "read":  true,
+                "name": "Input selector",
+                "type": "string",
+                "role": "media.input",
+                "read": true,
                 "write": true,
-                "def":   null
+                "def": null
             },
             "native": {
                 "command": "input-selector",
-                "values": ["dvd","bd","tape-1","tv","tape","tape2","phono","cd","fm","am","tuner","music-server","p4s","dlna","internet-radio","iradio-favorite","query"]
+                "values": [
+                    "dvd",
+                    "bd",
+                    "tape-1",
+                    "tv",
+                    "tape",
+                    "tape2",
+                    "phono",
+                    "cd",
+                    "fm",
+                    "am",
+                    "tuner",
+                    "music-server",
+                    "p4s",
+                    "dlna",
+                    "internet-radio",
+                    "iradio-favorite",
+                    "query"
+                ]
             }
         },
         {
             "_id": "connected",
             "type": "state",
             "common": {
-                "name":  "Input selector",
-                "type":  "string",
-                "role":  "indicator",
-                "read":  true,
+                "name": "Input selector",
+                "type": "string",
+                "role": "indicator",
+                "read": true,
                 "write": false
             }
         }
