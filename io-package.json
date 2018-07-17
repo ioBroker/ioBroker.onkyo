@@ -2,8 +2,31 @@
     "common": {
         "name": "onkyo",
         "title": "Onkyo EISCP",
-        "desc": "Control Onkyo AVRs with EISCP protocol",
-        "version": "0.2.1",
+        "desc": {
+            "en": "Control Onkyo AVRs with EISCP protocol",
+            "de": "Kontrollieren Sie Onkyo AVRs mit EISCP Protokoll",
+            "ru": "Управление AVR Onkyo с протоколом EISCP",
+            "pt": "Controle Onkyo AVRs com protocolo EISCP",
+            "nl": "Beheer Onkyo AVR's met EISCP-protocol",
+            "fr": "Contrôlez les AVR Onkyo avec le protocole EISCP",
+            "it": "Control Onkyo AVR con protocollo EISCP",
+            "es": "Controle los AVR Onkyo con el protocolo EISCP",
+            "pl": "Kontrola Onkyo AVR z protokołem EISCP"
+        },
+        "version": "1.0.0",
+        "news": {
+            "1.0.0":  {
+                "en": "Ready for Admin3",
+                "de": "Bereit für Admin3",
+                "ru": "Готово для Admin3",
+                "pt": "Pronto para Admin3",
+                "nl": "Klaar voor Admin3",
+                "fr": "Prêt pour Admin3",
+                "it": "Pronto per Admin3",
+                "es": "Listo para Admin3",
+                "pl": "Gotowy na Admin3"
+            }
+        },
         "mode": "daemon",
         "platform": "Javascript/Node.js",
         "loglevel": "info",
@@ -13,8 +36,10 @@
             "eiscp"
         ],
         "main": "onkyo.js",
+        "materialize": true,
         "authors": [
-            "Oliver Wagner <owagner@tellerulam.com>"
+            "Oliver Wagner <owagner@tellerulam.com>",
+            "bluefox <dogafox@gmail.com>"
         ],
         "license": "MIT",
         "readme": "https://github.com/ioBroker/ioBroker.onkyo/blob/master/README.md",
@@ -122,15 +147,25 @@
             }
         },
         {
-            "_id": "connected",
+            "_id":  "info",
+            "type": "channel",
+            "common": {
+                "name": "Information"
+            },
+            "native": {}
+        },
+        {
+            "_id":  "info.connection",
             "type": "state",
             "common": {
-                "name": "connected AVR",
-                "type": "string",
-                "role": "indicator",
-                "read": true,
-                "write": false
-            }
+                "role":  "indicator.connected",
+                "name":  "connected AVR",
+                "type":  "boolean",
+                "read":  true,
+                "write": false,
+                "def":   false
+            },
+            "native": {}
         }
     ]
 }

@@ -33,6 +33,9 @@ To DO:
 - Using eiscp.get_commands
 
 ## ChangeLog
+### 1.0.0 (2018.07.17)
+* (bluefox) Ready for Admin3
+
 ### 0.2.1 (2017.07.15)
 * changed log level for state change and Got message to debug
 
@@ -90,3 +93,9 @@ To DO:
 ### 0.0.1
 * (owagner) initial version
 
+## License
+
+The MIT License (MIT)
+
+Copyright (c) 2014-2018 bluefox <dogafox@gmail.com>,
+              2014-2015 Oliver Wagner <owagner@tellerulam.com>

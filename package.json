@@ -1,11 +1,11 @@
 {
   "name": "iobroker.onkyo",
-  "version": "0.2.1",
+  "version": "1.0.0",
   "description": "Control Onkyo AVRs with EISCP protocol from ioBroker",
   "author": "Oliver Wagner <owagner@tellerulam.com>",
   "contributors": [
     "Oliver Wagner <owagner@tellerulam.com>",
-    "bluefox <bluefox@ccu.io>"
+    "bluefox <dogafox@gmail.com>"
   ],
   "homepage": "https://github.com/ioBroker/ioBroker.onkyo",
   "license": "MIT",
@@ -23,16 +23,8 @@
     "eiscp": "https://github.com/GermanBluefox/node-eiscp/tarball/master/"
   },
   "devDependencies": {
-    "grunt": "^1.0.1",
-    "grunt-replace": "^1.0.1",
-    "grunt-contrib-jshint": "^1.1.0",
-    "grunt-jscs": "^3.0.1",
-    "grunt-http": "^2.2.0",
-    "grunt-contrib-clean": "^1.1.0",
-    "grunt-contrib-compress": "^1.4.3",
-    "grunt-contrib-copy": "^1.0.0",
-    "grunt-exec": "^3.0.0",
-    "mocha": "^4.1.0",
+    "gulp": "^3.9.1",
+    "mocha": "^5.2.0",
     "chai": "^4.1.2"
   },
   "bugs": {
