@@ -200,7 +200,7 @@ function main() {
         eiscp.raw('MVLQSTN'); // Returns master volume
         eiscp.raw('SLIQSTN'); // Returns Current Input
         eiscp.raw('SLAQSTN'); // Returns Current Audio Selection
-        eiscp.raw('LMDQSTN'); // Returns Current Listening Mode*/
+        eiscp.raw('LMDQSTN'); // Returns Current Listening Mode */
 
         eiscp.get_commands('main', (err, cmds) => {
             cmds.forEach(cmd => {
