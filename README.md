@@ -1,62 +1,99 @@
 ![Logo](admin/onkyo.png)
 # ioBroker.onkyo
-=================
 
 [![NPM version](http://img.shields.io/npm/v/iobroker.onkyo.svg)](https://www.npmjs.com/package/iobroker.onkyo)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.onkyo.svg)](https://www.npmjs.com/package/iobroker.onkyo)
-
+[![Travis-CI](https://travis-ci.org/iobroker/ioBroker.onkyo.svg?branch=master)](https://www.travis-ci.org/iobroker/ioBroker.onkyo)   
 [![NPM](https://nodei.co/npm/iobroker.onkyo.png?downloads=true)](https://nodei.co/npm/iobroker.onkyo/)
 
-This adapter allows control of Onkyo AVRs using the EISCP protocol.
+### Major update!
+Take care of this major update. Starting with 2.0 there are structure changes!   
+If you update to this version, you have to change the variables in any other adapter like VIS or javascript!   
+The new version supports Materials and cover arts. The media objects supports player widgets like sonso or winamp.
+![VIS](admin/player.png)
+
+This adapter allows control of Onkyo and Pioneer AVRs using the EISCP protocol.
 
 It uses node-eiscp: https://github.com/tillbaks/node-eiscp
 
-The node-eiscp module parses raw EISCP messages into high-level
-structured names like "master-volume", and the states will have those
-high level names, e.g. "onkyo.0.master-volume"
-
-For sending commands, there is a special state "command". Writes to that state
-trigger either an high-level EISCP command as described in the "Command syntax" section
-of https://github.com/tillbaks/node-eiscp like
-
-    system-power=on
-    zone2.power=on
-    main.balance=3
-
-or a raw EISCP command in the form of "PWR01".
+For sending commands, there is a special state "RAW". Writes to that state
+trigger only RAW commands like the known EISCP Excel files
+As example of an EISCP RAW command in the form of "PWR01".
 
 Another special state maintained by the adapter is "connected". It's a boolean
 showing whether node-eiscp is currently connected to a receiver.
 
-To DO:
-- Auto-discovery like SONOS
-- Using eiscp.get_commands
+Example of VIS view
+![VIS](admin/onkyo-vis.png)     
+
+## Tested Receivers
+### Onkyo
+* TX-NR 525   
+* TX-NR 626   
+* TX-NR 727
+
+### Pioneer
+* VXS-S520D  
+* VSX-1131   
 
 ## ChangeLog
-### 1.0.0 (2018.07.17)
-* (bluefox) Ready for Admin3
+### 2.0.0
+* (Eisbaeeer) Major update iobroker.onkyo
 
-### 0.2.1 (2017.07.15)
-* changed log level for state change and Got message to debug
+### 1.1.5
+* (Eisbaeeer) Zones will be powered if tune preset selected   
 
-### 0.2.0 (2016.04.15)
-* (instalator) Convert state standby into boolean
-* (instalator) Includes support for zone2 zone3
+### 1.1.4  
+* (Eisbaeeer) Added direct tuning in zones (issue #2)
+
+### 1.1.3
+* (Eisbaeeer) Adding Navigation Items   
+
+### 1.1.2
+* (Eisbaeeer) Adding CoverArt
+
+### 1.1.1
+* (Eisbaeeer) Update zone 2 volume after power on. Adding Pioneer Receivers with eiscp support.
+
+### 1.1.0
+* (Eisbaeeer) Completely new structure (Zone1, Zone2, Device)
+
+### 1.0.5
+* (Eisbaeeer) Changed structure
+* (Eisbaeeer) Added Object RAW to send own commands
+
+### 1.0.4 (2018.07.24)
+* (Eisbaeeer) Cleaned program
+* (Eisbaeeer) Fix logging
+
+### 1.0.2 (2018.02.28)
+* (Eisbaeeer) Changed name of adapter
+* (Eisbaeeer) Added testing of adapter in travis
+
+### 1.0.0 (2017.11.28)
+* (Eisbaeeer) Add max volume settings to zone1 and zone2.   
+* (Eisbaeeer) changed objects to switch
+* (Eisbaeeer) moved adapter to "multimedia"
+* (Eisbaeeer) cleaned log outputs
+
+### 0.1.20 (2016.03.29)
+* (Eisbaeeer) Add checkbox in settings for VIS objects. Volumes can be set in
+  decimal. Power states, mute states, etc. are now usable with VIS buttons.
 
 ### 0.1.12 (2016.02.25)
-* (instalator) Fix power state
+* (installator) Fix power state
 
 ### 0.1.11 (2016.01.13)
-* (instalator) Fix regexp error
+* (installator) Fix regexp error
 
 ### 0.1.10
-* (instalator) For command CTL sets Center Level -12 - 0 - +12
+* (installator) For command CTL sets Center Level -12 - 0 - +12
 
 ### 0.1.9
-* (instalator) change power to system-power
+* (installator) change power to system-power
 
 ### 0.1.8
-* (instalator) fix values to control power and enable using of 1 and 0
+* (installator) fix values to control power and enable using of 1 and 0
 
 ### 0.1.7
 * (bluefox) fix creation of specific states (twice)
@@ -93,9 +130,3 @@ To DO:
 ### 0.0.1
 * (owagner) initial version
 
-## License
-
-The MIT License (MIT)
-
-Copyright (c) 2014-2018 bluefox <dogafox@gmail.com>,
-              2014-2015 Oliver Wagner <owagner@tellerulam.com>

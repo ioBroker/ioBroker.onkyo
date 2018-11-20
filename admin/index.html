@@ -1,69 +1,95 @@
 <html>
-<head>
-    <link rel="stylesheet" type="text/css" href="../../lib/css/themes/jquery-ui/redmond/jquery-ui.min.css"/>
-    <script type="text/javascript" src="../../lib/js/jquery-1.11.1.min.js"></script>
-    <script type="text/javascript" src="../../socket.io/socket.io.js"></script>
-    <script type="text/javascript" src="../../lib/js/jquery-ui-1.10.3.full.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="../../css/adapter.css"/>
-    <script type="text/javascript" src="../../js/translate.js"></script>
-    <script type="text/javascript" src="../../js/adapter-settings.js"></script>
-    <script type="text/javascript" src="words.js"></script>
-    <script type="text/javascript">
+<link rel="stylesheet" type="text/css" href="../../lib/css/themes/jquery-ui/redmond/jquery-ui.min.css"/>
+<script type="text/javascript" src="../../lib/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="../../socket.io/socket.io.js"></script>
+<script type="text/javascript" src="../../lib/js/jquery-ui-1.10.3.full.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../../css/adapter.css"/>
+<script type="text/javascript" src="../../js/translate.js"></script>
+<script type="text/javascript" src="../../js/adapter-settings.js"></script>
+<script type="text/javascript">
+    systemDictionary = {
+        "ONKYO adapter settings": {
+            "de": "ONKYO Einstellungen",
+            "ru": "ONKYO Настройки"
+        },
+        "Onkyo AVR Address": {
+            "de": "Onkyo AVR Adresse",
+            "ru": "Onkyo AVR Адрес"
+        },
+        "(leave empty for Autodiscovery)": {
+            "de": "(lass es leer für Autodiscovery)",
+            "ru": "(оставить пустым для автопоиска)"
+        },
+                "Max Volume Zone1": {
+            "de": "Maximale Lautst&auml;rke Zone1",
+            "en": "Max volume of zone1"
+        },
+                "Max Volume Zone2": {
+            "de": "Maximale Lautst&auml;rke Zone2",
+            "en": "Max volume of zone2"
+        },
+        "(select for VIS compatibility)": {
+            "de": "(F&uuml;r VIS Kompatibilität anhaken!)",
+            "en": "Check this for VIS compatibility"
+        },
+        "AVR EISCP Port": {
+            "de": "AVR EISCP Port",
+            "ru": "AVR EISCP порт"
+        }
+    };
 
-        function load(settings, onChange) {
-            $('.value').each(function () {
-                $(this).on('change', function () {
-                    onChange();
-                }).on('keyup', function () {
-                    onChange();
-                });
+    function load(settings, onChange) {
+        $('.value').each(function () {
+            $(this).change(function () {
+                onChange();
+            }).keyup(function () {
+                onChange();
             });
-            for (var key in settings) {
-                var $value = $('#' + key + '.value');
-                if ($value.attr('type') === 'checkbox') {
-                    $value.prop('checked', settings[key]);
-                } else {
-                    $$value.val(settings[key]);
-                }
+        });
+        for (var key in settings) {
+            if ($('#' + key + '.value').attr('type') == 'checkbox') {
+                $('#' + key + '.value').prop('checked', settings[key]);
+            } else {
+                $('#' + key + '.value').val(settings[key]);
             }
-            onChange(false);
         }
+        onChange(false);
+    }
+    function save(callback) {
+        var obj = {};
+        $('.value').each(function () {
+            var $this = $(this);
+            if ($this.attr('type') == 'checkbox') {
+                obj[$this.attr('id')] = $this.prop('checked');
+            } else {
+                obj[$this.attr('id')] = $this.val();
+            }
+        });
 
-        function save(callback) {
-            var obj = {};
-            $('.value').each(function () {
-                var $this = $(this);
-                if ($this.attr('type') === 'checkbox') {
-                    obj[$this.attr('id')] = $this.prop('checked');
-                } else {
-                    obj[$this.attr('id')] = $this.val();
-                }
-            });
-
-            callback(obj);
-        }
-    </script>
-</head>
-<body>
+        callback(obj);
+    }
+</script>
 <div id="adapter-container">
-    <table>
-        <tr>
-            <td><img src="onkyo.png"></td>
-            <td><h3 class="translate">ONKYO adapter settings</h3></td>
-        </tr>
-    </table>
+    <table><tr><td><img src="onkyo.png"></td><td><h3 class="translate">ONKYO adapter settings</h3></td></tr></table>
     <p>&nbsp;</p>
     <table>
         <tr>
-            <td><label class="translate" for="avrAddress">Onkyo AVR Address</label></td>
+            <td class="translate">Onkyo AVR Address</td>
             <td><input type="text" id="avrAddress" class="value"></td>
             <td class="translate">(leave empty for Autodiscovery)</td>
         </tr>
         <tr>
-            <td><label class="translate" for="avrPort">AVR EISCP Port</label></td>
+            <td class="translate">AVR EISCP Port</td>
             <td><input type="number" id="avrPort" class="value"></td>
+        </tr>
+        <tr>
+            <td class="translate">Max Volume Zone1</td>
+            <td><input value="40" type="text" id="maxvolzone1" class="value"></td>
+        </tr>
+        <tr>
+            <td class="translate">Max Volume Zone2</td>
+            <td><input value="40" type="text" id="maxvolzone2" class="value"></td>
         </tr>
     </table>
 </div>
-</body>
 </html>
