@@ -21,7 +21,7 @@ var imageb64 = '';
 //const adapter = utils.Adapter('onkyo-vis');    // name has to be set and has to be equal to adapters folder name and main file name excluding extension
 var adapter = utils.adapter({    
 	// name has to be set and has to be equal to adapters folder name and main file name excluding extension
-    name:  'onkyo-vis-dev',
+    name:  'onkyo',
 	// is called if a subscribed state changes
 	//adapter.on('stateChange', (id, state) => {
 	stateChange: function (id, state) {	
