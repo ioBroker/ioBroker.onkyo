@@ -42,6 +42,10 @@
 			"1.0.3": {
                 "en": "clean error log",
                 "de": "Error log säubern"
+				},
+			"0.2.1": {
+                "en": "stable before",
+                "de": "Stableversion früher"
 				}
             },
     "title": "Onkyo Pioneer EISCP - VIS",
