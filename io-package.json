@@ -3,6 +3,10 @@
     "name": "onkyo",
     "version": "2.0.1",
 	"news": {
+			"2.0.2": {
+                "en": "fix double .js",
+                "de": "Doppelte .js entfernt"
+				},
 			"2.0.1": {
                 "en": "Major version - structure changes!",
                 "de": "Strukturänderungen!"

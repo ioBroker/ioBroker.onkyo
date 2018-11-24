@@ -37,6 +37,9 @@ Example of VIS view
 * VSX-1131   
 
 ## ChangeLog
+### 2.0.2
+* (Eisbaeeer) fix double .js 
+
 ### 2.0.0
 * (Eisbaeeer) Major update iobroker.onkyo
 
