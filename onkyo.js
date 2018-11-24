@@ -11,7 +11,7 @@ const utils = require(__dirname + '/lib/utils'); // Get common adapter utils
 const objects = {};
 const volume = {};
 
-const adapter = new utils.Adapter('onkyo');    // name has to be set and has to be equal to adapters folder name and main file name excluding extension
+const adapter = new utils.adapter('onkyo');    // name has to be set and has to be equal to adapters folder name and main file name excluding extension
 // is called if a subscribed state changes
 adapter.on('stateChange', (id, state) => {
     adapter.log.debug('stateChange ' + id + ' ' + JSON.stringify(state));
