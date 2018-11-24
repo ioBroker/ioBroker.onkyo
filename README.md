@@ -3,7 +3,7 @@
 
 [![NPM version](http://img.shields.io/npm/v/iobroker.onkyo.svg)](https://www.npmjs.com/package/iobroker.onkyo)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.onkyo.svg)](https://www.npmjs.com/package/iobroker.onkyo)
-[![Travis-CI](https://travis-ci.org/iobroker/ioBroker.onkyo.svg?branch=master)](https://www.travis-ci.org/iobroker/ioBroker.onkyo)   
+[![Travis-CI](https://travis-ci.org/ioBroker/ioBroker.onkyo.svg?branch=master)](https://www.travis-ci.org/ioBroker/ioBroker.onkyo)   
 [![NPM](https://nodei.co/npm/iobroker.onkyo.png?downloads=true)](https://nodei.co/npm/iobroker.onkyo/)
 
 ### Major update!
