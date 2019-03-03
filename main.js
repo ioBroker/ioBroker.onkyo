@@ -8,7 +8,7 @@ var fs = require('fs');
 var parser = new xml2js.Parser({ explicitArray: true });
 
 // you have to require the adapter module and pass a options object
-const utils = require(__dirname + '/lib/utils'); // Get common adapter utils
+const utils = require('@iobroker/adapter-core'); // Get common adapter utils
 
 const objects = {};
 const volume = {};
