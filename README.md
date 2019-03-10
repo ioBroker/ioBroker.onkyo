@@ -1,7 +1,7 @@
 ![Logo](admin/onkyo.png)
 # ioBroker.onkyo
 
-[![NPM version](http://img.shields.io/npm/v/iobroker.onkyo.svg)](https://www.npmjs.com/package/iobroker.onkyo)
+![Number of Installations](http://iobroker.live/badges/onkyo-installed.svg) ![Number of Installations](http://iobroker.live/badges/onkyo-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.onkyo.svg)](https://www.npmjs.com/package/iobroker.onkyo)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.onkyo.svg)](https://www.npmjs.com/package/iobroker.onkyo)
 [![Travis-CI](https://travis-ci.org/ioBroker/ioBroker.onkyo.svg?branch=master)](https://www.travis-ci.org/ioBroker/ioBroker.onkyo)   
 [![NPM](https://nodei.co/npm/iobroker.onkyo.png?downloads=true)](https://nodei.co/npm/iobroker.onkyo/)
