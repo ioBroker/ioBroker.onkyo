@@ -65,7 +65,6 @@
       "Oliver Wagner <owagner@tellerulam.com>",
       "Lars Weimar <Eisbaeeer@gmail.com>"
     ],
-    "desc":         "Control Onkyo and Pioneer AVRs with EISCP protocol and VIS support",
     "platform": "Javascript/Node.js",
     "mode": "daemon",
     "materialize":  true,
