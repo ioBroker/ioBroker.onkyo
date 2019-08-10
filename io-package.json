@@ -277,10 +277,10 @@
         },
 		{
             "_id": "Device",
-            "type": "object",
+            "type": "device",
             "common": {
                 "name":  "Device",
-                "type":  "object",
+                "type":  "device",
                 "role":  "",
                 "read":  true,
                 "write": false,
@@ -742,7 +742,7 @@
             "type": "state",
             "common": {
                 "name":  "Cover Base64",
-                "type":  "string",
+                "type":  "media.cover",
                 "role":  "state",
                 "read":  true,
                 "write": false,
@@ -754,7 +754,7 @@
             "type": "state",
             "common": {
                 "name":  "Cover URL",
-                "type":  "string",
+                "type":  "media.cover",
                 "role":  "state",
                 "read":  true,
                 "write": false,
