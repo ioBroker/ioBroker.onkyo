@@ -3,6 +3,10 @@
     "name": "onkyo",
     "version": "2.0.2",
 	"news": {
+			"2.0.3": {
+                "en": "now support zone3",
+                "de": "Unterstützung Zone3"
+				},
 			"2.0.2": {
                 "en": "fix double .js",
                 "de": "Doppelte .js entfernt"
@@ -266,6 +270,98 @@
         },
 		{
             "_id": "Zone2.TunerPreset",
+            "type": "state",
+            "common": {
+                "name":  "Tuner Preset",
+                "type":  "string",
+                "role":  "state",
+                "read":  true,
+                "write": true
+            }
+        },
+		{
+            "_id": "Zone3",
+            "type": "object",
+            "common": {
+                "name":  "Zone3",
+                "type":  "object",
+                "role":  "",
+                "read":  true,
+                "write": false,
+                "def":   ""
+            },
+            "native": {
+                "command": "Zone3"
+            }
+        },
+		{
+            "_id": "Zone3.Power",
+            "type": "state",
+            "common": {
+                "name":  "Power",
+                "type":  "boolean",
+                "role":  "switch.power.zone",
+                "read":  true,
+                "write": true
+            }
+        },
+		{
+            "_id": "Zone3.Volume",
+            "type": "state",
+            "common": {
+                "name":  "Volume",
+                "type":  "string",
+                "role":  "level.volume",
+                "read":  true,
+                "write": true
+            }
+        },
+		{
+            "_id": "Zone3.Tune",
+            "type": "state",
+            "common": {
+                "name":  "Tune",
+                "type":  "string",
+                "role":  "state",
+                "read":  true,
+                "write": true
+            }
+        },
+		{
+            "_id": "Zone3.NetRadioPreset",
+            "type": "state",
+            "common": {
+                "name":  "Net Radio Preset",
+                "type":  "string",
+                "role":  "state",
+                "read":  true,
+                "write": true
+            }
+        },
+		{
+            "_id": "Zone3.InputSelect",
+            "type": "state",
+            "common": {
+                "name":  "Input Select",
+                "type":  "string",
+                "role":  "media.input",
+                "read":  true,
+                "write": true
+            }
+        },
+		{
+            "_id": "Zone3.Mute",
+            "type": "state",
+            "common": {
+                "name":  "Input Mute",
+                "type":  "string",
+                "role":  "media.mute",
+                "read":  true,
+                "write": true
+            }
+        },
+		{
+            "_id": "Zone3.TunerPreset",
             "type": "state",
             "common": {
                 "name":  "Tuner Preset",

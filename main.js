@@ -79,6 +79,15 @@ var adapter = utils.Adapter({
               adapter.log.debug('new_val: ' + new_val);
               adapter.setState (adapter.namespace + '.' + 'Device.command', {val: new_val, ack: false});
                   }
+			
+			// Volume Zone3                    
+              if (id == adapter.namespace + '.' +'Zone3.Volume') {
+              var new_val = parseInt(state.val);  //string to integer
+              new_val = decimalToHex(new_val).toUpperCase();  //call function decimalToHex();
+              new_val = 'VL3' + new_val;
+              adapter.log.debug('new_val: ' + new_val);
+              adapter.setState (adapter.namespace + '.' + 'Device.command', {val: new_val, ack: false});
+                  }
 
               // Audio_Mute_Zone1                    
               if (id == adapter.namespace + '.' +'Zone1.Mute') {
@@ -108,7 +117,21 @@ var adapter = utils.Adapter({
               adapter.log.debug('new_val: ' + new_val);
               adapter.setState (adapter.namespace + '.' + 'Device.command', {val: new_val, ack: false});
                   }        
-              
+            
+			// Audio_Mute_Zone3                    
+              if (id == adapter.namespace + '.' +'Zone3.Mute') {
+                  new_val = state.val;
+                  if (new_val == true) {
+                      new_val = '01';
+                      }
+              if  (new_val == false) {
+                    new_val = '00';
+                      } 
+              new_val = 'MT3' + new_val;
+              adapter.log.debug('new_val: ' + new_val);
+              adapter.setState (adapter.namespace + '.' + 'Device.command', {val: new_val, ack: false});
+                  }        
+            			
               // Input_Select_Zone1       SLI
               if (id == adapter.namespace + '.' +'Zone1.InputSelect') {
                   new_val = state.val;
@@ -124,7 +147,15 @@ var adapter = utils.Adapter({
               adapter.log.debug('new_val: ' + new_val);
               adapter.setState (adapter.namespace + '.' + 'Device.command', {val: new_val, ack: false});
                   }        
-                          
+
+              // Input_Select_Zone3       SL3
+              if (id == adapter.namespace + '.' +'Zone3.InputSelect') {
+                  new_val = state.val;
+                  new_val = 'SL3' + new_val;
+              adapter.log.debug('new_val: ' + new_val);
+              adapter.setState (adapter.namespace + '.' + 'Device.command', {val: new_val, ack: false});
+                  }        
+                            
               // Internet_Radio_Preset_Zone1   NPR                  
               if (id == adapter.namespace + '.' +'Zone1.NetRadioPreset') {
               var new_val = parseInt(state.val);  //string to integer
@@ -144,6 +175,17 @@ var adapter = utils.Adapter({
               adapter.setState (adapter.namespace + '.' + 'Device.command', {val: new_val, ack: false});
 			  adapter.setState (adapter.namespace + '.' + 'Device.command', {val: 'SLZ2B', ack: false});
 			  adapter.setState (adapter.namespace + '.' + 'Device.command', {val: 'ZVLQSTN', ack: false});
+                  }                          
+
+              // Internet_Radio_Preset_Zone3   NP3
+              if (id == adapter.namespace + '.' +'Zone3.NetRadioPreset') {
+              var new_val = parseInt(state.val);  //string to integer
+              new_val = decimalToHex(state.val).toUpperCase();  //call function decimalToHex();
+              new_val = 'NP3' + new_val;
+              adapter.log.debug('new_val: ' + new_val);
+              adapter.setState (adapter.namespace + '.' + 'Device.command', {val: new_val, ack: false});
+			  adapter.setState (adapter.namespace + '.' + 'Device.command', {val: 'SL32B', ack: false});
+			  adapter.setState (adapter.namespace + '.' + 'Device.command', {val: 'VL3QSTN', ack: false});
                   }                          
               
               // Tuner_Preset_Zone1  PRS
@@ -165,6 +207,17 @@ var adapter = utils.Adapter({
               adapter.setState (adapter.namespace + '.' + 'Device.command', {val: new_val, ack: false});
 			  adapter.setState (adapter.namespace + '.' + 'Device.command', {val: 'SLZ24', ack: false});
 			  adapter.setState (adapter.namespace + '.' + 'Device.command', {val: 'ZVLQSTN', ack: false});
+                  }                          
+
+              // Tuner_Preset_Zone3  PR3
+              if (id == adapter.namespace + '.' +'Zone3.TunerPreset') {
+              var new_val = parseInt(state.val);  //string to integer
+              new_val = decimalToHex(state.val).toUpperCase();  //call function decimalToHex();
+              new_val = 'PR3' + new_val;
+              adapter.log.debug('new_val: ' + new_val);
+              adapter.setState (adapter.namespace + '.' + 'Device.command', {val: new_val, ack: false});
+			  adapter.setState (adapter.namespace + '.' + 'Device.command', {val: 'SL324', ack: false});
+			  adapter.setState (adapter.namespace + '.' + 'Device.command', {val: 'VL3QSTN', ack: false});
                   }                          
 
               // Power_Zone1    PWR
@@ -194,6 +247,21 @@ var adapter = utils.Adapter({
               adapter.log.debug('new_val: ' + new_val);
               adapter.setState (adapter.namespace + '.' + 'Device.command', {val: new_val, ack: false});
 			  adapter.setState (adapter.namespace + '.' + 'Device.command', {val: 'ZVLQSTN', ack: false});
+                  }  
+
+              // Power_Zone3    PW3
+              if (id == adapter.namespace + '.' +'Zone3.Power') {
+                  new_val = state.val;
+                  if (new_val == true) {
+                      new_val = '01';
+                      }
+              if  (new_val == false) {
+                    new_val = '00';
+                      } 
+              new_val = 'PW3' + new_val;
+              adapter.log.debug('new_val: ' + new_val);
+              adapter.setState (adapter.namespace + '.' + 'Device.command', {val: new_val, ack: false});
+			  adapter.setState (adapter.namespace + '.' + 'Device.command', {val: 'VL3QSTN', ack: false});
                   }  
 				  
 			//Onkyo_Tune_Zone1
@@ -498,9 +566,11 @@ function main() {
       'PWRQSTN',
       'MVLQSTN',
 		  'ZVLQSTN',
+		  'VL3QSTN',
 		  'IFAQSTN',
-      'SLIQSTN',
+		  'SLIQSTN',
 		  'SLZQSTN',
+		  'SL3QSTN',
 		  'ZMTQSTN',
 		  'AMTQSTN',
 		  'NSTQSTN',
@@ -514,8 +584,10 @@ function main() {
 		  'NTRQSTN',
 		  'PRSQSTN',
 		  'PRZQSTN',
+		  'PR3QSTN',
 		  'TUNQSTN',
 		  'TUZQSTN',
+		  'TU3QSTN',
 		  'IFVQSTN',
 		  'SLAQSTN',
 		  'NRIQSTN'
@@ -574,7 +646,17 @@ function main() {
       adapter.setState (adapter.namespace + '.' + 'Zone2.Power', {val: false, ack: true});
                         } 
                     }
-    //Audio information
+     //Onkyo_Power_Zone3
+    if (chunk == 'PW3')  {
+      string = parseInt(string);                   //convert string to integer
+    if (string == '1') {
+      adapter.setState (adapter.namespace + '.' + 'Zone3.Power', {val: true, ack: true});
+                        }
+    if (string == '0') {
+      adapter.setState (adapter.namespace + '.' + 'Zone3.Power', {val: false, ack: true});
+                        } 
+                    } 
+ //Audio information
       if (chunk == 'IFA')  {  
       adapter.setState (adapter.namespace + '.' + 'Device.AudioInformation', {val: string, ack: true});
                     }                    
@@ -728,6 +810,17 @@ function main() {
                         } 
                     }
 
+  //Onkyo_Audio_Mute_Zone3
+      if (chunk == 'MT3')  {
+        string = parseInt(string);                  //convert string to integer  
+          if (string == '1') {
+      adapter.setState (adapter.namespace + '.' + 'Zone3.Mute', {val: true, ack: true});
+                        }
+          if (string == '0') {
+      adapter.setState (adapter.namespace + '.' + 'Zone3.Mute', {val: false, ack: true});
+                        } 
+                    }
+
   //Onkyo_Input_Select_Zone1  (hex)
       if (chunk == 'SLI')  {
         string = string.substr(0,2)        
@@ -737,6 +830,11 @@ function main() {
       if (chunk == 'SLZ')  {
         string = string.substr(0,2)  
         adapter.setState (adapter.namespace + '.' + 'Zone2.InputSelect', {val: string, ack: true});
+                    }
+  //Onkyo_Input_Select_Zone3  (hex)
+      if (chunk == 'SL3')  {
+        string = string.substr(0,2)  
+        adapter.setState (adapter.namespace + '.' + 'Zone3.InputSelect', {val: string, ack: true});
                     }
 
   //Onkyo_Internet_Radio_Preset_Zone1 
@@ -748,6 +846,11 @@ function main() {
       if (chunk == 'NPZ')  {
         string = parseInt(string, 16);              //convert hex to decimal
         adapter.setState (adapter.namespace + '.' + 'Zone2.NetRadioPreset', {val: string, ack: true});
+                    }
+  //Onkyo_Internet_Radio_Preset_Zone3
+      if (chunk == 'NP3')  {
+        string = parseInt(string, 16);              //convert hex to decimal
+        adapter.setState (adapter.namespace + '.' + 'Zone3.NetRadioPreset', {val: string, ack: true});
                     }
 
   //Listening_Mode
@@ -803,6 +906,11 @@ function main() {
         string = parseInt(string, 16);              //convert hex to decimal
         adapter.setState (adapter.namespace + '.' + 'Zone2.TunerPreset', {val: string, ack: true});
                     }
+  //Onkyo_Tuner_Preset_Zone3
+      if (chunk == 'PR3')  {
+        string = parseInt(string, 16);              //convert hex to decimal
+        adapter.setState (adapter.namespace + '.' + 'Zone3.TunerPreset', {val: string, ack: true});
+                    }
 
   //Onkyo_Tuning_Zone1
       if (chunk == 'TUN')  {
@@ -813,6 +921,11 @@ function main() {
       if (chunk == 'TUZ')  {
         string = parseInt(string) / 100;            //set dot for decimal
         adapter.setState (adapter.namespace + '.' + 'Zone2.Tune', {val: string, ack: true});
+                    }
+  //Onkyo_Tuning_Zone3                    
+      if (chunk == 'TU3')  {
+        string = parseInt(string) / 100;            //set dot for decimal
+        adapter.setState (adapter.namespace + '.' + 'Zone3.Tune', {val: string, ack: true});
                     }
 
   //Video_information
@@ -830,7 +943,11 @@ function main() {
         string = parseInt(string, 16);              //convert hex to decimal
         adapter.setState (adapter.namespace + '.' + 'Zone2.Volume', {val: string, ack: true});
                     }
-
+  //Onkyo_Volume_Zone3
+      if (chunk == 'VL3')  {
+        string = parseInt(string, 16);              //convert hex to decimal
+        adapter.setState (adapter.namespace + '.' + 'Zone3.Volume', {val: string, ack: true});
+                    }
 					
   //Onkyo_AVR_INFO (xml)
    if (chunk == 'NRI') {
