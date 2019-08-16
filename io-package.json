@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "onkyo",
-    "version": "2.0.2",
+    "version": "2.0.3",
 	"news": {
 			"2.0.3": {
                 "en": "now support zone3",
