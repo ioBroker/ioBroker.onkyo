@@ -19,29 +19,29 @@ var imageb64 = '';
 
 
 //const adapter = utils.Adapter('onkyo-vis');    // name has to be set and has to be equal to adapters folder name and main file name excluding extension
-var adapter = utils.Adapter({    
+var adapter = utils.Adapter({
 	// name has to be set and has to be equal to adapters folder name and main file name excluding extension
     name:  'onkyo',
 	// is called if a subscribed state changes
 	//adapter.on('stateChange', (id, state) => {
-	stateChange: function (id, state) {	
+	stateChange: function (id, state) {
     adapter.log.debug('stateChange ' + id + ' ' + JSON.stringify(state));
     // is called if a subscribed state changes
         if (state && !state.ack) {
 			adapter.log.debug('ack is not set!');
 			adapter.log.debug('Value: ' + state.val);
 			adapter.log.debug('id: ' + id);
-		
+
 			if (id == adapter.namespace + '.' +'Device.command') {
 					var newcommand = state.val;
 						adapter.log.debug('newcommand: ' + newcommand);
-			if (newcommand) {				
+			if (newcommand) {
                 eiscp.raw(newcommand);
-				}		
+				}
 			} else {
-                        
+
           // Here we go and send command from accepted Objects to command var
-		   			  
+
 			  // SET RAW EISCP COMMAND
               if (id == adapter.namespace + '.' +'Device.RAW') {
                 new_val = state.val;
@@ -49,7 +49,7 @@ var adapter = utils.Adapter({
 				adapter.setState (adapter.namespace + '.' + 'Device.command', {val: new_val, ack: false});
 				adapter.setState (adapter.namespace + '.' + 'Device.RAW', {val: null, ack: true});
                   }
-			  
+
 			  // Volume Zone1
               if (id == adapter.namespace + '.' +'Zone1.Volume') {
               var new_val = parseInt(state.val);  //string to integer
@@ -58,14 +58,14 @@ var adapter = utils.Adapter({
                   new_val = adapter.config.maxvolzone1;
                   adapter.log.info('>>> Limit max volume zone 1 to: ' + new_val);
                   adapter.log.info('>>> see in adapter config for limits');
-                }              
+                }
               new_val = decimalToHex(new_val).toUpperCase();  //call function decimalToHex();
               new_val = 'MVL' + new_val;
               adapter.log.debug('new_val: ' + new_val);
 			  adapter.setState (adapter.namespace + '.' + 'Device.command', {val: new_val, ack: false});
                   }
-                  
-              // Volume Zone2                    
+
+              // Volume Zone2
               if (id == adapter.namespace + '.' +'Zone2.Volume') {
               var new_val = parseInt(state.val);  //string to integer
                 if (new_val >= adapter.config.maxvolzone2)
@@ -79,8 +79,8 @@ var adapter = utils.Adapter({
               adapter.log.debug('new_val: ' + new_val);
               adapter.setState (adapter.namespace + '.' + 'Device.command', {val: new_val, ack: false});
                   }
-			
-			// Volume Zone3                    
+
+			// Volume Zone3
               if (id == adapter.namespace + '.' +'Zone3.Volume') {
               var new_val = parseInt(state.val);  //string to integer
               new_val = decimalToHex(new_val).toUpperCase();  //call function decimalToHex();
@@ -89,7 +89,7 @@ var adapter = utils.Adapter({
               adapter.setState (adapter.namespace + '.' + 'Device.command', {val: new_val, ack: false});
                   }
 
-              // Audio_Mute_Zone1                    
+              // Audio_Mute_Zone1
               if (id == adapter.namespace + '.' +'Zone1.Mute') {
                   new_val = state.val;
               adapter.log.debug('new_val: ' + new_val);
@@ -98,13 +98,13 @@ var adapter = utils.Adapter({
                       }
               if  (new_val == false) {
                     new_val = '00';
-                      } 
+                      }
               new_val = 'AMT' + new_val;
               adapter.log.debug('new_val: ' + new_val);
               adapter.setState (adapter.namespace + '.' + 'Device.command', {val: new_val, ack: false});
-                  }        
+                  }
 
-              // Audio_Mute_Zone2                    
+              // Audio_Mute_Zone2
               if (id == adapter.namespace + '.' +'Zone2.Mute') {
                   new_val = state.val;
                   if (new_val == true) {
@@ -112,13 +112,13 @@ var adapter = utils.Adapter({
                       }
               if  (new_val == false) {
                     new_val = '00';
-                      } 
+                      }
               new_val = 'ZMT' + new_val;
               adapter.log.debug('new_val: ' + new_val);
               adapter.setState (adapter.namespace + '.' + 'Device.command', {val: new_val, ack: false});
-                  }        
-            
-			// Audio_Mute_Zone3                    
+                  }
+
+			// Audio_Mute_Zone3
               if (id == adapter.namespace + '.' +'Zone3.Mute') {
                   new_val = state.val;
                   if (new_val == true) {
@@ -126,19 +126,19 @@ var adapter = utils.Adapter({
                       }
               if  (new_val == false) {
                     new_val = '00';
-                      } 
+                      }
               new_val = 'MT3' + new_val;
               adapter.log.debug('new_val: ' + new_val);
               adapter.setState (adapter.namespace + '.' + 'Device.command', {val: new_val, ack: false});
-                  }        
-            			
+                  }
+
               // Input_Select_Zone1       SLI
               if (id == adapter.namespace + '.' +'Zone1.InputSelect') {
                   new_val = state.val;
                   new_val = 'SLI' + new_val;
               adapter.log.debug('new_val: ' + new_val);
               adapter.setState (adapter.namespace + '.' + 'Device.command', {val: new_val, ack: false});
-                  }        
+                  }
 
               // Input_Select_Zone2       SLZ
               if (id == adapter.namespace + '.' +'Zone2.InputSelect') {
@@ -146,7 +146,7 @@ var adapter = utils.Adapter({
                   new_val = 'SLZ' + new_val;
               adapter.log.debug('new_val: ' + new_val);
               adapter.setState (adapter.namespace + '.' + 'Device.command', {val: new_val, ack: false});
-                  }        
+                  }
 
               // Input_Select_Zone3       SL3
               if (id == adapter.namespace + '.' +'Zone3.InputSelect') {
@@ -154,9 +154,9 @@ var adapter = utils.Adapter({
                   new_val = 'SL3' + new_val;
               adapter.log.debug('new_val: ' + new_val);
               adapter.setState (adapter.namespace + '.' + 'Device.command', {val: new_val, ack: false});
-                  }        
-                            
-              // Internet_Radio_Preset_Zone1   NPR                  
+                  }
+
+              // Internet_Radio_Preset_Zone1   NPR
               if (id == adapter.namespace + '.' +'Zone1.NetRadioPreset') {
               var new_val = parseInt(state.val);  //string to integer
               new_val = decimalToHex(state.val).toUpperCase();  //call function decimalToHex();
@@ -175,7 +175,7 @@ var adapter = utils.Adapter({
               adapter.setState (adapter.namespace + '.' + 'Device.command', {val: new_val, ack: false});
 			  adapter.setState (adapter.namespace + '.' + 'Device.command', {val: 'SLZ2B', ack: false});
 			  adapter.setState (adapter.namespace + '.' + 'Device.command', {val: 'ZVLQSTN', ack: false});
-                  }                          
+                  }
 
               // Internet_Radio_Preset_Zone3   NP3
               if (id == adapter.namespace + '.' +'Zone3.NetRadioPreset') {
@@ -186,8 +186,8 @@ var adapter = utils.Adapter({
               adapter.setState (adapter.namespace + '.' + 'Device.command', {val: new_val, ack: false});
 			  adapter.setState (adapter.namespace + '.' + 'Device.command', {val: 'SL32B', ack: false});
 			  adapter.setState (adapter.namespace + '.' + 'Device.command', {val: 'VL3QSTN', ack: false});
-                  }                          
-              
+                  }
+
               // Tuner_Preset_Zone1  PRS
               if (id == adapter.namespace + '.' +'Zone1.TunerPreset') {
               var new_val = parseInt(state.val);  //string to integer
@@ -196,7 +196,7 @@ var adapter = utils.Adapter({
               adapter.log.debug('new_val: ' + new_val);
               adapter.setState (adapter.namespace + '.' + 'Device.command', {val: new_val, ack: false});
 			  adapter.setState (adapter.namespace + '.' + 'Device.command', {val: 'SLI24', ack: false});
-                  }                          
+                  }
 
               // Tuner_Preset_Zone2  PRZ
               if (id == adapter.namespace + '.' +'Zone2.TunerPreset') {
@@ -207,7 +207,7 @@ var adapter = utils.Adapter({
               adapter.setState (adapter.namespace + '.' + 'Device.command', {val: new_val, ack: false});
 			  adapter.setState (adapter.namespace + '.' + 'Device.command', {val: 'SLZ24', ack: false});
 			  adapter.setState (adapter.namespace + '.' + 'Device.command', {val: 'ZVLQSTN', ack: false});
-                  }                          
+                  }
 
               // Tuner_Preset_Zone3  PR3
               if (id == adapter.namespace + '.' +'Zone3.TunerPreset') {
@@ -218,7 +218,7 @@ var adapter = utils.Adapter({
               adapter.setState (adapter.namespace + '.' + 'Device.command', {val: new_val, ack: false});
 			  adapter.setState (adapter.namespace + '.' + 'Device.command', {val: 'SL324', ack: false});
 			  adapter.setState (adapter.namespace + '.' + 'Device.command', {val: 'VL3QSTN', ack: false});
-                  }                          
+                  }
 
               // Power_Zone1    PWR
               if (id == adapter.namespace + '.' +'Zone1.Power') {
@@ -228,12 +228,12 @@ var adapter = utils.Adapter({
                       }
               if  (new_val == false) {
                     new_val = '00';
-                      } 
+                      }
               new_val = 'PWR' + new_val;
               adapter.log.debug('new_val: ' + new_val);
               adapter.setState (adapter.namespace + '.' + 'Device.command', {val: new_val, ack: false});
-                  }        
- 
+                  }
+
               // Power_Zone2    ZPW
               if (id == adapter.namespace + '.' +'Zone2.Power') {
                   new_val = state.val;
@@ -242,12 +242,12 @@ var adapter = utils.Adapter({
                       }
               if  (new_val == false) {
                     new_val = '00';
-                      } 
+                      }
               new_val = 'ZPW' + new_val;
               adapter.log.debug('new_val: ' + new_val);
               adapter.setState (adapter.namespace + '.' + 'Device.command', {val: new_val, ack: false});
 			  adapter.setState (adapter.namespace + '.' + 'Device.command', {val: 'ZVLQSTN', ack: false});
-                  }  
+                  }
 
               // Power_Zone3    PW3
               if (id == adapter.namespace + '.' +'Zone3.Power') {
@@ -257,13 +257,13 @@ var adapter = utils.Adapter({
                       }
               if  (new_val == false) {
                     new_val = '00';
-                      } 
+                      }
               new_val = 'PW3' + new_val;
               adapter.log.debug('new_val: ' + new_val);
               adapter.setState (adapter.namespace + '.' + 'Device.command', {val: new_val, ack: false});
 			  adapter.setState (adapter.namespace + '.' + 'Device.command', {val: 'VL3QSTN', ack: false});
-                  }  
-				  
+                  }
+
 			//Onkyo_Tune_Zone1
 				if (id == adapter.namespace + '.' +'Zone1.Tune')  {
 					new_val = state.val;
@@ -278,7 +278,7 @@ var adapter = utils.Adapter({
 								'TUN' + new_val.substr(5,1),
 								'TUZQSTN'
 								);
-			
+
       setTimeout(function () {
             // send array to command object
             for (var i = 0; i < arr.length; i++) {
@@ -288,7 +288,7 @@ var adapter = utils.Adapter({
         }, 10);
 				adapter.setState (adapter.namespace + '.' + 'Device.command', {val: 'TUZQSTN', ack: false});
                     }
-					
+
 			//Onkyo_Tune_Zone2
 				if (id == adapter.namespace + '.' +'Zone2.Tune')  {
 					new_val = state.val;
@@ -303,7 +303,7 @@ var adapter = utils.Adapter({
 								'TUZ' + new_val.substr(5,1),
 								'TUNQSTN'
 								);
-			
+
       setTimeout(function () {
             // send array to command object
             for (var i = 0; i < arr.length; i++) {
@@ -324,7 +324,7 @@ var adapter = utils.Adapter({
               new_val = 'NTC' + new_val;
               adapter.log.debug('new_val: ' + new_val);
               adapter.setState (adapter.namespace + '.' + 'Device.command', {val: new_val, ack: false});
-                  } 
+                  }
             // NET USB Pause
               if (id == adapter.namespace + '.' +'Device.MediaPause') {
                   new_val = state.val;
@@ -334,7 +334,7 @@ var adapter = utils.Adapter({
               new_val = 'NTC' + new_val;
               adapter.log.debug('new_val: ' + new_val);
               adapter.setState (adapter.namespace + '.' + 'Device.command', {val: new_val, ack: false});
-                  } 
+                  }
             // NET USB Stop
               if (id == adapter.namespace + '.' +'Device.MediaStop') {
                   new_val = state.val;
@@ -344,7 +344,7 @@ var adapter = utils.Adapter({
               new_val = 'NTC' + new_val;
               adapter.log.debug('new_val: ' + new_val);
               adapter.setState (adapter.namespace + '.' + 'Device.command', {val: new_val, ack: false});
-                  } 
+                  }
 			// NET USB Track Up
               if (id == adapter.namespace + '.' +'Device.MediaTrackUp') {
                   new_val = state.val;
@@ -355,7 +355,7 @@ var adapter = utils.Adapter({
               adapter.log.debug('new_val: ' + new_val);
               adapter.setState (adapter.namespace + '.' + 'Device.command', {val: new_val, ack: false});
 			  adapter.setState (adapter.namespace + '.' + 'Device.MediaTrackUp', {val: "", ack: true});
-                  }	  
+                  }
 			// NET USB Track Down
               if (id == adapter.namespace + '.' +'Device.MediaTrackDown') {
                   new_val = state.val;
@@ -366,7 +366,7 @@ var adapter = utils.Adapter({
               adapter.log.debug('new_val: ' + new_val);
               adapter.setState (adapter.namespace + '.' + 'Device.command', {val: new_val, ack: false});
 			  adapter.setState (adapter.namespace + '.' + 'Device.MediaTrackDown', {val: "", ack: true});
-                  }	
+                  }
 			// NET USB Right
               if (id == adapter.namespace + '.' +'Device.MediaRight') {
                   new_val = state.val;
@@ -377,7 +377,7 @@ var adapter = utils.Adapter({
               adapter.log.debug('new_val: ' + new_val);
               adapter.setState (adapter.namespace + '.' + 'Device.command', {val: new_val, ack: false});
 			  adapter.setState (adapter.namespace + '.' + 'Device.MediaRight', {val: "", ack: true});
-                  }	
+                  }
 			// NET USB Left
               if (id == adapter.namespace + '.' +'Device.MediaLeft') {
                   new_val = state.val;
@@ -388,7 +388,7 @@ var adapter = utils.Adapter({
               adapter.log.debug('new_val: ' + new_val);
               adapter.setState (adapter.namespace + '.' + 'Device.command', {val: new_val, ack: false});
 			  adapter.setState (adapter.namespace + '.' + 'Device.MediaLeft', {val: "", ack: true});
-                  }		  
+                  }
 			// NET USB Up
               if (id == adapter.namespace + '.' +'Device.MediaUp') {
                   new_val = state.val;
@@ -399,7 +399,7 @@ var adapter = utils.Adapter({
               adapter.log.debug('new_val: ' + new_val);
               adapter.setState (adapter.namespace + '.' + 'Device.command', {val: new_val, ack: false});
 			  adapter.setState (adapter.namespace + '.' + 'Device.MediaUp', {val: "", ack: true});
-                  }	
+                  }
 			// NET USB Down
               if (id == adapter.namespace + '.' +'Device.MediaDown') {
                   new_val = state.val;
@@ -410,7 +410,7 @@ var adapter = utils.Adapter({
               adapter.log.debug('new_val: ' + new_val);
               adapter.setState (adapter.namespace + '.' + 'Device.command', {val: new_val, ack: false});
 			  adapter.setState (adapter.namespace + '.' + 'Device.MediaDown', {val: "", ack: true});
-                  }		  
+                  }
 			// NET USB Select
               if (id == adapter.namespace + '.' +'Device.MediaSelect') {
                   new_val = state.val;
@@ -421,7 +421,7 @@ var adapter = utils.Adapter({
               adapter.log.debug('new_val: ' + new_val);
               adapter.setState (adapter.namespace + '.' + 'Device.command', {val: new_val, ack: false});
 			  adapter.setState (adapter.namespace + '.' + 'Device.MediaSelect', {val: "", ack: true});
-                  }	
+                  }
 			// NET USB Delete
               if (id == adapter.namespace + '.' +'Device.MediaDelete') {
                   new_val = state.val;
@@ -432,7 +432,7 @@ var adapter = utils.Adapter({
               adapter.log.debug('new_val: ' + new_val);
               adapter.setState (adapter.namespace + '.' + 'Device.command', {val: new_val, ack: false});
 			  adapter.setState (adapter.namespace + '.' + 'Device.MediaDelete', {val: "", ack: true});
-                  }		  
+                  }
 			// NET USB Return
               if (id == adapter.namespace + '.' +'Device.MediaReturn') {
                   new_val = state.val;
@@ -443,7 +443,7 @@ var adapter = utils.Adapter({
               adapter.log.debug('new_val: ' + new_val);
               adapter.setState (adapter.namespace + '.' + 'Device.command', {val: new_val, ack: false});
 			  adapter.setState (adapter.namespace + '.' + 'Device.MediaReturn', {val: "", ack: true});
-                  }	
+                  }
 			// NET USB Menu
               if (id == adapter.namespace + '.' +'Device.MediaMenu') {
                   new_val = state.val;
@@ -454,7 +454,7 @@ var adapter = utils.Adapter({
               adapter.log.debug('new_val: ' + new_val);
               adapter.setState (adapter.namespace + '.' + 'Device.command', {val: new_val, ack: false});
 			  adapter.setState (adapter.namespace + '.' + 'Device.MediaMenu', {val: "", ack: true});
-                  }		  
+                  }
 			// NET USB Top
               if (id == adapter.namespace + '.' +'Device.MediaTop') {
                   new_val = state.val;
@@ -465,12 +465,12 @@ var adapter = utils.Adapter({
               adapter.log.debug('new_val: ' + new_val);
               adapter.setState (adapter.namespace + '.' + 'Device.command', {val: new_val, ack: false});
 			  adapter.setState (adapter.namespace + '.' + 'Device.MediaTop', {val: "", ack: true});
-                  }		  
-				  
-				  
-				  
+                  }
+
+
+
 			 /* THIS PART MUST BE REALIZED LATER (100ms continuously)
-			 
+
 			 // NET USB Reverse - Continuesly must be send faster 100ms
               if (id == adapter.namespace + '.' +'Device.MediaReverse') {
                   new_val = state.val;
@@ -480,7 +480,7 @@ var adapter = utils.Adapter({
               new_val = 'NTC' + new_val;
               adapter.log.debug('new_val: ' + new_val);
               adapter.setState (adapter.namespace + '.' + 'Device.command', {val: new_val, ack: false});
-                  } 	  
+                  }
             // NET USB Forward - Continuesly must be send faster 100ms
               if (id == adapter.namespace + '.' +'Device.MediaForward') {
                   new_val = state.val;
@@ -490,10 +490,10 @@ var adapter = utils.Adapter({
               new_val = 'NTC' + new_val;
               adapter.log.debug('new_val: ' + new_val);
               adapter.setState (adapter.namespace + '.' + 'Device.command', {val: new_val, ack: false});
-                  } 
-             */  
-			
-           }       
+                  }
+             */
+
+           }
         }
 	},
 
@@ -512,8 +512,8 @@ var adapter = utils.Adapter({
     }
 });
 
-			
-			
+
+
 
 function decimalToHex(d, padding) {
     var hex = Number(d).toString(16);
@@ -525,9 +525,9 @@ function decimalToHex(d, padding) {
 
     return hex;
 }
-   
+
 function main() {
-         
+
     // The adapters config (in the instance object everything under the attribute "native") is accessible via
     // adapter.config:
     eiscp.on("error", function (e) {
@@ -561,7 +561,7 @@ function main() {
         adapter.setState('Device.connected', {val: true, ack: true});
 
         // Query some initial information
-        
+
 		var datapoints = new Array(
       'PWRQSTN',
       'MVLQSTN',
@@ -592,8 +592,8 @@ function main() {
 		  'SLAQSTN',
 		  'NRIQSTN'
           );
-	
-        
+
+
         setTimeout(function () {
             // Try to read initial values
             for (var i = 0; i < datapoints.length; i++) {
@@ -603,29 +603,29 @@ function main() {
     });
 
     eiscp.on('close', function () {
-        adapter.log.info("AVR disconnected");
-        adapter.setState("connected", {val: false, ack: true});
+        adapter.log.info('AVR disconnected');
+        adapter.setState('Device.connected', {val: false, ack: true});
     });
 
     eiscp.on("data", function (cmd) {
         adapter.log.debug('Got message: ' + JSON.stringify(cmd));
         adapter.log.debug('EISCP String: ' + cmd.iscp_command);
     // Here we go to select the RAW feedback and take it to the right variable. The RAW is in cmd.iscp_command
-  
+
         var chunk = cmd.iscp_command.substr(0,3);
-        var string = 	cmd.iscp_command.substr(3,80);
+        var string = cmd.iscp_command.substr(3,80);
 
         // If a string don't comes clean from eiscp happens on NLAX....
         if (string.includes("ISCP")) {
          string = string.substring(0, (string.indexOf('ISCP')))
-                                    }        
- 
+                                    }
+
         adapter.log.debug('chunk: ' + chunk);
-        adapter.log.debug('string: ' + string); 
+        adapter.log.debug('string: ' + string);
 
 	// SET command with received info
 	adapter.setState (adapter.namespace + '.' + 'Device.command', {val: cmd.iscp_command, ack: true});
-   
+
      //Onkyo_Power_Zone1
     if (chunk == 'PWR')  {
       string = parseInt(string);                   //convert string to integer
@@ -634,7 +634,7 @@ function main() {
                         }
     if (string == '0') {
       adapter.setState (adapter.namespace + '.' + 'Zone1.Power', {val: false, ack: true});
-                        }                                              
+                        }
                     }
      //Onkyo_Power_Zone2
     if (chunk == 'ZPW')  {
@@ -644,7 +644,7 @@ function main() {
                         }
     if (string == '0') {
       adapter.setState (adapter.namespace + '.' + 'Zone2.Power', {val: false, ack: true});
-                        } 
+                        }
                     }
      //Onkyo_Power_Zone3
     if (chunk == 'PW3')  {
@@ -654,12 +654,12 @@ function main() {
                         }
     if (string == '0') {
       adapter.setState (adapter.namespace + '.' + 'Zone3.Power', {val: false, ack: true});
-                        } 
-                    } 
+                        }
+                    }
  //Audio information
-      if (chunk == 'IFA')  {  
+      if (chunk == 'IFA')  {
       adapter.setState (adapter.namespace + '.' + 'Device.AudioInformation', {val: string, ack: true});
-                    }                    
+                    }
     //Net Play Status
       if (chunk == 'NST')  {
         var nst_play = string.substr(0,1);         //Play status    (S=Stop,P=Play,p=pause,F,FF,R,FR)
@@ -667,7 +667,7 @@ function main() {
         var nst_shuffle = string.substr(2,1);      //Shuffle status (-=Off,S=All,A=Album,F=Folder)
 		//NET_Play_Status
 		switch (nst_play) {
-			case 'S' : 
+			case 'S' :
 				adapter.setState (adapter.namespace + '.' + 'Device.MediaStop', {val: true, ack: true});
 				// set other false
 				adapter.setState (adapter.namespace + '.' + 'Device.MediaPlay', {val: false, ack: true});
@@ -677,8 +677,8 @@ function main() {
 				adapter.setState (adapter.namespace + '.' + 'Device.MediaReverse', {val: false, ack: true});
 				adapter.setState (adapter.namespace + '.' + 'Device.MediaFastReverse', {val: false, ack: true});
 			break;
-			
-			case 'P' : 
+
+			case 'P' :
 				adapter.setState (adapter.namespace + '.' + 'Device.MediaPlay', {val: true, ack: true});
 				// set other false
 				adapter.setState (adapter.namespace + '.' + 'Device.MediaStop', {val: false, ack: true});
@@ -688,8 +688,8 @@ function main() {
 				adapter.setState (adapter.namespace + '.' + 'Device.MediaReverse', {val: false, ack: true});
 				adapter.setState (adapter.namespace + '.' + 'Device.MediaFastReverse', {val: false, ack: true});
 			break;
-			
-			case 'p' : 
+
+			case 'p' :
 				adapter.setState (adapter.namespace + '.' + 'Device.MediaPause', {val: true, ack: true});
 				// set other false
 				adapter.setState (adapter.namespace + '.' + 'Device.MediaStop', {val: false, ack: true});
@@ -699,8 +699,8 @@ function main() {
 				adapter.setState (adapter.namespace + '.' + 'Device.MediaReverse', {val: false, ack: true});
 				adapter.setState (adapter.namespace + '.' + 'Device.MediaFastReverse', {val: false, ack: true});
 			break;
-			
-			case 'F' : 
+
+			case 'F' :
 				adapter.setState (adapter.namespace + '.' + 'Device.MediaForward', {val: true, ack: true});
 				// set other false
 				adapter.setState (adapter.namespace + '.' + 'Device.MediaStop', {val: false, ack: true});
@@ -710,7 +710,7 @@ function main() {
 				adapter.setState (adapter.namespace + '.' + 'Device.MediaReverse', {val: false, ack: true});
 				adapter.setState (adapter.namespace + '.' + 'Device.MediaFastReverse', {val: false, ack: true});
 			break;
-			
+
 			case 'FF' :
 				adapter.setState (adapter.namespace + '.' + 'Device.MediaFastForward', {val: true, ack: true});
 				// set other false
@@ -721,7 +721,7 @@ function main() {
 				adapter.setState (adapter.namespace + '.' + 'Device.MediaReverse', {val: false, ack: true});
 				adapter.setState (adapter.namespace + '.' + 'Device.MediaFastReverse', {val: false, ack: true});
 			break;
-		
+
 			case 'R' :
 				adapter.setState (adapter.namespace + '.' + 'Device.MediaReverse', {val: true, ack: true});
 				// set other false
@@ -732,7 +732,7 @@ function main() {
 				adapter.setState (adapter.namespace + '.' + 'Device.MediaFastForward', {val: false, ack: true});
 				adapter.setState (adapter.namespace + '.' + 'Device.MediaFastReverse', {val: false, ack: true});
 			break;
-		
+
 			case 'FR' :
 				adapter.setState (adapter.namespace + '.' + 'Device.MediaFastReverse', {val: true, ack: true});
 				// set other false
@@ -744,9 +744,9 @@ function main() {
 				adapter.setState (adapter.namespace + '.' + 'Device.MediaReverse', {val: false, ack: true});
 			break;
     }
-		
+
 		switch (nst_repeat) {
-			case '-' : 	
+			case '-' :
 				adapter.setState (adapter.namespace + '.' + 'Device.MediaState', {val: 'Off', ack: true});
 				adapter.setState (adapter.namespace + '.' + 'Device.MediaRepeat', {val: false, ack: true});
 				break;
@@ -763,7 +763,7 @@ function main() {
 				adapter.setState (adapter.namespace + '.' + 'Device.MediaRepeat', {val: true, ack: true});
 				break;
       }
-			
+
 		switch (nst_shuffle) {
 			case '-' :
 				adapter.setState (adapter.namespace + '.' + 'Device.MediaModeShuffleStatus', {val: 'Off', ack: true});
@@ -781,11 +781,11 @@ function main() {
 				adapter.setState (adapter.namespace + '.' + 'Device.MediaModeShuffleStatus', {val: 'Folder', ack: true});
 				adapter.setState (adapter.namespace + '.' + 'Device.MediaModeShuffle', {val: '1', ack: true});
 				break;
-			}	
-        
+			}
+
         adapter.setState (adapter.namespace + '.' + 'NET_Shuffle_Status', {val: nst_shuffle, ack: true});
                           }
-               
+
 
 
     //Onkyo_Audio_Mute_Zone1
@@ -797,47 +797,47 @@ function main() {
           if (string == '0') {
       adapter.setState (adapter.namespace + '.' + 'Zone1.Mute', {val: false, ack: true});
                         }
-                      }                              
- 
+                      }
+
   //Onkyo_Audio_Mute_Zone2
       if (chunk == 'ZMT')  {
-        string = parseInt(string);                  //convert string to integer  
+        string = parseInt(string);                  //convert string to integer
           if (string == '1') {
       adapter.setState (adapter.namespace + '.' + 'Zone2.Mute', {val: true, ack: true});
                         }
           if (string == '0') {
       adapter.setState (adapter.namespace + '.' + 'Zone2.Mute', {val: false, ack: true});
-                        } 
+                        }
                     }
 
   //Onkyo_Audio_Mute_Zone3
       if (chunk == 'MT3')  {
-        string = parseInt(string);                  //convert string to integer  
+        string = parseInt(string);                  //convert string to integer
           if (string == '1') {
       adapter.setState (adapter.namespace + '.' + 'Zone3.Mute', {val: true, ack: true});
                         }
           if (string == '0') {
       adapter.setState (adapter.namespace + '.' + 'Zone3.Mute', {val: false, ack: true});
-                        } 
+                        }
                     }
 
   //Onkyo_Input_Select_Zone1  (hex)
       if (chunk == 'SLI')  {
-        string = string.substr(0,2)        
+        string = string.substr(0,2)
         adapter.setState (adapter.namespace + '.' + 'Zone1.InputSelect', {val: string, ack: true});
                     }
   //Onkyo_Input_Select_Zone2  (hex)
       if (chunk == 'SLZ')  {
-        string = string.substr(0,2)  
+        string = string.substr(0,2)
         adapter.setState (adapter.namespace + '.' + 'Zone2.InputSelect', {val: string, ack: true});
                     }
   //Onkyo_Input_Select_Zone3  (hex)
       if (chunk == 'SL3')  {
-        string = string.substr(0,2)  
+        string = string.substr(0,2)
         adapter.setState (adapter.namespace + '.' + 'Zone3.InputSelect', {val: string, ack: true});
                     }
 
-  //Onkyo_Internet_Radio_Preset_Zone1 
+  //Onkyo_Internet_Radio_Preset_Zone1
       if (chunk == 'NPR')  {
         string = parseInt(string, 16);              //convert hex to decimal
         adapter.setState (adapter.namespace + '.' + 'Zone1.NetRadioPreset', {val: string, ack: true});
@@ -855,10 +855,10 @@ function main() {
 
   //Listening_Mode
       if (chunk == 'LMD')  {
-        string = string.substr(0,2)  
+        string = string.substr(0,2)
         adapter.setState (adapter.namespace + '.' + 'Device.ListeningMode', {val: string, ack: true});
-                    }                    
-                        
+                    }
+
   //Onkyo_NET/USB_Album_Name_Info
       if (chunk == 'NAL')  {
         adapter.setState (adapter.namespace + '.' + 'Device.MediaAlbumName', {val: string, ack: true});
@@ -881,7 +881,7 @@ function main() {
         time_1 = parseInt(time_1) * 60 ;
         var time_2 = string.substr(9,2);                 // time
         time_2 = parseInt(time_2);
-        var time = time_1 + time_2 ;              
+        var time = time_1 + time_2 ;
         adapter.setState (adapter.namespace + '.' + 'Device.MediaTimeCurrent', {val: time_current, ack: true});
         adapter.setState (adapter.namespace + '.' + 'Device.MediaTime', {val: time, ack: true});
                     }
@@ -917,12 +917,12 @@ function main() {
         string = parseInt(string) / 100;            //set dot for decimal
         adapter.setState (adapter.namespace + '.' + 'Zone1.Tune', {val: string, ack: true});
                     }
-  //Onkyo_Tuning_Zone2                    
+  //Onkyo_Tuning_Zone2
       if (chunk == 'TUZ')  {
         string = parseInt(string) / 100;            //set dot for decimal
         adapter.setState (adapter.namespace + '.' + 'Zone2.Tune', {val: string, ack: true});
                     }
-  //Onkyo_Tuning_Zone3                    
+  //Onkyo_Tuning_Zone3
       if (chunk == 'TU3')  {
         string = parseInt(string) / 100;            //set dot for decimal
         adapter.setState (adapter.namespace + '.' + 'Zone3.Tune', {val: string, ack: true});
@@ -931,7 +931,7 @@ function main() {
   //Video_information
       if (chunk == 'IFV')  {
         adapter.setState (adapter.namespace + '.' + 'Device.VideoInformation', {val: string, ack: true});
-                    }  
+                    }
 
   //Onkyo_Volume_Zone1
       if (chunk == 'MVL')  {
@@ -948,7 +948,7 @@ function main() {
         string = parseInt(string, 16);              //convert hex to decimal
         adapter.setState (adapter.namespace + '.' + 'Zone3.Volume', {val: string, ack: true});
                     }
-					
+
   //Onkyo_AVR_INFO (xml)
    if (chunk == 'NRI') {
      adapter.setState (adapter.namespace + '.' + 'Device.NavInfo', {val: (cmd.iscp_command).slice(3, -3), ack: true});
@@ -968,18 +968,18 @@ function main() {
       adapter.log.debug('Adapter SET NavListInfo: ' + ((cmd.iscp_command).slice(12).substring(0, ((cmd.iscp_command).slice(12).indexOf('</response>'))+11)));
                         }
 
-	
+
   //Onkyo_Cover_Transfer (base64 coded in HEX)
     if (chunk == 'NJA') {
     var covertype = string.substr(0,1)
     adapter.log.debug('Covertype: ' + covertype);
       if (covertype == '0') {
-        var image_type = 'bmp';       
+        var image_type = 'bmp';
                           }
       if (covertype == '1') {
         var image_type = 'jpg';
                           }
-    
+
     var packetflag = string.substr(1,1)
     adapter.log.debug('packetflag: ' + packetflag);
       if (packetflag == '0') {
@@ -994,17 +994,17 @@ function main() {
         var img = '<img width="100%" height="100%" title="" alt="cross" src="data:image/' + image_type + ';base64,' + imageb64 +'">';
 		var coverurl = '/vis/CoverImage.' + image_type;
 		adapter.setState (adapter.namespace + '.' + 'Device.CoverURL', {val: coverurl, ack: true});
-        adapter.setState (adapter.namespace + '.' + 'Device.CoverBase64', {val: img, ack: true});  
+        adapter.setState (adapter.namespace + '.' + 'Device.CoverBase64', {val: img, ack: true});
 			// safe bas64 data to file
 			fs.writeFileSync('/opt/iobroker/iobroker-data/files/vis/CoverImage.' + image_type, imageb64, {encoding: 'base64'}, function(err) {
 			adapter.log.debug('Cover file created');
 			});
-			
+
                             }
                         }
-						
-	 					
-	
+
+
+
     //Onkyo Navigation on "Network-Mode"
       if (chunk == 'NLT')  {
         var string_nlt = string.substr(22,40);
@@ -1024,12 +1024,12 @@ function main() {
           adapter.setState (adapter.namespace + '.' + 'Device.RAW', {val: 'NLAL' + sequenz + string.substr(12,2) + '0000' + string.substr(8,4)});
                                         }
         else if (string.substr(0,3) == '112') {
-          adapter.setState (adapter.namespace + '.' + 'Device.RAW', {val: 'NTCRETURN'}); 
+          adapter.setState (adapter.namespace + '.' + 'Device.RAW', {val: 'NTCRETURN'});
                                               }
-                          
-                          } 
-}); 						  
-   
+
+                          }
+});
+
 
     eiscp.on("debug", function (message) {
         adapter.log.debug(message);
