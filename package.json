@@ -1,15 +1,76 @@
 {
-  "name": "iobroker.onkyo",
-  "version": "2.0.3",
-  "description": "Control Onkyo AVRs with EISCP protocol from ioBroker",
-  "author": "Oliver Wagner <owagner@tellerulam.com>",
-  "contributors": [
-    "Oliver Wagner <owagner@tellerulam.com>",
-    "bluefox <bluefox@ccu.io>",
-    "Lars Weimar <Eisbaeeer@gmail.com>"
+  "_args": [
+    [
+      "iobroker.onkyo@2.0.4",
+      "/opt/iobroker"
+    ]
   ],
+  "_from": "iobroker.onkyo@2.0.4",
+  "_id": "iobroker.onkyo@2.0.4",
+  "_inBundle": false,
+  "_integrity": "sha512-U1TF+lfxtQ8Py0DmaQXOMuu+8SKOACIva4H88eMCe34TtcrH9+jI37/PKDPw0V0/MMcDEpIrtGDA9sU1xuvyQg==",
+  "_location": "/iobroker.onkyo",
+  "_phantomChildren": {
+    "@types/node": "14.14.28"
+  },
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "iobroker.onkyo@2.0.4",
+    "name": "iobroker.onkyo",
+    "escapedName": "iobroker.onkyo",
+    "rawSpec": "2.0.4",
+    "saveSpec": null,
+    "fetchSpec": "2.0.4"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/iobroker.onkyo/-/iobroker.onkyo-2.0.4.tgz",
+  "_spec": "2.0.4",
+  "_where": "/opt/iobroker",
+  "author": {
+    "name": "Oliver Wagner",
+    "email": "owagner@tellerulam.com"
+  },
+  "bugs": {
+    "url": "https://github.com/iobroker/ioBroker.onkyo/issues"
+  },
+  "contributors": [
+    {
+      "name": "Oliver Wagner",
+      "email": "owagner@tellerulam.com"
+    },
+    {
+      "name": "bluefox",
+      "email": "bluefox@ccu.io"
+    },
+    {
+      "name": "Lars Weimar",
+      "email": "Eisbaeeer@gmail.com"
+    }
+  ],
+  "dependencies": {
+    "@iobroker/adapter-core": "^1.0.3",
+    "eiscp": "https://github.com/GermanBluefox/node-eiscp/tarball/master/",
+    "xml2js": "^0.4.19"
+  },
+  "description": "Control Onkyo AVRs with EISCP protocol from ioBroker",
+  "devDependencies": {
+    "@iobroker/testing": "^1.1.10",
+    "chai": "^4.1.2",
+    "grunt": "^1.0.1",
+    "grunt-contrib-clean": "^1.1.0",
+    "grunt-contrib-compress": "^1.4.3",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-exec": "^3.0.0",
+    "grunt-http": "^2.2.0",
+    "grunt-jscs": "^3.0.1",
+    "grunt-replace": "^1.0.1",
+    "mocha": "^6.0.2"
+  },
   "homepage": "https://github.com/iobroker/ioBroker.onkyo",
-  "license": "MIT",
   "keywords": [
     "ioBroker",
     "onkyo",
@@ -17,38 +78,18 @@
     "homematic",
     "home automation"
   ],
+  "license": "MIT",
+  "main": "main.js",
+  "name": "iobroker.onkyo",
   "repository": {
     "type": "git",
-    "url": "https://github.com/iobroker/ioBroker.onkyo"
-  },
-  "dependencies": {
-    "xml2js": "^0.4.19",
-    "eiscp": "https://github.com/GermanBluefox/node-eiscp/tarball/master/",
-    "@iobroker/adapter-core": "^1.0.3"
-  },
-  "devDependencies": {
-    "grunt": "^1.0.1",
-    "grunt-replace": "^1.0.1",
-    "grunt-contrib-jshint": "^1.1.0",
-    "grunt-jscs": "^3.0.1",
-    "grunt-http": "^2.2.0",
-    "grunt-contrib-clean": "^1.1.0",
-    "grunt-contrib-compress": "^1.4.3",
-    "grunt-contrib-copy": "^1.0.0",
-    "grunt-exec": "^3.0.0",
-    "mocha": "^6.0.2",
-    "chai": "^4.1.2",
-    "@iobroker/testing": "^1.1.10"
-  },
-  "main": "main.js",
-  "bugs": {
-    "url": "https://github.com/iobroker/ioBroker.onkyo/issues"
+    "url": "git+https://github.com/iobroker/ioBroker.onkyo.git"
   },
   "scripts": {
     "test": "npm run test:package && npm run test:unit",
+    "test:integration": "mocha test/integration --exit",
     "test:package": "mocha test/package --exit",
-    "test:unit": "mocha test/unit --exit",
-    "test:integration": "mocha test/integration --exit"
+    "test:unit": "mocha test/unit --exit"
   },
-  "readmeFilename": "README.md"
+  "version": "2.0.4"
 }
