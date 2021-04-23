@@ -1,63 +1,67 @@
 {
   "common": {
     "name": "onkyo",
-    "version": "2.0.3",
-	"news": {
-			"2.0.3": {
+    "version": "2.0.4",
+    "news": {
+            "2.0.4": {
+                "en": "fixed some object issues",
+                "de": "Fehlerkorrektur"
+                },
+            "2.0.3": {
                 "en": "now support zone3",
                 "de": "Unterstützung Zone3"
-				},
-			"2.0.2": {
+                },
+            "2.0.2": {
                 "en": "fix double .js",
                 "de": "Doppelte .js entfernt"
-				},
-			"2.0.1": {
+                },
+            "2.0.1": {
                 "en": "Major version - structure changes!",
                 "de": "Strukturänderungen!"
-				},
-			"1.1.5": {
+                },
+            "1.1.5": {
                 "en": "Zones will be powered if tune preset selected",
                 "de": "Bei Auswahl der Radio Presets werden jetzt die entsprechenden Zonen eingeschaltet"
-				},
-			"1.1.4": {
+                },
+            "1.1.4": {
                 "en": "Added direct tuning in zones. issue #2",
                 "de": "Direkte Eingabe der Radio Frequenz möglich. issue #2"
-				},
-			"1.1.3": {
+                },
+            "1.1.3": {
                 "en": "Adding Navigation",
                 "de": "Navigation hinzugefügt"
-				},
+                },
             "1.1.2": {
                 "en": "Adding CoverArt",
                 "de": "CoverArt hinzugefügt"
-				},
-			"1.1.1": {
+                },
+            "1.1.1": {
                 "en": "Update volume zone2 after power on. Adding Pioneer receivers with EISCP support.",
                 "de": "Volume Zone 2 nach dem Einschalten aktualisieren. Pionneer Receiver support für EISCP fähige Geräte."
-				},
-			"1.1.0": {
+                },
+            "1.1.0": {
                 "en": "Completely new structured",
                 "de": "Neue Objekt Struktur"
-				},
-			"1.0.5": {
+                },
+            "1.0.5": {
                 "en": "Now only VIS supported",
                 "de": "Jetzt wird nur noch VIS unterstützt"
-				},
-			"1.0.4": {
+                },
+            "1.0.4": {
                 "en": "clean objects",
                 "de": "Aufgeräumt"
-				},
-			"1.0.3": {
+                },
+            "1.0.3": {
                 "en": "clean error log",
                 "de": "Error log säubern"
-				},
-			"0.2.1": {
+                },
+            "0.2.1": {
                 "en": "stable before",
                 "de": "Stableversion früher"
-				}
+                }
             },
     "title": "Onkyo Pioneer EISCP - VIS",
-	"titleLang": {
+    "titleLang": {
             "en": "Onkyo Pioneer EISCP - VIS compatible",
             "de": "Onkyo Pioneer EISCP - VIS kompatibel"
         },
@@ -72,66 +76,61 @@
     "platform": "Javascript/Node.js",
     "mode": "daemon",
     "materialize":  true,
-    "loglevel":     "info", 
+    "loglevel":     "info",
     "icon": "onkyo.png",
     "enabled": true,
     "extIcon": "https://raw.githubusercontent.com/iobroker/ioBroker.onkyo/master/admin/onkyo.png",
     "keywords": [
       "Onkyo",
-	  "Pioneer",
+      "Pioneer",
       "AVR",
-	  "eiscp"
+      "eiscp"
     ],
     "readme": "https://github.com/iobroker/ioBroker.onkyo/blob/master/README.md",
     "type": "multimedia",
-	"license": "MIT"
+    "license": "MIT"
   },
   "native": {
         "avrAddress":  "",
         "avrPort": 60128,
-		"maxvolzone1": 40,
-		"maxvolzone2":40
+        "maxvolzone1": 40,
+        "maxvolzone2":40
     },
   "objects": [],
 "instanceObjects": [
-		{
+        {
             "_id": "Zone1",
-            "type": "object",
+            "type": "channel",
             "common": {
-                "name":  "Zone1",
-                "type":  "object",
-                "role":  "",
-                "read":  true,
-                "write": false,
-                "def":   ""
+                "name":  "Zone1"
             },
             "native": {
                 "command": "Zone1"
             }
         },
-		{
+        {
             "_id": "Zone1.Power",
             "type": "state",
             "common": {
                 "name":  "Power",
                 "type":  "boolean",
-                "role":  "switch.power.zone",
+                "role":  "switch",
                 "read":  true,
                 "write": true
             }
         },
-		{
+        {
             "_id": "Zone1.Volume",
             "type": "state",
             "common": {
                 "name":  "Volume",
-                "type":  "string",
+                "type":  "number",
                 "role":  "level.volume",
                 "read":  true,
                 "write": true
             }
         },
-		{
+        {
             "_id": "Zone1.Tune",
             "type": "state",
             "common": {
@@ -142,7 +141,7 @@
                 "write": true
             }
         },
-		{
+        {
             "_id": "Zone1.NetRadioPreset",
             "type": "state",
             "common": {
@@ -153,7 +152,7 @@
                 "write": true
             }
         },
-		{
+        {
             "_id": "Zone1.InputSelect",
             "type": "state",
             "common": {
@@ -164,18 +163,18 @@
                 "write": true
             }
         },
-		{
+        {
             "_id": "Zone1.Mute",
             "type": "state",
             "common": {
                 "name":  "Input Mute",
-                "type":  "string",
-                "role":  "media.mute",
+                "type":  "boolean",
+                "role":  "switch",
                 "read":  true,
                 "write": true
             }
         },
-		{
+        {
             "_id": "Zone1.TunerPreset",
             "type": "state",
             "common": {
@@ -186,23 +185,18 @@
                 "write": true
             }
         },
-		
-		{
+
+        {
             "_id": "Zone2",
-            "type": "object",
+            "type": "channel",
             "common": {
-                "name":  "Zone2",
-                "type":  "object",
-                "role":  "",
-                "read":  true,
-                "write": false,
-                "def":   ""
+                "name":  "Zone2"
             },
             "native": {
                 "command": "Zone2"
             }
         },
-		{
+        {
             "_id": "Zone2.Power",
             "type": "state",
             "common": {
@@ -213,7 +207,7 @@
                 "write": true
             }
         },
-		{
+        {
             "_id": "Zone2.Volume",
             "type": "state",
             "common": {
@@ -224,7 +218,7 @@
                 "write": true
             }
         },
-		{
+        {
             "_id": "Zone2.Tune",
             "type": "state",
             "common": {
@@ -235,7 +229,7 @@
                 "write": true
             }
         },
-		{
+        {
             "_id": "Zone2.NetRadioPreset",
             "type": "state",
             "common": {
@@ -246,7 +240,7 @@
                 "write": true
             }
         },
-		{
+        {
             "_id": "Zone2.InputSelect",
             "type": "state",
             "common": {
@@ -257,7 +251,7 @@
                 "write": true
             }
         },
-		{
+        {
             "_id": "Zone2.Mute",
             "type": "state",
             "common": {
@@ -268,7 +262,7 @@
                 "write": true
             }
         },
-		{
+        {
             "_id": "Zone2.TunerPreset",
             "type": "state",
             "common": {
@@ -279,22 +273,17 @@
                 "write": true
             }
         },
-		{
+        {
             "_id": "Zone3",
-            "type": "object",
+            "type": "channel",
             "common": {
-                "name":  "Zone3",
-                "type":  "object",
-                "role":  "",
-                "read":  true,
-                "write": false,
-                "def":   ""
+                "name":  "Zone3"
             },
             "native": {
                 "command": "Zone3"
             }
         },
-		{
+        {
             "_id": "Zone3.Power",
             "type": "state",
             "common": {
@@ -305,7 +294,7 @@
                 "write": true
             }
         },
-		{
+        {
             "_id": "Zone3.Volume",
             "type": "state",
             "common": {
@@ -316,7 +305,7 @@
                 "write": true
             }
         },
-		{
+        {
             "_id": "Zone3.Tune",
             "type": "state",
             "common": {
@@ -327,7 +316,7 @@
                 "write": true
             }
         },
-		{
+        {
             "_id": "Zone3.NetRadioPreset",
             "type": "state",
             "common": {
@@ -338,7 +327,7 @@
                 "write": true
             }
         },
-		{
+        {
             "_id": "Zone3.InputSelect",
             "type": "state",
             "common": {
@@ -349,7 +338,7 @@
                 "write": true
             }
         },
-		{
+        {
             "_id": "Zone3.Mute",
             "type": "state",
             "common": {
@@ -360,7 +349,7 @@
                 "write": true
             }
         },
-		{
+        {
             "_id": "Zone3.TunerPreset",
             "type": "state",
             "common": {
@@ -371,7 +360,7 @@
                 "write": true
             }
         },
-		{
+        {
             "_id": "Device",
             "type": "device",
             "common": {
@@ -386,7 +375,7 @@
                 "command": "Device"
             }
         },
-		{
+        {
             "_id": "Device.ListeningMode",
             "type": "state",
             "common": {
@@ -401,7 +390,7 @@
                 "command": "ListeningMode"
             }
         },
-		{
+        {
             "_id": "Device.AudioInformation",
             "type": "state",
             "common": {
@@ -416,7 +405,7 @@
                 "command": "AudioInformation"
             }
         },
-		{
+        {
             "_id": "Device.VideoInformation",
             "type": "state",
             "common": {
@@ -431,7 +420,7 @@
                 "command": "VideoInformation"
             }
         },
-		{
+        {
             "_id": "Device.MediaArtistNameInfo",
             "type": "state",
             "common": {
@@ -446,7 +435,7 @@
                 "command": "MediaArtistNameInfo"
             }
         },
-		{
+        {
             "_id": "Device.MediaTitelName",
             "type": "state",
             "common": {
@@ -461,7 +450,7 @@
                 "command": "MediaTitelName"
             }
         },
-		{
+        {
             "_id": "Device.MediaTimeInfo",
             "type": "state",
             "common": {
@@ -476,7 +465,7 @@
                 "command": "MediaTimeInfo"
             }
         },
-		{
+        {
             "_id": "Device.MediaTimeCurrent",
             "type": "state",
             "common": {
@@ -491,7 +480,7 @@
                 "command": "MediaTimeCurrent"
             }
         },
-		{
+        {
             "_id": "Device.MediaTime",
             "type": "state",
             "common": {
@@ -506,7 +495,7 @@
                 "command": "MediaTime"
             }
         },
-		{
+        {
             "_id": "Device.MediaAlbumName",
             "type": "state",
             "common": {
@@ -521,7 +510,7 @@
                 "command": "MediaAlbumName"
             }
         },
-		{
+        {
             "_id": "Device.MediaTrack",
             "type": "state",
             "common": {
@@ -536,7 +525,7 @@
                 "command": "MediaTrack"
             }
         },
-		{
+        {
             "_id": "Device.MediaStop",
             "type": "state",
             "common": {
@@ -551,7 +540,7 @@
                 "command": "MediaStop"
             }
         },
-		{
+        {
             "_id": "Device.MediaPlay",
             "type": "state",
             "common": {
@@ -566,7 +555,7 @@
                 "command": "MediaPlay"
             }
         },
-		{
+        {
             "_id": "Device.MediaPause",
             "type": "state",
             "common": {
@@ -581,7 +570,7 @@
                 "command": "MediaPause"
             }
         },
-		{
+        {
             "_id": "Device.MediaForward",
             "type": "state",
             "common": {
@@ -596,7 +585,7 @@
                 "command": "MediaForward"
             }
         },
-		{
+        {
             "_id": "Device.MediaFastForward",
             "type": "state",
             "common": {
@@ -611,7 +600,7 @@
                 "command": "MediaFastForward"
             }
         },
-		{
+        {
             "_id": "Device.MediaReverse",
             "type": "state",
             "common": {
@@ -626,7 +615,7 @@
                 "command": "MediaReverse"
             }
         },
-		{
+        {
             "_id": "Device.MediaFastReverse",
             "type": "state",
             "common": {
@@ -641,7 +630,7 @@
                 "command": "MediaFastReverse"
             }
         },
-		{
+        {
             "_id": "Device.MediaRepeat",
             "type": "state",
             "common": {
@@ -656,12 +645,12 @@
                 "command": "MediaRepeat"
             }
         },
-		{
+        {
             "_id": "Device.MediaState",
             "type": "state",
             "common": {
                 "name":  "Media State",
-                "type":  "text",
+                "type":  "string",
                 "role":  "media.state",
                 "read":  true,
                 "write": false,
@@ -671,7 +660,7 @@
                 "command": "MediaState"
             }
         },
-		{
+        {
             "_id": "Device.MediaModeShuffle",
             "type": "state",
             "common": {
@@ -686,7 +675,7 @@
                 "command": "MediaModeShuffle"
             }
         },
-		{
+        {
             "_id": "Device.MediaModeShuffleStatus",
             "type": "state",
             "common": {
@@ -701,7 +690,7 @@
                 "command": "MediaModeShuffleStatus"
             }
         },
-		{
+        {
             "_id": "Device.MediaTrackUp",
             "type": "state",
             "common": {
@@ -713,7 +702,7 @@
                 "def":   "-"
             }
         },
-		{
+        {
             "_id": "Device.MediaTrackDown",
             "type": "state",
             "common": {
@@ -725,7 +714,7 @@
                 "def":   "-"
             }
         },
-		{
+        {
             "_id": "Device.MediaRight",
             "type": "state",
             "common": {
@@ -737,7 +726,7 @@
                 "def":   "-"
             }
         },
-		{
+        {
             "_id": "Device.MediaLeft",
             "type": "state",
             "common": {
@@ -749,7 +738,7 @@
                 "def":   "-"
             }
         },
-		{
+        {
             "_id": "Device.MediaUp",
             "type": "state",
             "common": {
@@ -761,7 +750,7 @@
                 "def":   "-"
             }
         },
-		{
+        {
             "_id": "Device.MediaDown",
             "type": "state",
             "common": {
@@ -773,7 +762,7 @@
                 "def":   "-"
             }
         },
-		{
+        {
             "_id": "Device.MediaSelect",
             "type": "state",
             "common": {
@@ -785,7 +774,7 @@
                 "def":   "-"
             }
         },
-		{
+        {
             "_id": "Device.MediaDelete",
             "type": "state",
             "common": {
@@ -797,7 +786,7 @@
                 "def":   "-"
             }
         },
-		{
+        {
             "_id": "Device.MediaReturn",
             "type": "state",
             "common": {
@@ -809,7 +798,7 @@
                 "def":   "-"
             }
         },
-		{
+        {
             "_id": "Device.MediaMenu",
             "type": "state",
             "common": {
@@ -821,7 +810,7 @@
                 "def":   "-"
             }
         },
-		{
+        {
             "_id": "Device.MediaTop",
             "type": "state",
             "common": {
@@ -833,31 +822,31 @@
                 "def":   "-"
             }
         },
-		{
+        {
             "_id": "Device.CoverBase64",
             "type": "state",
             "common": {
                 "name":  "Cover Base64",
-                "type":  "media.cover",
-                "role":  "state",
+                "type":  "string",
+                "role":  "media.cover",
                 "read":  true,
                 "write": false,
                 "def":   ""
             }
         },
-		{
+        {
             "_id": "Device.CoverURL",
             "type": "state",
             "common": {
                 "name":  "Cover URL",
-                "type":  "media.cover",
-                "role":  "state",
+                "type":  "string",
+                "role":  "media.cover",
                 "read":  true,
                 "write": false,
                 "def":   ""
             }
         },
-		{
+        {
             "_id": "Device.NavInfo",
             "type": "state",
             "common": {
@@ -869,7 +858,7 @@
                 "def":   ""
             }
         },
-		{
+        {
             "_id": "Device.NavSequence",
             "type": "state",
             "common": {
@@ -881,7 +870,7 @@
                 "def":   ""
             }
         },
-		{
+        {
             "_id": "Device.NavListInfo",
             "type": "state",
             "common": {
@@ -893,7 +882,7 @@
                 "def":   ""
             }
         },
-		{
+        {
             "_id": "Device.Navigation",
             "type": "state",
             "common": {
@@ -905,7 +894,7 @@
                 "def":   ""
             }
         },
-		{
+        {
             "_id": "Device.NavPositionSumm",
             "type": "state",
             "common": {
@@ -917,7 +906,7 @@
                 "def":   ""
             }
         },
-		{
+        {
             "_id": "Device.NavCountItems",
             "type": "state",
             "common": {
@@ -929,7 +918,7 @@
                 "def":   ""
             }
         },
-		{
+        {
             "_id": "Device.NavLayer",
             "type": "state",
             "common": {
@@ -941,7 +930,7 @@
                 "def":   ""
             }
         },
-		{
+        {
             "_id": "Device.RAW",
             "type": "state",
             "common": {
@@ -956,7 +945,7 @@
                 "command": "RAW"
             }
         },
-		{
+        {
             "_id": "Device.command",
             "type": "state",
             "common": {
