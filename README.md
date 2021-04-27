@@ -41,7 +41,7 @@ Example of VIS view
 	### __WORK IN PROGRESS__
 -->
 ## ChangeLog   
-### __WORK IN PROGRESS__
+### 2.0.5 (2021-04-27)
 * (Diginix) fixed some object properties
 * (bluefox) Added the support of compact mode
 
