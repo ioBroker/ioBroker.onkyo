@@ -3,10 +3,10 @@
 /* jslint node: true */
 'use strict';
 
-const eiscp = require('eiscp');
-const xml2js = require('xml2js');
-const fs = require('fs');
-const parser = new xml2js.Parser({explicitArray: true});
+const eiscp       = require('eiscp');
+const xml2js      = require('xml2js');
+const fs          = require('fs');
+const parser      = new xml2js.Parser({explicitArray: true});
 const adapterName = require('./package.json').name.split('.').pop();
 
 // you have to require the adapter module and pass a options object
@@ -545,7 +545,7 @@ function startAdapter(options) {
 
 function decimalToHex(d, padding) {
     let hex = Number(d).toString(16);
-    padding = typeof (padding) === 'undefined' || padding === null ? padding = 2 : padding;
+    padding = typeof padding === 'undefined' || padding === null ? 2 : padding;
 
     while (hex.length < padding) {
         hex = '0' + hex;
