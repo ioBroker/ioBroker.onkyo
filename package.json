@@ -1,34 +1,4 @@
 {
-  "_args": [
-    [
-      "iobroker.onkyo@2.0.4",
-      "/opt/iobroker"
-    ]
-  ],
-  "_from": "iobroker.onkyo@2.0.4",
-  "_id": "iobroker.onkyo@2.0.4",
-  "_inBundle": false,
-  "_integrity": "sha512-U1TF+lfxtQ8Py0DmaQXOMuu+8SKOACIva4H88eMCe34TtcrH9+jI37/PKDPw0V0/MMcDEpIrtGDA9sU1xuvyQg==",
-  "_location": "/iobroker.onkyo",
-  "_phantomChildren": {
-    "@types/node": "14.14.28"
-  },
-  "_requested": {
-    "type": "version",
-    "registry": true,
-    "raw": "iobroker.onkyo@2.0.4",
-    "name": "iobroker.onkyo",
-    "escapedName": "iobroker.onkyo",
-    "rawSpec": "2.0.4",
-    "saveSpec": null,
-    "fetchSpec": "2.0.4"
-  },
-  "_requiredBy": [
-    "/"
-  ],
-  "_resolved": "https://registry.npmjs.org/iobroker.onkyo/-/iobroker.onkyo-2.0.4.tgz",
-  "_spec": "2.0.4",
-  "_where": "/opt/iobroker",
   "author": {
     "name": "Oliver Wagner",
     "email": "owagner@tellerulam.com"
@@ -51,24 +21,17 @@
     }
   ],
   "dependencies": {
-    "@iobroker/adapter-core": "^1.0.3",
+    "@iobroker/adapter-core": "^2.4.0",
     "eiscp": "https://github.com/GermanBluefox/node-eiscp/tarball/master/",
-    "xml2js": "^0.4.19"
+    "xml2js": "^0.4.23"
   },
   "description": "Control Onkyo AVRs with EISCP protocol from ioBroker",
   "devDependencies": {
-    "@iobroker/testing": "^1.1.10",
-    "chai": "^4.1.2",
-    "grunt": "^1.0.1",
-    "grunt-contrib-clean": "^1.1.0",
-    "grunt-contrib-compress": "^1.4.3",
-    "grunt-contrib-copy": "^1.0.0",
-    "grunt-contrib-jshint": "^1.1.0",
-    "grunt-exec": "^3.0.0",
-    "grunt-http": "^2.2.0",
-    "grunt-jscs": "^3.0.1",
-    "grunt-replace": "^1.0.1",
-    "mocha": "^6.0.2"
+    "@iobroker/testing": "^2.4.4",
+    "@alcalzone/release-script": "^1.9.0",
+    "chai": "^4.3.4",
+    "gulp": "^4.0.2",
+    "mocha": "^8.3.2"
   },
   "homepage": "https://github.com/iobroker/ioBroker.onkyo",
   "keywords": [
@@ -89,7 +52,8 @@
     "test": "npm run test:package && npm run test:unit",
     "test:integration": "mocha test/integration --exit",
     "test:package": "mocha test/package --exit",
-    "test:unit": "mocha test/unit --exit"
+    "test:unit": "mocha test/unit --exit",
+    "release": "node node_modules/@alcalzone/release-script/bin/release.js"
   },
   "version": "2.0.4"
 }
