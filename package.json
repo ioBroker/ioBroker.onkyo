@@ -54,5 +54,5 @@
     "test:package": "mocha test/package --exit",
     "release": "node node_modules/@alcalzone/release-script/bin/release.js"
   },
-  "version": "2.0.5"
+  "version": "2.0.6"
 }

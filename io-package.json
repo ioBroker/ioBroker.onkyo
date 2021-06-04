@@ -1,8 +1,12 @@
 {
     "common": {
         "name": "onkyo",
-        "version": "2.0.5",
+        "version": "2.0.6",
         "news": {
+            "2.0.6": {
+                "en": "fixed data types",
+                "de": "Datentypen korrigiert"
+            },
             "2.0.5": {
                 "en": "fixed some object properties\nAdded the support of compact mode",
                 "de": "Einige Objekteigenschaften wurden behoben\nUnterstützung des Kompaktmodus hinzugefügt",
@@ -169,7 +173,7 @@
             "type": "state",
             "common": {
                 "name": "Tune",
-                "type": "string",
+                "type": "number",
                 "role": "state",
                 "read": true,
                 "write": true
@@ -213,7 +217,7 @@
             "type": "state",
             "common": {
                 "name": "Tuner Preset",
-                "type": "string",
+                "type": "number",
                 "role": "state",
                 "read": true,
                 "write": true
@@ -245,7 +249,7 @@
             "type": "state",
             "common": {
                 "name": "Volume",
-                "type": "string",
+                "type": "number",
                 "role": "level.volume",
                 "read": true,
                 "write": true
@@ -256,7 +260,7 @@
             "type": "state",
             "common": {
                 "name": "Tune",
-                "type": "string",
+                "type": "number",
                 "role": "state",
                 "read": true,
                 "write": true
@@ -289,7 +293,7 @@
             "type": "state",
             "common": {
                 "name": "Input Mute",
-                "type": "string",
+                "type": "boolean",
                 "role": "media.mute",
                 "read": true,
                 "write": true
@@ -300,7 +304,7 @@
             "type": "state",
             "common": {
                 "name": "Tuner Preset",
-                "type": "string",
+                "type": "number",
                 "role": "state",
                 "read": true,
                 "write": true
@@ -332,7 +336,7 @@
             "type": "state",
             "common": {
                 "name": "Volume",
-                "type": "string",
+                "type": "number",
                 "role": "level.volume",
                 "read": true,
                 "write": true
@@ -343,7 +347,7 @@
             "type": "state",
             "common": {
                 "name": "Tune",
-                "type": "string",
+                "type": "number",
                 "role": "state",
                 "read": true,
                 "write": true
@@ -387,7 +391,7 @@
             "type": "state",
             "common": {
                 "name": "Tuner Preset",
-                "type": "string",
+                "type": "number",
                 "role": "state",
                 "read": true,
                 "write": true
@@ -503,7 +507,7 @@
             "type": "state",
             "common": {
                 "name": "Media Time Current",
-                "type": "string",
+                "type": "number",
                 "role": "media.elapsed.text",
                 "read": true,
                 "write": false,
@@ -518,7 +522,7 @@
             "type": "state",
             "common": {
                 "name": "Media Time",
-                "type": "string",
+                "type": "number",
                 "role": "media.elapsed.text",
                 "read": true,
                 "write": false,
@@ -698,7 +702,7 @@
             "type": "state",
             "common": {
                 "name": "Media Mode Shuffle",
-                "type": "number",
+                "type": "string",
                 "role": "media.mode.shuffle",
                 "read": true,
                 "write": false,
@@ -983,7 +987,7 @@
             "type": "state",
             "common": {
                 "name": "Command",
-                "type": "number",
+                "type": "string",
                 "role": "media.command",
                 "read": true,
                 "write": true,
