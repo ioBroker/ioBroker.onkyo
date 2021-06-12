@@ -21,6 +21,7 @@ let imageb64 = '';
 let connectionInterval = null;
 let devicePowerInterval = null;
 let waitForDevicePowerInfo = false;
+let unloading = false;
 
 const DATAPOINTS = [
     'PWRQSTN',
@@ -534,6 +535,7 @@ function startAdapter(options) {
         unload: callback => {
             adapter && adapter.setState && adapter.setState('info.connection', false, true);
             try {
+                unloading = true;
                 eiscp.close();
             } finally {
                 callback();
@@ -630,10 +632,12 @@ function main() {
         adapter.setState('Device.connected', false, true);
         adapter.setState('info.connection', false, true);
         clearInterval(devicePowerInterval);
-        connectionInterval = setInterval(() => {
-            // Connect to receiver
-            eiscp.connect(options);
-        }, 10000);
+        if (!unloading) {
+            connectionInterval = setInterval(() => {
+                // Connect to receiver
+                eiscp.connect(options);
+            }, 10000);
+        }
     });
 
     eiscp.on('data', cmd => {
