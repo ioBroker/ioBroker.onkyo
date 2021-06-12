@@ -18,6 +18,9 @@ const objects = {};
 // const xjs = '';
 let sequenz = '';
 let imageb64 = '';
+let connectionInterval = null;
+let devicePowerInterval = null;
+let waitForDevicePowerInfo = false;
 
 const DATAPOINTS = [
     'PWRQSTN',
@@ -554,6 +557,20 @@ function decimalToHex(d, padding) {
     return hex;
 }
 
+function devicePowerQuery() {
+    devicePowerInterval && clearInterval(devicePowerInterval);
+    devicePowerInterval = setInterval(() => {
+        if (waitForDevicePowerInfo) {
+            // We did not got an response from last interval, so device is offline
+            eiscp.close();
+            return;
+        }
+
+        eiscp.command('system-power=query');
+        waitForDevicePowerInfo = true;
+    }, 10000)
+}
+
 function main() {
     adapter.subscribeStates('*');
     adapter.setState('Device.connected', false, true);
@@ -587,9 +604,14 @@ function main() {
 
         // Connect to receiver
         eiscp.connect(options);
+        connectionInterval = setInterval(() => {
+            // Connect to receiver
+            eiscp.connect(options);
+        }, 10000);
     });
 
     eiscp.on('connect', () => {
+        clearInterval(connectionInterval);
         adapter.log.info('Successfully connected to AVR');
         adapter.setState('Device.connected', true, true);
         adapter.setState('info.connection', true, true);
@@ -607,10 +629,20 @@ function main() {
         adapter.log.info('AVR disconnected');
         adapter.setState('Device.connected', false, true);
         adapter.setState('info.connection', false, true);
+        clearInterval(devicePowerInterval);
+        connectionInterval = setInterval(() => {
+            // Connect to receiver
+            eiscp.connect(options);
+        }, 10000);
     });
 
     eiscp.on('data', cmd => {
         adapter.log.debug('Got message: ' + JSON.stringify(cmd));
+
+        if (waitForDevicePowerInfo && cmd.command === 'system-power' && cmd.zone === 'main') {
+            waitForDevicePowerInfo = false; // Reset
+        }
+
         adapter.log.debug('EISCP String: ' + cmd.iscp_command);
         // Here we go to select the RAW feedback and take it to the right variable. The RAW is in cmd.iscp_command
 

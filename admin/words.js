@@ -1,0 +1,12 @@
+/*global systemDictionary:true */
+'use strict';
+
+systemDictionary = {
+    "(leave empty for Autodiscovery)": {             "de": "(lass es leer für Autodiscovery)",                "ru": "(оставить пустым для автопоиска)"},
+    "(select for VIS compatibility)": {              "en": "Check this for VIS compatibility",                "de": "(F&uuml;r VIS Kompatibilität anhaken!)",          "ru": "Проверьте это на совместимость с VIS",            "pt": "Verifique isto para compatibilidade com VIS",     "nl": "Controleer dit op VIS-compatibiliteit",           "fr": "Vérifiez ceci pour la compatibilité VIS",         "it": "Controlla questo per la compatibilità VIS",       "es": "Compruebe esto para la compatibilidad con VIS",   "pl": "Sprawdź to pod kątem zgodności z VIS",            "zh-cn": "检查 VIS 兼容性"},
+    "AVR EISCP Port": {                              "de": "AVR EISCP Port",                                  "ru": "AVR EISCP порт"},
+    "Max Volume Zone1": {                            "en": "Max volume of zone1",                             "de": "Maximale Lautst&auml;rke Zone1",                  "ru": "Максимальный объем зоны 1",                       "pt": "Volume máximo da zona 1",                         "nl": "Max volume van zone1",                            "fr": "Volume max de la zone1",                          "it": "Volume massimo della zona1",                      "es": "Volumen máximo de zone1",                         "pl": "Maksymalna objętość strefy1",                     "zh-cn": "zone1 的最大体积"},
+    "Max Volume Zone2": {                            "en": "Max volume of zone2",                             "de": "Maximale Lautst&auml;rke Zone2",                  "ru": "Максимальный объем зоны 2",                       "pt": "Volume máximo da zona 2",                         "nl": "Maximaal volume van zone2",                       "fr": "Volume max de la zone2",                          "it": "Volume massimo della zona2",                      "es": "Volumen máximo de zone2",                         "pl": "Maksymalna objętość strefy2",                     "zh-cn": "zone2 的最大体积"},
+    "ONKYO adapter settings": {                      "de": "ONKYO Einstellungen",                             "ru": "ONKYO Настройки"},
+    "Onkyo AVR Address": {                           "de": "Onkyo AVR Adresse",                               "ru": "Onkyo AVR Адрес"},
+};

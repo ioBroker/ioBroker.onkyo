@@ -1,10 +1,13 @@
 ![Logo](admin/onkyo.png)
 # ioBroker.onkyo
 
-![Number of Installations](http://iobroker.live/badges/onkyo-installed.svg) ![Number of Installations](http://iobroker.live/badges/onkyo-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.onkyo.svg)](https://www.npmjs.com/package/iobroker.onkyo)
+![Number of Installations](http://iobroker.live/badges/onkyo-installed.svg)
+![Number of Installations](http://iobroker.live/badges/onkyo-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.onkyo.svg)](https://www.npmjs.com/package/iobroker.onkyo)
+
+![Test and Release](https://github.com/ioBroker/iobroker.onkyo/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/onkyo/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.onkyo.svg)](https://www.npmjs.com/package/iobroker.onkyo)
-[![Travis-CI](https://travis-ci.org/ioBroker/ioBroker.onkyo.svg?branch=master)](https://www.travis-ci.org/ioBroker/ioBroker.onkyo)   
-[![NPM](https://nodei.co/npm/iobroker.onkyo.png?downloads=true)](https://nodei.co/npm/iobroker.onkyo/)
 
 ### Major update!
 Take care of this major update. Starting with 2.0 there are structure changes!   
@@ -41,6 +44,10 @@ Example of VIS view
 	### __WORK IN PROGRESS__
 -->
 ## ChangeLog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Add reconnection and device offline detection
+
 ### 2.0.6 (2021-05-28)
 * (Diginix) fixed data types
 
@@ -149,4 +156,5 @@ Example of VIS view
 
 ## License
 The MIT License (MIT)
-Copyright (c) 2019 Eisbaeeer <eisbaeeer@gmail.com>, owagner 
+Copyright (c) 2014-2021 bluefox <dogafox@gmail.com>,
+              2014-2015 Oliver Wagner <owagner@tellerulam.com>

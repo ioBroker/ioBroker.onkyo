@@ -1,12 +1,8 @@
 {
     "common": {
         "name": "onkyo",
-        "version": "2.0.6",
+        "version": "2.0.5",
         "news": {
-            "2.0.6": {
-                "en": "fixed data types",
-                "de": "Datentypen korrigiert"
-            },
             "2.0.5": {
                 "en": "fixed some object properties\nAdded the support of compact mode",
                 "de": "Einige Objekteigenschaften wurden behoben\nUnterstützung des Kompaktmodus hinzugefügt",
@@ -21,69 +17,197 @@
             },
             "2.0.4": {
                 "en": "fixed some object issues",
-                "de": "Fehlerkorrektur"
+                "de": "Fehlerkorrektur",
+                "ru": "исправлены некоторые проблемы с объектами",
+                "pt": "corrigiu alguns problemas de objeto",
+                "nl": "enkele objectproblemen opgelost",
+                "fr": "correction de quelques problèmes d'objets",
+                "it": "risolto alcuni problemi con gli oggetti",
+                "es": "solucionó algunos problemas de objetos",
+                "pl": "naprawiono niektóre problemy z obiektami",
+                "zh-cn": "修复了一些对象问题"
             },
             "2.0.3": {
                 "en": "now support zone3",
-                "de": "Unterstützung Zone3"
+                "de": "Unterstützung Zone3",
+                "ru": "теперь поддержка zone3",
+                "pt": "agora suporta zone3",
+                "nl": "nu ondersteuning zone3",
+                "fr": "supporte maintenant zone3",
+                "it": "ora supporta la zona3",
+                "es": "ahora es compatible con zone3",
+                "pl": "teraz obsługuje strefę3",
+                "zh-cn": "现在支持zone3"
             },
             "2.0.2": {
                 "en": "fix double .js",
-                "de": "Doppelte .js entfernt"
+                "de": "Doppelte .js entfernt",
+                "ru": "исправить двойной .js",
+                "pt": "consertar .js duplo",
+                "nl": "dubbele .js . repareren",
+                "fr": "corriger le double .js",
+                "it": "correggi il doppio .js",
+                "es": "arreglar doble .js",
+                "pl": "napraw podwójne .js",
+                "zh-cn": "修复双 .js"
             },
             "2.0.1": {
                 "en": "Major version - structure changes!",
-                "de": "Strukturänderungen!"
+                "de": "Strukturänderungen!",
+                "ru": "Основная версия - изменения в структуре!",
+                "pt": "Versão principal - alterações de estrutura!",
+                "nl": "Grote versie - structuurwijzigingen!",
+                "fr": "Version majeure - changements de structure !",
+                "it": "Versione principale: modifiche alla struttura!",
+                "es": "Versión principal: cambios de estructura.",
+                "pl": "Wersja główna - zmiany w strukturze!",
+                "zh-cn": "主要版本 - 结构变化！"
             },
             "1.1.5": {
                 "en": "Zones will be powered if tune preset selected",
-                "de": "Bei Auswahl der Radio Presets werden jetzt die entsprechenden Zonen eingeschaltet"
+                "de": "Bei Auswahl der Radio Presets werden jetzt die entsprechenden Zonen eingeschaltet",
+                "ru": "Зоны будут получать питание, если выбрана предустановка",
+                "pt": "As zonas serão energizadas se a sintonia predefinida for selecionada",
+                "nl": "Zones worden ingeschakeld als de voorkeuzezender is geselecteerd",
+                "fr": "Les zones seront alimentées si le préréglage de syntonisation est sélectionné",
+                "it": "Le zone verranno alimentate se è selezionato il preset di sintonia",
+                "es": "Las zonas se encenderán si se selecciona el preajuste de sintonía",
+                "pl": "Strefy będą zasilane, jeśli wybrano ustawienie strojenia",
+                "zh-cn": "如果选择了调谐预设，区域将被供电"
             },
             "1.1.4": {
                 "en": "Added direct tuning in zones. issue #2",
-                "de": "Direkte Eingabe der Radio Frequenz möglich. issue #2"
+                "de": "Direkte Eingabe der Radio Frequenz möglich. issue #2",
+                "ru": "Добавлена ​​прямая настройка по зонам. ",
+                "pt": "Adicionado ajuste direto nas zonas. ",
+                "nl": "Directe afstemming in zones toegevoegd. ",
+                "fr": "Ajout du réglage direct dans les zones. ",
+                "it": "Aggiunta sintonizzazione diretta nelle zone. ",
+                "es": "Añadida sintonización directa en zonas. ",
+                "pl": "Dodano bezpośrednie strojenie w strefach. ",
+                "zh-cn": "在区域中添加了直接调谐。"
             },
             "1.1.3": {
                 "en": "Adding Navigation",
-                "de": "Navigation hinzugefügt"
+                "de": "Navigation hinzugefügt",
+                "ru": "Добавление навигации",
+                "pt": "Adicionando Navegação",
+                "nl": "Navigatie toevoegen",
+                "fr": "Ajout de navigation",
+                "it": "Aggiunta di navigazione",
+                "es": "Agregar navegación",
+                "pl": "Dodawanie nawigacji",
+                "zh-cn": "添加导航"
             },
             "1.1.2": {
                 "en": "Adding CoverArt",
-                "de": "CoverArt hinzugefügt"
+                "de": "CoverArt hinzugefügt",
+                "ru": "Добавление CoverArt",
+                "pt": "Adicionando CoverArt",
+                "nl": "CoverArt toevoegen",
+                "fr": "Ajout de CoverArt",
+                "it": "Aggiungere CoverArt",
+                "es": "Adición de CoverArt",
+                "pl": "Dodawanie grafiki okładki",
+                "zh-cn": "添加封面"
             },
             "1.1.1": {
                 "en": "Update volume zone2 after power on. Adding Pioneer receivers with EISCP support.",
-                "de": "Volume Zone 2 nach dem Einschalten aktualisieren. Pionneer Receiver support für EISCP fähige Geräte."
+                "de": "Volume Zone 2 nach dem Einschalten aktualisieren. Pionneer Receiver support für EISCP fähige Geräte.",
+                "ru": "Обновите Volume zone2 после включения. ",
+                "pt": "Atualize o volume da zona 2 após ligar. ",
+                "nl": "Update volume zone2 na inschakelen. ",
+                "fr": "Mettre à jour le volume zone2 après la mise sous tension. ",
+                "it": "Aggiorna il volume zone2 dopo l'accensione. ",
+                "es": "Actualice el volumen zone2 después del encendido. ",
+                "pl": "Zaktualizuj strefę głośności 2 po włączeniu zasilania. ",
+                "zh-cn": "开机后更新音量 zone2。"
             },
             "1.1.0": {
                 "en": "Completely new structured",
-                "de": "Neue Objekt Struktur"
+                "de": "Neue Objekt Struktur",
+                "ru": "Совершенно новая структура",
+                "pt": "Estrutura totalmente nova",
+                "nl": "Volledig nieuw gestructureerd",
+                "fr": "Complètement nouvelle structure",
+                "it": "Struttura completamente nuova",
+                "es": "Estructurado completamente nuevo",
+                "pl": "Całkowicie nowa struktura",
+                "zh-cn": "全新的结构"
             },
             "1.0.5": {
                 "en": "Now only VIS supported",
-                "de": "Jetzt wird nur noch VIS unterstützt"
+                "de": "Jetzt wird nur noch VIS unterstützt",
+                "ru": "Теперь поддерживается только VIS",
+                "pt": "Agora, apenas VIS é compatível",
+                "nl": "Nu alleen VIS ondersteund",
+                "fr": "Désormais, seul le VIS est pris en charge",
+                "it": "Ora solo VIS supportato",
+                "es": "Ahora solo se admite VIS",
+                "pl": "Teraz obsługiwany tylko VIS",
+                "zh-cn": "现在只支持VIS"
             },
             "1.0.4": {
                 "en": "clean objects",
-                "de": "Aufgeräumt"
+                "de": "Aufgeräumt",
+                "ru": "чистые предметы",
+                "pt": "objetos limpos",
+                "nl": "schone objecten",
+                "fr": "objets propres",
+                "it": "oggetti puliti",
+                "es": "objetos limpios",
+                "pl": "czyste przedmioty",
+                "zh-cn": "干净的物体"
             },
             "1.0.3": {
                 "en": "clean error log",
-                "de": "Error log säubern"
+                "de": "Error log säubern",
+                "ru": "чистый журнал ошибок",
+                "pt": "limpar log de erros",
+                "nl": "foutenlogboek opschonen",
+                "fr": "nettoyer le journal des erreurs",
+                "it": "pulire il registro degli errori",
+                "es": "limpiar registro de errores",
+                "pl": "wyczyść dziennik błędów",
+                "zh-cn": "清理错误日志"
             },
             "0.2.1": {
                 "en": "stable before",
-                "de": "Stableversion früher"
+                "de": "Stableversion früher",
+                "ru": "стабильный до",
+                "pt": "estável antes",
+                "nl": "stabiel voor",
+                "fr": "stable avant",
+                "it": "stabile prima",
+                "es": "estable antes",
+                "pl": "stabilny wcześniej",
+                "zh-cn": "之前稳定"
             }
         },
         "title": "Onkyo Pioneer EISCP - VIS",
         "titleLang": {
             "en": "Onkyo Pioneer EISCP - VIS compatible",
-            "de": "Onkyo Pioneer EISCP - VIS kompatibel"
+            "de": "Onkyo Pioneer EISCP - VIS kompatibel",
+            "ru": "Onkyo Pioneer EISCP - совместимый с VIS",
+            "pt": "Onkyo Pioneer EISCP - compatível com VIS",
+            "nl": "Onkyo Pioneer EISCP - VIS-compatibel",
+            "fr": "Onkyo Pioneer EISCP - Compatible VIS",
+            "it": "Onkyo Pioneer EISCP - compatibile con VIS",
+            "es": "Onkyo Pioneer EISCP - Compatible con VIS",
+            "pl": "Onkyo Pioneer EISCP - kompatybilny z VIS",
+            "zh-cn": "Onkyo Pioneer EISCP - 兼容 VIS"
         },
         "desc": {
             "en": "Control Onkyo and Pioneer AVRs with EISCP protocol and VIS support",
-            "de": "Control Onkyo and Pioneer AVRs with EISCP protocol and VIS support"
+            "de": "Control Onkyo and Pioneer AVRs with EISCP protocol and VIS support",
+            "ru": "Управляйте AVR Onkyo и Pioneer с помощью протокола EISCP и поддержки VIS",
+            "pt": "Controle AVRs Onkyo e Pioneer com protocolo EISCP e suporte VIS",
+            "nl": "Bedien Onkyo en Pioneer AVR's met EISCP-protocol en VIS-ondersteuning",
+            "fr": "Contrôlez les AVR Onkyo et Pioneer avec le protocole EISCP et la prise en charge VIS",
+            "it": "Controlla gli AVR Onkyo e Pioneer con protocollo EISCP e supporto VIS",
+            "es": "Controle los AVR de Onkyo y Pioneer con el protocolo EISCP y compatibilidad con VIS",
+            "pl": "Kontroluj amplitunery Onkyo i Pioneer za pomocą protokołu EISCP i obsługi VIS",
+            "zh-cn": "使用 EISCP 协议和 VIS 支持控制 Onkyo 和 Pioneer AVR"
         },
         "authors": [
             "Oliver Wagner <owagner@tellerulam.com>",
@@ -105,7 +229,10 @@
         ],
         "readme": "https://github.com/iobroker/ioBroker.onkyo/blob/master/README.md",
         "type": "multimedia",
-        "license": "MIT"
+        "license": "MIT",
+        "dataSource": "poll",
+        "connectionType": "local",
+        "tier": 2
     },
     "native": {
         "avrAddress": "",
