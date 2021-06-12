@@ -1055,8 +1055,7 @@ function main() {
                 adapter.setState(adapter.namespace + '.' + 'Device.CoverURL', {val: coverurl, ack: true});
                 adapter.setState(adapter.namespace + '.' + 'Device.CoverBase64', {val: img, ack: true});
                 // safe bas64 data to file
-                fs.writeFileSync('/opt/iobroker/iobroker-data/files/vis/CoverImage.' + image_type, imageb64, {encoding: 'base64'}, err =>
-                    adapter.log.debug('Cover file created'));
+                adapter.writeFile('vis', 'CoverImage.' + image_type, Buffer.from(imageb64, 'base64'), err => !err && adapter.log.debug('Cover file created'));
             }
         }
 

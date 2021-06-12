@@ -43,7 +43,7 @@ Example of VIS view
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
-## ChangeLog
+## Changelog
 
 ### __WORK IN PROGRESS__
 * (Apollon77) Add reconnection and device offline detection

@@ -5,7 +5,7 @@
     "email": "owagner@tellerulam.com"
   },
   "bugs": {
-    "url": "https://github.com/iobroker/ioBroker.onkyo/issues"
+    "url": "https://github.com/ioBroker/ioBroker.onkyo/issues"
   },
   "contributors": [
     {
@@ -35,7 +35,7 @@
     "gulp": "^4.0.2",
     "mocha": "^8.4.0"
   },
-  "homepage": "https://github.com/iobroker/ioBroker.onkyo",
+  "homepage": "https://github.com/ioBroker/ioBroker.onkyo",
   "keywords": [
     "ioBroker",
     "onkyo",
@@ -48,12 +48,12 @@
   "name": "iobroker.onkyo",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/iobroker/ioBroker.onkyo.git"
+    "url": "git+https://github.com/ioBroker/ioBroker.onkyo.git"
   },
   "scripts": {
     "test": "npm run test:package && npm run test:integration",
     "test:integration": "mocha test/integration --exit",
     "test:package": "mocha test/package --exit",
-    "release": "node node_modules/@alcalzone/release-script/bin/release.js"
+    "release": "release-script"
   }
 }

@@ -220,14 +220,14 @@
         "icon": "onkyo.png",
         "enabled": true,
         "compact": true,
-        "extIcon": "https://raw.githubusercontent.com/iobroker/ioBroker.onkyo/master/admin/onkyo.png",
+        "extIcon": "https://raw.githubusercontent.com/ioBroker/ioBroker.onkyo/master/admin/onkyo.png",
         "keywords": [
             "Onkyo",
             "Pioneer",
             "AVR",
             "eiscp"
         ],
-        "readme": "https://github.com/iobroker/ioBroker.onkyo/blob/master/README.md",
+        "readme": "https://github.com/ioBroker/ioBroker.onkyo/blob/master/README.md",
         "type": "multimedia",
         "license": "MIT",
         "dataSource": "poll",
