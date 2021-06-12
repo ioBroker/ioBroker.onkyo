@@ -235,7 +235,7 @@
         "tier": 2,
         "plugins": {
             "sentry": {
-                "dsn": "https://8b7d0092e3aa4b6b877b73a4e84d589c@sentry.iobroker.net/134",
+                "dsn": "https://8b7d0092e3aa4b6b877b73a4e84d589c@sentry.iobroker.net/134"
             }
         }
     },
