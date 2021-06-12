@@ -9,10 +9,12 @@
 [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/onkyo/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.onkyo.svg)](https://www.npmjs.com/package/iobroker.onkyo)
 
-### Major update!
-Take care of this major update. Starting with 2.0 there are structure changes!   
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+
+### 2.0 Major update!
+Starting with 2.0 there are structure changes!   
 If you update to this version, you have to change the variables in any other adapter like VIS or javascript!   
-The new version supports Materials and cover arts. The media objects supports player widgets like sonso or winamp.
+The new version supports Materials and cover arts. The media objects supports player widgets like sonos or winamp.
 ![VIS](admin/player.png)
 
 This adapter allows control of Onkyo and Pioneer AVRs using the EISCP protocol.
@@ -47,6 +49,7 @@ Example of VIS view
 
 ### __WORK IN PROGRESS__
 * (Apollon77) Add reconnection and device offline detection
+* (Apollon77) Add crash reporting using sentry in js.controller 3+
 
 ### 2.0.6 (2021-05-28)
 * (Diginix) fixed data types
