@@ -564,7 +564,7 @@ function devicePowerQuery() {
     devicePowerInterval = setInterval(() => {
         if (waitForDevicePowerInfo) {
             // We did not got an response from last interval, so device is offline
-            adapter.log.info('Got no reponse from Power status check ... reconnect');
+            adapter.log.info('Got no response from Power status check ... reconnect');
             eiscp.close();
             return;
         }
