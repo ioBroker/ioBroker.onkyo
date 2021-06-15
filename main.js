@@ -564,10 +564,12 @@ function devicePowerQuery() {
     devicePowerInterval = setInterval(() => {
         if (waitForDevicePowerInfo) {
             // We did not got an response from last interval, so device is offline
+            adapter.log.info('Got no reponse from Power status check ... reconnect');
             eiscp.close();
             return;
         }
 
+        adapter.log.debug('Request Power status to check device availability...');
         eiscp.command('system-power=query');
         waitForDevicePowerInfo = true;
     }, 10000)
@@ -617,6 +619,7 @@ function main() {
         adapter.log.info('Successfully connected to AVR');
         adapter.setState('Device.connected', true, true);
         adapter.setState('info.connection', true, true);
+        devicePowerQuery();
 
         // Query some initial information
         setTimeout(() => {
@@ -644,6 +647,7 @@ function main() {
         adapter.log.debug('Got message: ' + JSON.stringify(cmd));
 
         if (waitForDevicePowerInfo && cmd.command === 'system-power' && cmd.zone === 'main') {
+            adapter.log.debug('Expecting Power details from check, received ...')
             waitForDevicePowerInfo = false; // Reset
         }
 
