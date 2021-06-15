@@ -1139,6 +1139,17 @@
                 "read": true,
                 "write": false
             }
+        },
+        {
+            "_id": "NET_Shuffle_Status",
+            "type": "state",
+            "common": {
+                "name": "NET_Shuffle_Status",
+                "type": "string",
+                "role": "value",
+                "read": true,
+                "write": false
+            }
         }
     ]
 }
