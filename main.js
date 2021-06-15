@@ -562,7 +562,7 @@ function decimalToHex(d, padding) {
 }
 
 function devicePowerQuery() {
-    devicePowerInterval && clearInterval(devicePowerInterval);
+    clearInterval(devicePowerInterval);
     devicePowerInterval = setInterval(() => {
         if (waitForDevicePowerInfo) {
             // We did not got an response from last interval, so device is offline
@@ -608,6 +608,7 @@ function main() {
 
         // Connect to receiver
         eiscp.connect(connectionOptions);
+        clearInterval(connectionInterval);
         connectionInterval = setInterval(() => {
             eiscp.close();
             // Connect to receiver
@@ -637,6 +638,7 @@ function main() {
         adapter.setState('info.connection', false, true);
         clearInterval(devicePowerInterval);
         if (!unloading) {
+            clearInterval(connectionInterval);
             connectionInterval = setInterval(() => {
                 eiscp.close();
                 // Connect to receiver
