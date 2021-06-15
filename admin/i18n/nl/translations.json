@@ -1,9 +1,9 @@
 {
-    "(leave empty for Autodiscovery)": "",
+    "(leave empty for Autodiscovery)": "(leeg laten voor Autodiscovery)",
     "(select for VIS compatibility)": "Controleer dit op VIS-compatibiliteit",
-    "AVR EISCP Port": "",
+    "AVR EISCP Port": "AVR EISCP-poort",
     "Max Volume Zone1": "Max volume van zone1",
     "Max Volume Zone2": "Maximaal volume van zone2",
-    "ONKYO adapter settings": "",
-    "Onkyo AVR Address": ""
+    "ONKYO adapter settings": "ONKYO-adapterinstellingen",
+    "Onkyo AVR Address": "Onkyo AVR-adres"
 }

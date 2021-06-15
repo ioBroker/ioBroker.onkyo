@@ -1,9 +1,9 @@
 {
-    "(leave empty for Autodiscovery)": "",
+    "(leave empty for Autodiscovery)": "(laisser vide pour la découverte automatique)",
     "(select for VIS compatibility)": "Vérifiez ceci pour la compatibilité VIS",
-    "AVR EISCP Port": "",
+    "AVR EISCP Port": "Port EISCP de l'AVR",
     "Max Volume Zone1": "Volume max de la zone1",
     "Max Volume Zone2": "Volume max de la zone2",
-    "ONKYO adapter settings": "",
-    "Onkyo AVR Address": ""
+    "ONKYO adapter settings": "Paramètres de l'adaptateur ONKYO",
+    "Onkyo AVR Address": "Adresse AVR Onkyo"
 }

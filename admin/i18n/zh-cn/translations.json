@@ -1,9 +1,9 @@
 {
-    "(leave empty for Autodiscovery)": "",
+    "(leave empty for Autodiscovery)": "（为自动发现留空）",
     "(select for VIS compatibility)": "检查 VIS 兼容性",
-    "AVR EISCP Port": "",
+    "AVR EISCP Port": "AVR EISCP 端口",
     "Max Volume Zone1": "zone1 的最大体积",
     "Max Volume Zone2": "zone2 的最大体积",
-    "ONKYO adapter settings": "",
-    "Onkyo AVR Address": ""
+    "ONKYO adapter settings": "ONKYO 适配器设置",
+    "Onkyo AVR Address": "Onkyo AVR 地址"
 }
