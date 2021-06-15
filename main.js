@@ -21,6 +21,7 @@ let imageb64 = '';
 let connectionInterval = null;
 let devicePowerInterval = null;
 let waitForDevicePowerInfo = false;
+let lastDataTime = null;
 let unloading = false;
 
 const connectionOptions = {reconnect: true, verify_commands: false};
@@ -564,9 +565,11 @@ function decimalToHex(d, padding) {
 function devicePowerQuery() {
     clearInterval(devicePowerInterval);
     devicePowerInterval = setInterval(() => {
-        if (waitForDevicePowerInfo) {
+        if (waitForDevicePowerInfo && Date.now()-lastDataTime > 30000) {
             // We did not got an response from last interval, so device is offline
-            adapter.log.info('Got no response from Power status check ... reconnect');
+            adapter.log.info('Got no response from Power status check or other data ... reconnect');
+            clearInterval(devicePowerInterval);
+            devicePowerInterval = null;
             eiscp.close();
             return;
         }
@@ -574,7 +577,7 @@ function devicePowerQuery() {
         adapter.log.debug('Request Power status to check device availability...');
         eiscp.command('system-power=query');
         waitForDevicePowerInfo = true;
-    }, 10000)
+    }, 30000)
 }
 
 function main() {
@@ -584,8 +587,10 @@ function main() {
 
     // The adapters config (in the instance object everything under the attribute 'native') is accessible via
     // adapter.config:
-    eiscp.on('error', e =>
-        adapter.log.error('Error: ' + e));
+    eiscp.on('error', e => {
+        connectionInterval && adapter.log.debug('Error while trying to connect: ' + e.message);
+        !connectionInterval && adapter.log.error('Error: ' + e.message);
+    });
 
     eiscp.on('debug', message =>
         adapter.log.debug(message));
@@ -618,6 +623,7 @@ function main() {
 
     eiscp.on('connect', () => {
         clearInterval(connectionInterval);
+        connectionInterval = null;
         adapter.log.info('Successfully connected to AVR');
         adapter.setState('Device.connected', true, true);
         adapter.setState('info.connection', true, true);
@@ -637,6 +643,7 @@ function main() {
         adapter.setState('Device.connected', false, true);
         adapter.setState('info.connection', false, true);
         clearInterval(devicePowerInterval);
+        devicePowerInterval = null;
         if (!unloading) {
             clearInterval(connectionInterval);
             connectionInterval = setInterval(() => {
@@ -649,6 +656,7 @@ function main() {
 
     eiscp.on('data', cmd => {
         adapter.log.debug('Got message: ' + JSON.stringify(cmd));
+        lastDataTime = Date.now();
 
         if (waitForDevicePowerInfo && cmd.command === 'system-power' && cmd.zone === 'main') {
             adapter.log.debug('Expecting Power details from check, received ...')
