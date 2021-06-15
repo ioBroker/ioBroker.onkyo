@@ -609,8 +609,9 @@ function main() {
         // Connect to receiver
         eiscp.connect(connectionOptions);
         connectionInterval = setInterval(() => {
+            eiscp.close();
             // Connect to receiver
-            eiscp.connect(connectionOptions);
+            setTimeout(() => eiscp.connect(connectionOptions), 200);
         }, 10000);
     });
 
@@ -637,8 +638,9 @@ function main() {
         clearInterval(devicePowerInterval);
         if (!unloading) {
             connectionInterval = setInterval(() => {
+                eiscp.close();
                 // Connect to receiver
-                eiscp.connect(connectionOptions);
+                setTimeout(() => eiscp.connect(connectionOptions), 200);
             }, 10000);
         }
     });
