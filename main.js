@@ -23,6 +23,8 @@ let devicePowerInterval = null;
 let waitForDevicePowerInfo = false;
 let unloading = false;
 
+const connectionOptions = {reconnect: true, verify_commands: false};
+
 const DATAPOINTS = [
     'PWRQSTN',
     'MVLQSTN',
@@ -596,21 +598,19 @@ function main() {
             }
         }
 
-        const options = {reconnect: true, verify_commands: false};
-
         if (adapter.config.avrAddress) {
             adapter.log.info(`Connecting to AVR ${adapter.config.avrAddress}:${adapter.config.avrPort}`);
-            options.host = adapter.config.avrAddress;
-            options.port = adapter.config.avrPort;
+            connectionOptions.host = adapter.config.avrAddress;
+            connectionOptions.port = adapter.config.avrPort;
         } else {
             adapter.log.info('Starting AVR discovery');
         }
 
         // Connect to receiver
-        eiscp.connect(options);
+        eiscp.connect(connectionOptions);
         connectionInterval = setInterval(() => {
             // Connect to receiver
-            eiscp.connect(options);
+            eiscp.connect(connectionOptions);
         }, 10000);
     });
 
@@ -638,7 +638,7 @@ function main() {
         if (!unloading) {
             connectionInterval = setInterval(() => {
                 // Connect to receiver
-                eiscp.connect(options);
+                eiscp.connect(connectionOptions);
             }, 10000);
         }
     });
