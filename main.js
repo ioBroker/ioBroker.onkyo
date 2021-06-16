@@ -588,8 +588,8 @@ function main() {
     // The adapters config (in the instance object everything under the attribute 'native') is accessible via
     // adapter.config:
     eiscp.on('error', e => {
-        connectionInterval && adapter.log.debug('Error while trying to connect: ' + e.message);
-        !connectionInterval && adapter.log.error('Error: ' + e.message);
+        connectionInterval && adapter.log.debug('Error while trying to connect: ' + e.message || e);
+        !connectionInterval && adapter.log.error('Error: ' + e.message || e);
     });
 
     eiscp.on('debug', message =>
@@ -639,13 +639,13 @@ function main() {
     });
 
     eiscp.on('close', () => {
-        adapter.log.info('AVR disconnected');
+        !connectionInterval && adapter.log.info('AVR disconnected');
         adapter.setState('Device.connected', false, true);
         adapter.setState('info.connection', false, true);
-        clearInterval(devicePowerInterval);
+        devicePowerInterval && clearInterval(devicePowerInterval);
         devicePowerInterval = null;
         if (!unloading) {
-            clearInterval(connectionInterval);
+            connectionInterval && clearInterval(connectionInterval);
             connectionInterval = setInterval(() => {
                 eiscp.close();
                 // Connect to receiver
