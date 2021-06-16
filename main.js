@@ -613,7 +613,7 @@ function main() {
 
         // Connect to receiver
         eiscp.connect(connectionOptions);
-        clearInterval(connectionInterval);
+        connectionInterval && clearInterval(connectionInterval);
         connectionInterval = setInterval(() => {
             eiscp.close();
             // Connect to receiver
@@ -644,8 +644,7 @@ function main() {
         adapter.setState('info.connection', false, true);
         devicePowerInterval && clearInterval(devicePowerInterval);
         devicePowerInterval = null;
-        if (!unloading) {
-            connectionInterval && clearInterval(connectionInterval);
+        if (!unloading && !connectionInterval) {
             connectionInterval = setInterval(() => {
                 eiscp.close();
                 // Connect to receiver
