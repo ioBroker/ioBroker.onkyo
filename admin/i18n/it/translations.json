@@ -2,8 +2,11 @@
     "(leave empty for Autodiscovery)": "(lascia vuoto per il rilevamento automatico)",
     "(select for VIS compatibility)": "Controlla questo per la compatibilità VIS",
     "AVR EISCP Port": "Porta EISCP AVR",
+    "Device alive check interval (ms)": "Intervallo di controllo del dispositivo attivo (ms)",
+    "Device discovery interval (ms)": "Intervallo di rilevamento del dispositivo (ms)",
     "Max Volume Zone1": "Volume massimo della zona1",
     "Max Volume Zone2": "Volume massimo della zona2",
     "ONKYO adapter settings": "Impostazioni dell'adattatore ONKYO",
-    "Onkyo AVR Address": "Indirizzo Onkyo AVR"
+    "Onkyo AVR Address": "Indirizzo Onkyo AVR",
+    "on save adapter restarts with new config immediately": "Al salvataggio, l'adattatore si riavvia immediatamente con una nuova configurazione!"
 }

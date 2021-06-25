@@ -243,7 +243,9 @@
         "avrAddress": "",
         "avrPort": 60128,
         "maxvolzone1": 40,
-        "maxvolzone2": 40
+        "maxvolzone2": 40,
+        "aliveCheckInterval": 15000,
+        "discoveryInterval": 30000
     },
     "objects": [],
     "instanceObjects": [

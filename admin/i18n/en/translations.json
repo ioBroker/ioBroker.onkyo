@@ -2,8 +2,11 @@
     "(leave empty for Autodiscovery)": "(leave empty for Autodiscovery)",
     "(select for VIS compatibility)": "Check this for VIS compatibility",
     "AVR EISCP Port": "AVR EISCP Port",
+    "Device alive check interval (ms)": "Device alive check interval (ms)",
+    "Device discovery interval (ms)": "Device discovery interval (ms)",
     "Max Volume Zone1": "Max volume of zone1",
     "Max Volume Zone2": "Max volume of zone2",
     "ONKYO adapter settings": "ONKYO adapter settings",
-    "Onkyo AVR Address": "Onkyo AVR Address"
+    "Onkyo AVR Address": "Onkyo AVR Address",
+    "on save adapter restarts with new config immediately": "On save adapter restarts with new config immediately!"
 }

@@ -2,8 +2,11 @@
     "(leave empty for Autodiscovery)": "（为自动发现留空）",
     "(select for VIS compatibility)": "检查 VIS 兼容性",
     "AVR EISCP Port": "AVR EISCP 端口",
+    "Device alive check interval (ms)": "设备存活检查间隔（毫秒）",
+    "Device discovery interval (ms)": "设备发现间隔（毫秒）",
     "Max Volume Zone1": "zone1 的最大体积",
     "Max Volume Zone2": "zone2 的最大体积",
     "ONKYO adapter settings": "ONKYO 适配器设置",
-    "Onkyo AVR Address": "Onkyo AVR 地址"
+    "Onkyo AVR Address": "Onkyo AVR 地址",
+    "on save adapter restarts with new config immediately": "保存适配器立即使用新配置重新启动！"
 }

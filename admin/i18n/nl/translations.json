@@ -2,8 +2,11 @@
     "(leave empty for Autodiscovery)": "(leeg laten voor Autodiscovery)",
     "(select for VIS compatibility)": "Controleer dit op VIS-compatibiliteit",
     "AVR EISCP Port": "AVR EISCP-poort",
+    "Device alive check interval (ms)": "Apparaat actief check-interval (ms)",
+    "Device discovery interval (ms)": "Interval voor apparaatdetectie (ms)",
     "Max Volume Zone1": "Max volume van zone1",
     "Max Volume Zone2": "Maximaal volume van zone2",
     "ONKYO adapter settings": "ONKYO-adapterinstellingen",
-    "Onkyo AVR Address": "Onkyo AVR-adres"
+    "Onkyo AVR Address": "Onkyo AVR-adres",
+    "on save adapter restarts with new config immediately": "Bij opslaan start adapter onmiddellijk opnieuw op met nieuwe configuratie!"
 }

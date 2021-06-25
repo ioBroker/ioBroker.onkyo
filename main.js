@@ -585,6 +585,9 @@ function main() {
     adapter.setState('Device.connected', false, true);
     adapter.setState('info.connection', false, true);
 
+    adapter.config.discoveryInterval = parseInt(adapter.config.discoveryInterval, 10) || 30000;
+    adapter.config.aliveCheckInterval = parseInt(adapter.config.aliveCheckInterval, 10) || 15000;
+
     // The adapters config (in the instance object everything under the attribute 'native') is accessible via
     // adapter.config:
     eiscp.on('error', e => {
@@ -618,7 +621,7 @@ function main() {
             eiscp.close();
             // Connect to receiver
             setTimeout(() => eiscp.connect(connectionOptions), 200);
-        }, 10000);
+        }, adapter.config.discoveryInterval);
     });
 
     eiscp.on('connect', () => {
@@ -635,7 +638,7 @@ function main() {
             for (let i = 0; i < DATAPOINTS.length; i++) {
                 adapter.setState(adapter.namespace + '.' + 'Device.command', {val: DATAPOINTS[i], ack: false});
             }
-        }, 5000);
+        }, adapter.config.aliveCheckInterval);
     });
 
     eiscp.on('close', () => {
@@ -649,7 +652,7 @@ function main() {
                 eiscp.close();
                 // Connect to receiver
                 setTimeout(() => eiscp.connect(connectionOptions), 200);
-            }, 10000);
+            }, adapter.config.discoveryInterval);
         }
     });
 
