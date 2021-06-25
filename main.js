@@ -1049,14 +1049,6 @@ function main() {
 
         //Onkyo_Cover_Transfer (base64 coded in HEX)
         if (chunk === 'NJA') {
-            /*const covertype = string.substr(0, 1)
-            adapter.log.debug('Covertype: ' + covertype);
-            if (covertype === '0') {
-                const image_type = 'bmp';
-            }
-            if (covertype === '1') {
-                const image_type = 'jpg';
-            }*/
             const packetflag = string.substr(1, 1);
             adapter.log.debug('packetflag: ' + packetflag);
 
@@ -1068,12 +1060,36 @@ function main() {
             } else
             if (packetflag === '2') {
                 imageb64 = imageb64 + new Buffer(cmd.iscp_command.substr(5), 'hex').toString('base64');
-                const img = '<img width="100%" height="100%" title="" alt="cross" src="data:image/' + image_type + ';base64,' + imageb64 + '">';
-                const coverurl = '/vis/CoverImage.' + image_type;
-                adapter.setState(adapter.namespace + '.' + 'Device.CoverURL', {val: coverurl, ack: true});
+
+                const covertype = string.substr(0, 1)
+                let image_type;
+                let image_src;
+                let coverurl;
+                let isBase64 = false;
+                if (covertype === '0') {
+                    image_type = 'bmp';
+                    image_src = 'data:image/' + image_type + ';base64,' + imageb64;
+                    coverurl = '/vis/CoverImage.' + image_type;
+                    isBase64 = true;
+                } else if (covertype === '1') {
+                    image_type = 'jpg';
+                    image_src = 'data:image/' + image_type + ';base64,' + imageb64;
+                    coverurl = '/vis/CoverImage.' + image_type;
+                    isBase64 = true;
+                } else if (covertype === '2') {
+                    image_type = 'URL';
+                    image_src = new Buffer.from(imageb64, 'base64').toString('ascii');
+                    coverurl = image_src;
+                } else {
+                    image_type = 'no-image';
+                }
+                adapter.log.debug('Covertype: ' + covertype + ' (' + image_type + ')');
+
+                const img = '<img width="100%" height="100%" title="" alt="cross" src="' + image_src + '">';
+                coverurl && adapter.setState(adapter.namespace + '.' + 'Device.CoverURL', {val: coverurl, ack: true});
                 adapter.setState(adapter.namespace + '.' + 'Device.CoverBase64', {val: img, ack: true});
                 // safe bas64 data to file
-                adapter.writeFile('vis', 'CoverImage.' + image_type, Buffer.from(imageb64, 'base64'), err => !err && adapter.log.debug('Cover file created'));
+                isBase64 && adapter.writeFile('vis', 'CoverImage.' + image_type, Buffer.from(imageb64, 'base64'), err => !err && adapter.log.debug('Cover file created'));
             }
         }
 
