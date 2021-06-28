@@ -24,7 +24,7 @@ let waitForDevicePowerInfo = false;
 let lastDataTime = null;
 let unloading = false;
 
-const connectionOptions = {reconnect: true, verify_commands: false};
+const connectionOptions = {reconnect: false, verify_commands: false};
 
 const DATAPOINTS = [
     'PWRQSTN',
@@ -638,7 +638,7 @@ function main() {
             for (let i = 0; i < DATAPOINTS.length; i++) {
                 adapter.setState(adapter.namespace + '.' + 'Device.command', {val: DATAPOINTS[i], ack: false});
             }
-        }, adapter.config.aliveCheckInterval);
+        }, 5000);
     });
 
     eiscp.on('close', () => {
