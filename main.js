@@ -1060,6 +1060,7 @@ function main() {
             } else
             if (packetflag === '2') {
                 imageHex += cmd.iscp_command.substr(5);
+                adapter.log.debug(`Received Hex: ${imageHex}`);
                 const imageb64 = Buffer.from(imageHex, 'hex').toString('base64');
 
                 const covertype = string.substr(0, 1)
