@@ -17,7 +17,7 @@ const objects = {};
 // const xmlstring = '';
 // const xjs = '';
 let sequenz = '';
-let imageb64 = '';
+let imageHex = '';
 let connectionInterval = null;
 let devicePowerInterval = null;
 let waitForDevicePowerInfo = false;
@@ -1053,13 +1053,14 @@ function main() {
             adapter.log.debug('packetflag: ' + packetflag);
 
             if (packetflag === '0') {
-                imageb64 = new Buffer(cmd.iscp_command.substr(5), 'hex').toString('base64');
+                imageHex = cmd.iscp_command.substr(5);
             } else
             if (packetflag === '1') {
-                imageb64 = imageb64 + new Buffer(cmd.iscp_command.substr(5), 'hex').toString('base64');
+                imageHex += cmd.iscp_command.substr(5);
             } else
             if (packetflag === '2') {
-                imageb64 = imageb64 + new Buffer(cmd.iscp_command.substr(5), 'hex').toString('base64');
+                imageHex += cmd.iscp_command.substr(5);
+                const imageb64 = Buffer.from(imageHex, 'hex').toString('base64');
 
                 const covertype = string.substr(0, 1)
                 let image_type;
@@ -1078,7 +1079,7 @@ function main() {
                     isBase64 = true;
                 } else if (covertype === '2') {
                     image_type = 'URL';
-                    image_src = new Buffer.from(imageb64, 'base64').toString('ascii');
+                    image_src = new Buffer.from(imageHex, 'hex').toString('ascii');
                     coverurl = image_src;
                 } else {
                     image_type = 'no-image';
@@ -1089,7 +1090,7 @@ function main() {
                 coverurl && adapter.setState(adapter.namespace + '.' + 'Device.CoverURL', {val: coverurl, ack: true});
                 adapter.setState(adapter.namespace + '.' + 'Device.CoverBase64', {val: img, ack: true});
                 // safe bas64 data to file
-                isBase64 && adapter.writeFile('vis', 'CoverImage.' + image_type, Buffer.from(imageb64, 'base64'), err => !err && adapter.log.debug('Cover file created'));
+                isBase64 && adapter.writeFile('vis', 'CoverImage.' + image_type, Buffer.from(imageHex, 'hex'), err => !err && adapter.log.debug('Cover file created'));
             }
         }
 
