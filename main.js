@@ -565,7 +565,7 @@ function decimalToHex(d, padding) {
 function devicePowerQuery() {
     clearInterval(devicePowerInterval);
     devicePowerInterval = setInterval(() => {
-        if (waitForDevicePowerInfo && Date.now()-lastDataTime > 30000) {
+        if (waitForDevicePowerInfo && Date.now()-lastDataTime > adapter.config.aliveCheckInterval) {
             // We did not got an response from last interval, so device is offline
             adapter.log.info('Got no response from Power status check or other data ... reconnect');
             clearInterval(devicePowerInterval);
@@ -577,7 +577,7 @@ function devicePowerQuery() {
         adapter.log.debug('Request Power status to check device availability...');
         eiscp.command('system-power=query');
         waitForDevicePowerInfo = true;
-    }, 30000)
+    }, adapter.config.aliveCheckInterval)
 }
 
 function main() {
