@@ -580,6 +580,16 @@ function devicePowerQuery() {
     }, adapter.config.aliveCheckInterval)
 }
 
+function sendInitialCommands(idx) {
+    // Try to read initial values
+    if (idx === DATAPOINTS.length) {
+        return;
+    }
+    idx = idx || 0;
+    adapter.setState(adapter.namespace + '.' + 'Device.command', {val: DATAPOINTS[i], ack: false});
+    setTimeout(sendInitialCommands, 100,idx + 1);
+}
+
 function main() {
     adapter.subscribeStates('*');
     adapter.setState('Device.connected', false, true);
@@ -633,12 +643,7 @@ function main() {
         devicePowerQuery();
 
         // Query some initial information
-        setTimeout(() => {
-            // Try to read initial values
-            for (let i = 0; i < DATAPOINTS.length; i++) {
-                adapter.setState(adapter.namespace + '.' + 'Device.command', {val: DATAPOINTS[i], ack: false});
-            }
-        }, 5000);
+        setTimeout(() => sendInitialCommands(), 5000);
     });
 
     eiscp.on('close', () => {
