@@ -586,7 +586,7 @@ function sendInitialCommands(idx) {
         return;
     }
     idx = idx || 0;
-    adapter.setState(adapter.namespace + '.' + 'Device.command', {val: DATAPOINTS[i], ack: false});
+    adapter.setState(adapter.namespace + '.' + 'Device.command', {val: DATAPOINTS[idx], ack: false});
     setTimeout(sendInitialCommands, 100,idx + 1);
 }
 
