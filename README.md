@@ -49,6 +49,8 @@ Example of VIS view
 
 ### __WORK IN PROGRESS__
 * (Apollon77) Add reconnection and device offline detection
+* (Apollon77) Optimize packet parsing
+* (Apollon77) Fix Image handling
 * (Apollon77) Add crash reporting using sentry in js.controller 3+
 
 ### 2.0.6 (2021-05-28)
