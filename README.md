@@ -47,7 +47,7 @@ Example of VIS view
 -->
 ## Changelog
 
-### __WORK IN PROGRESS__
+### 2.1.0 (2021-07-05)
 * (Apollon77) Add reconnection and device offline detection
 * (Apollon77) Optimize packet parsing
 * (Apollon77) Fix Image handling

@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "onkyo",
-        "version": "2.0.5",
+        "version": "2.1.0",
         "news": {
+            "2.1.0": {
+                "en": "Add reconnection and device offline detection\nOptimize packet parsing\nFix Image handling\nAdd crash reporting using sentry in js.controller 3+",
+                "de": "Wiederverbindung und Geräte-Offline-Erkennung hinzufügen\nPaketanalyse optimieren\nBildhandhabung korrigieren\nAbsturzberichte mit Sentry in js.controller 3+ hinzufügen",
+                "ru": "Добавить повторное подключение и обнаружение устройства офлайн\nОптимизировать парсинг пакетов\nИсправить обработку изображений\nДобавить отчеты о сбоях с помощью sentry в js.controller 3+",
+                "pt": "Adicionar reconexão e detecção off-line do dispositivo\nOtimize a análise de pacotes\nCorrigir o manuseio de imagens\nAdicionar relatório de falha usando sentinela no js.controller 3+",
+                "nl": "Opnieuw verbinden en offline detectie van apparaat toevoegen\nPakketparsing optimaliseren\nFix Beeldverwerking Image\nVoeg crashrapportage toe met behulp van schildwacht in js.controller 3+",
+                "fr": "Ajouter la reconnexion et la détection hors ligne de l'appareil\nOptimiser l'analyse des paquets\nCorrection de la gestion des images\nAjouter des rapports de plantage à l'aide de sentinelle dans js.controller 3+",
+                "it": "Aggiungi la riconnessione e il rilevamento offline del dispositivo\nOttimizza l'analisi dei pacchetti\nCorreggi la gestione delle immagini\nAggiungi la segnalazione degli arresti anomali utilizzando sentry in js.controller 3+",
+                "es": "Agregue reconexión y detección de dispositivo fuera de línea\nOptimizar el análisis de paquetes\nCorregir el manejo de imágenes\nAgregue informes de fallas usando sentry en js.controller 3+",
+                "pl": "Dodaj ponowne połączenie i wykrywanie offline urządzenia\nZoptymalizuj parsowanie pakietów\nNapraw obsługę obrazu\nDodaj raportowanie o awariach za pomocą sentry w js.controller 3+",
+                "zh-cn": "添加重连和设备离线检测\n优化数据包解析\n修复图像处理\n在 js.controller 中使用 sentry 添加崩溃报告 3+"
+            },
             "2.0.5": {
                 "en": "fixed some object properties\nAdded the support of compact mode",
                 "de": "Einige Objekteigenschaften wurden behoben\nUnterstützung des Kompaktmodus hinzugefügt",
