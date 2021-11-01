@@ -33,7 +33,7 @@
   "description": "Control Onkyo AVRs with EISCP protocol from ioBroker",
   "devDependencies": {
     "@iobroker/testing": "^2.5.2",
-    "@alcalzone/release-script": "^2.2.1",
+    "@alcalzone/release-script": "^3.4.1",
     "axios": "^0.24.0",
     "chai": "^4.3.4",
     "gulp": "^4.0.2",
