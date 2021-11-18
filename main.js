@@ -304,8 +304,8 @@ function startAdapter(options) {
                     }
 
                     //Onkyo_Tune_Zone1
-                    if (id === adapter.namespace + '.' + 'Zone1.Tune') {
-                        let new_val = state.val;
+                    if (id === adapter.namespace + '.' + 'Zone1.Tune' && state.val !== null) {
+                        let new_val = state.val.toString();
                         //load string in array
                         const arr = [
                             'SLI24',
@@ -329,8 +329,8 @@ function startAdapter(options) {
                     }
 
                     //Onkyo_Tune_Zone2
-                    if (id === adapter.namespace + '.' + 'Zone2.Tune') {
-                        let new_val = state.val;
+                    if (id === adapter.namespace + '.' + 'Zone2.Tune' && state.val !== null) {
+                        let new_val = state.val.toString();
                         //load string in array
                         const arr = [
                             'SLZ24',
