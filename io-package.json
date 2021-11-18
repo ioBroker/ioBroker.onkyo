@@ -1,1169 +1,1061 @@
 {
-    "common": {
-        "name": "onkyo",
-        "version": "2.1.0",
-        "news": {
-            "2.1.0": {
-                "en": "Add reconnection and device offline detection\nOptimize packet parsing\nFix Image handling\nAdd crash reporting using sentry in js.controller 3+",
-                "de": "Wiederverbindung und Geräte-Offline-Erkennung hinzufügen\nPaketanalyse optimieren\nBildhandhabung korrigieren\nAbsturzberichte mit Sentry in js.controller 3+ hinzufügen",
-                "ru": "Добавить повторное подключение и обнаружение устройства офлайн\nОптимизировать парсинг пакетов\nИсправить обработку изображений\nДобавить отчеты о сбоях с помощью sentry в js.controller 3+",
-                "pt": "Adicionar reconexão e detecção off-line do dispositivo\nOtimize a análise de pacotes\nCorrigir o manuseio de imagens\nAdicionar relatório de falha usando sentinela no js.controller 3+",
-                "nl": "Opnieuw verbinden en offline detectie van apparaat toevoegen\nPakketparsing optimaliseren\nFix Beeldverwerking Image\nVoeg crashrapportage toe met behulp van schildwacht in js.controller 3+",
-                "fr": "Ajouter la reconnexion et la détection hors ligne de l'appareil\nOptimiser l'analyse des paquets\nCorrection de la gestion des images\nAjouter des rapports de plantage à l'aide de sentinelle dans js.controller 3+",
-                "it": "Aggiungi la riconnessione e il rilevamento offline del dispositivo\nOttimizza l'analisi dei pacchetti\nCorreggi la gestione delle immagini\nAggiungi la segnalazione degli arresti anomali utilizzando sentry in js.controller 3+",
-                "es": "Agregue reconexión y detección de dispositivo fuera de línea\nOptimizar el análisis de paquetes\nCorregir el manejo de imágenes\nAgregue informes de fallas usando sentry en js.controller 3+",
-                "pl": "Dodaj ponowne połączenie i wykrywanie offline urządzenia\nZoptymalizuj parsowanie pakietów\nNapraw obsługę obrazu\nDodaj raportowanie o awariach za pomocą sentry w js.controller 3+",
-                "zh-cn": "添加重连和设备离线检测\n优化数据包解析\n修复图像处理\n在 js.controller 中使用 sentry 添加崩溃报告 3+"
-            },
-            "2.0.5": {
-                "en": "fixed some object properties\nAdded the support of compact mode",
-                "de": "Einige Objekteigenschaften wurden behoben\nUnterstützung des Kompaktmodus hinzugefügt",
-                "ru": "исправлены некоторые свойства объекта\nДобавлена поддержка компактного режима",
-                "pt": "corrigiu algumas propriedades do objeto\nAdicionado o suporte do modo compacto",
-                "nl": "enkele objecteigenschappen gerepareerd\nDe ondersteuning van de compacte modus toegevoegd",
-                "fr": "correction de certaines propriétés d'objet\nAjout du support du mode compact",
-                "it": "risolte alcune proprietà degli oggetti\nAggiunto il supporto della modalità compatta",
-                "es": "se corrigieron algunas propiedades del objeto\nSe agregó el soporte del modo compacto.",
-                "pl": "naprawiono niektóre właściwości obiektów\nDodano obsługę trybu kompaktowego",
-                "zh-cn": "修复了一些对象属性\n增加了对紧凑模式的支持"
-            },
-            "2.0.4": {
-                "en": "fixed some object issues",
-                "de": "Fehlerkorrektur",
-                "ru": "исправлены некоторые проблемы с объектами",
-                "pt": "corrigiu alguns problemas de objeto",
-                "nl": "enkele objectproblemen opgelost",
-                "fr": "correction de quelques problèmes d'objets",
-                "it": "risolto alcuni problemi con gli oggetti",
-                "es": "solucionó algunos problemas de objetos",
-                "pl": "naprawiono niektóre problemy z obiektami",
-                "zh-cn": "修复了一些对象问题"
-            },
-            "2.0.3": {
-                "en": "now support zone3",
-                "de": "Unterstützung Zone3",
-                "ru": "теперь поддержка zone3",
-                "pt": "agora suporta zone3",
-                "nl": "nu ondersteuning zone3",
-                "fr": "supporte maintenant zone3",
-                "it": "ora supporta la zona3",
-                "es": "ahora es compatible con zone3",
-                "pl": "teraz obsługuje strefę3",
-                "zh-cn": "现在支持zone3"
-            },
-            "2.0.2": {
-                "en": "fix double .js",
-                "de": "Doppelte .js entfernt",
-                "ru": "исправить двойной .js",
-                "pt": "consertar .js duplo",
-                "nl": "dubbele .js . repareren",
-                "fr": "corriger le double .js",
-                "it": "correggi il doppio .js",
-                "es": "arreglar doble .js",
-                "pl": "napraw podwójne .js",
-                "zh-cn": "修复双 .js"
-            },
-            "2.0.1": {
-                "en": "Major version - structure changes!",
-                "de": "Strukturänderungen!",
-                "ru": "Основная версия - изменения в структуре!",
-                "pt": "Versão principal - alterações de estrutura!",
-                "nl": "Grote versie - structuurwijzigingen!",
-                "fr": "Version majeure - changements de structure !",
-                "it": "Versione principale: modifiche alla struttura!",
-                "es": "Versión principal: cambios de estructura.",
-                "pl": "Wersja główna - zmiany w strukturze!",
-                "zh-cn": "主要版本 - 结构变化！"
-            },
-            "1.1.5": {
-                "en": "Zones will be powered if tune preset selected",
-                "de": "Bei Auswahl der Radio Presets werden jetzt die entsprechenden Zonen eingeschaltet",
-                "ru": "Зоны будут получать питание, если выбрана предустановка",
-                "pt": "As zonas serão energizadas se a sintonia predefinida for selecionada",
-                "nl": "Zones worden ingeschakeld als de voorkeuzezender is geselecteerd",
-                "fr": "Les zones seront alimentées si le préréglage de syntonisation est sélectionné",
-                "it": "Le zone verranno alimentate se è selezionato il preset di sintonia",
-                "es": "Las zonas se encenderán si se selecciona el preajuste de sintonía",
-                "pl": "Strefy będą zasilane, jeśli wybrano ustawienie strojenia",
-                "zh-cn": "如果选择了调谐预设，区域将被供电"
-            },
-            "1.1.4": {
-                "en": "Added direct tuning in zones. issue #2",
-                "de": "Direkte Eingabe der Radio Frequenz möglich. issue #2",
-                "ru": "Добавлена ​​прямая настройка по зонам. ",
-                "pt": "Adicionado ajuste direto nas zonas. ",
-                "nl": "Directe afstemming in zones toegevoegd. ",
-                "fr": "Ajout du réglage direct dans les zones. ",
-                "it": "Aggiunta sintonizzazione diretta nelle zone. ",
-                "es": "Añadida sintonización directa en zonas. ",
-                "pl": "Dodano bezpośrednie strojenie w strefach. ",
-                "zh-cn": "在区域中添加了直接调谐。"
-            },
-            "1.1.3": {
-                "en": "Adding Navigation",
-                "de": "Navigation hinzugefügt",
-                "ru": "Добавление навигации",
-                "pt": "Adicionando Navegação",
-                "nl": "Navigatie toevoegen",
-                "fr": "Ajout de navigation",
-                "it": "Aggiunta di navigazione",
-                "es": "Agregar navegación",
-                "pl": "Dodawanie nawigacji",
-                "zh-cn": "添加导航"
-            },
-            "1.1.2": {
-                "en": "Adding CoverArt",
-                "de": "CoverArt hinzugefügt",
-                "ru": "Добавление CoverArt",
-                "pt": "Adicionando CoverArt",
-                "nl": "CoverArt toevoegen",
-                "fr": "Ajout de CoverArt",
-                "it": "Aggiungere CoverArt",
-                "es": "Adición de CoverArt",
-                "pl": "Dodawanie grafiki okładki",
-                "zh-cn": "添加封面"
-            },
-            "1.1.1": {
-                "en": "Update volume zone2 after power on. Adding Pioneer receivers with EISCP support.",
-                "de": "Volume Zone 2 nach dem Einschalten aktualisieren. Pionneer Receiver support für EISCP fähige Geräte.",
-                "ru": "Обновите Volume zone2 после включения. ",
-                "pt": "Atualize o volume da zona 2 após ligar. ",
-                "nl": "Update volume zone2 na inschakelen. ",
-                "fr": "Mettre à jour le volume zone2 après la mise sous tension. ",
-                "it": "Aggiorna il volume zone2 dopo l'accensione. ",
-                "es": "Actualice el volumen zone2 después del encendido. ",
-                "pl": "Zaktualizuj strefę głośności 2 po włączeniu zasilania. ",
-                "zh-cn": "开机后更新音量 zone2。"
-            },
-            "1.1.0": {
-                "en": "Completely new structured",
-                "de": "Neue Objekt Struktur",
-                "ru": "Совершенно новая структура",
-                "pt": "Estrutura totalmente nova",
-                "nl": "Volledig nieuw gestructureerd",
-                "fr": "Complètement nouvelle structure",
-                "it": "Struttura completamente nuova",
-                "es": "Estructurado completamente nuevo",
-                "pl": "Całkowicie nowa struktura",
-                "zh-cn": "全新的结构"
-            },
-            "1.0.5": {
-                "en": "Now only VIS supported",
-                "de": "Jetzt wird nur noch VIS unterstützt",
-                "ru": "Теперь поддерживается только VIS",
-                "pt": "Agora, apenas VIS é compatível",
-                "nl": "Nu alleen VIS ondersteund",
-                "fr": "Désormais, seul le VIS est pris en charge",
-                "it": "Ora solo VIS supportato",
-                "es": "Ahora solo se admite VIS",
-                "pl": "Teraz obsługiwany tylko VIS",
-                "zh-cn": "现在只支持VIS"
-            },
-            "1.0.4": {
-                "en": "clean objects",
-                "de": "Aufgeräumt",
-                "ru": "чистые предметы",
-                "pt": "objetos limpos",
-                "nl": "schone objecten",
-                "fr": "objets propres",
-                "it": "oggetti puliti",
-                "es": "objetos limpios",
-                "pl": "czyste przedmioty",
-                "zh-cn": "干净的物体"
-            },
-            "1.0.3": {
-                "en": "clean error log",
-                "de": "Error log säubern",
-                "ru": "чистый журнал ошибок",
-                "pt": "limpar log de erros",
-                "nl": "foutenlogboek opschonen",
-                "fr": "nettoyer le journal des erreurs",
-                "it": "pulire il registro degli errori",
-                "es": "limpiar registro de errores",
-                "pl": "wyczyść dziennik błędów",
-                "zh-cn": "清理错误日志"
-            },
-            "0.2.1": {
-                "en": "stable before",
-                "de": "Stableversion früher",
-                "ru": "стабильный до",
-                "pt": "estável antes",
-                "nl": "stabiel voor",
-                "fr": "stable avant",
-                "it": "stabile prima",
-                "es": "estable antes",
-                "pl": "stabilny wcześniej",
-                "zh-cn": "之前稳定"
-            }
-        },
-        "title": "Onkyo Pioneer EISCP - VIS",
-        "titleLang": {
-            "en": "Onkyo Pioneer EISCP - VIS compatible",
-            "de": "Onkyo Pioneer EISCP - VIS kompatibel",
-            "ru": "Onkyo Pioneer EISCP - совместимый с VIS",
-            "pt": "Onkyo Pioneer EISCP - compatível com VIS",
-            "nl": "Onkyo Pioneer EISCP - VIS-compatibel",
-            "fr": "Onkyo Pioneer EISCP - Compatible VIS",
-            "it": "Onkyo Pioneer EISCP - compatibile con VIS",
-            "es": "Onkyo Pioneer EISCP - Compatible con VIS",
-            "pl": "Onkyo Pioneer EISCP - kompatybilny z VIS",
-            "zh-cn": "Onkyo Pioneer EISCP - 兼容 VIS"
-        },
-        "desc": {
-            "en": "Control Onkyo and Pioneer AVRs with EISCP protocol and VIS support",
-            "de": "Control Onkyo and Pioneer AVRs with EISCP protocol and VIS support",
-            "ru": "Управляйте AVR Onkyo и Pioneer с помощью протокола EISCP и поддержки VIS",
-            "pt": "Controle AVRs Onkyo e Pioneer com protocolo EISCP e suporte VIS",
-            "nl": "Bedien Onkyo en Pioneer AVR's met EISCP-protocol en VIS-ondersteuning",
-            "fr": "Contrôlez les AVR Onkyo et Pioneer avec le protocole EISCP et la prise en charge VIS",
-            "it": "Controlla gli AVR Onkyo e Pioneer con protocollo EISCP e supporto VIS",
-            "es": "Controle los AVR de Onkyo y Pioneer con el protocolo EISCP y compatibilidad con VIS",
-            "pl": "Kontroluj amplitunery Onkyo i Pioneer za pomocą protokołu EISCP i obsługi VIS",
-            "zh-cn": "使用 EISCP 协议和 VIS 支持控制 Onkyo 和 Pioneer AVR"
-        },
-        "authors": [
-            "Oliver Wagner <owagner@tellerulam.com>",
-            "Lars Weimar <Eisbaeeer@gmail.com>"
-        ],
-        "platform": "Javascript/Node.js",
-        "mode": "daemon",
-        "materialize": true,
-        "loglevel": "info",
-        "icon": "onkyo.png",
-        "enabled": true,
-        "compact": true,
-        "extIcon": "https://raw.githubusercontent.com/ioBroker/ioBroker.onkyo/master/admin/onkyo.png",
-        "keywords": [
-            "Onkyo",
-            "Pioneer",
-            "AVR",
-            "eiscp"
-        ],
-        "readme": "https://github.com/ioBroker/ioBroker.onkyo/blob/master/README.md",
-        "type": "multimedia",
-        "license": "MIT",
-        "dataSource": "poll",
-        "connectionType": "local",
-        "tier": 2,
-        "plugins": {
-            "sentry": {
-                "dsn": "https://8b7d0092e3aa4b6b877b73a4e84d589c@sentry.iobroker.net/134"
-            }
-        }
+  "common": {
+    "name": "onkyo",
+    "version": "2.1.1",
+    "news": {
+      "2.1.1": {
+        "en": "Fix some crash cases reported by Sentry",
+        "de": "Beheben Sie einige von Sentry gemeldete Absturzfälle",
+        "ru": "Исправьте некоторые случаи сбоев, о которых сообщает Sentry",
+        "pt": "Corrija alguns casos de falha relatados pelo Sentry",
+        "nl": "Enkele door Sentry gemelde crashgevallen oplossen",
+        "fr": "Correction de certains cas de plantage signalés par Sentry",
+        "it": "Risolti alcuni casi di crash segnalati da Sentry",
+        "es": "Arregle algunos casos de fallas reportados por Sentry",
+        "pl": "Napraw niektóre przypadki awarii zgłoszone przez Sentry",
+        "zh-cn": "修复 Sentry 报告的一些崩溃案例"
+      },
+      "2.1.0": {
+        "en": "Add reconnection and device offline detection\nOptimize packet parsing\nFix Image handling\nAdd crash reporting using sentry in js.controller 3+",
+        "de": "Wiederverbindung und Geräte-Offline-Erkennung hinzufügen\nPaketanalyse optimieren\nBildhandhabung korrigieren\nAbsturzberichte mit Sentry in js.controller 3+ hinzufügen",
+        "ru": "Добавить повторное подключение и обнаружение устройства офлайн\nОптимизировать парсинг пакетов\nИсправить обработку изображений\nДобавить отчеты о сбоях с помощью sentry в js.controller 3+",
+        "pt": "Adicionar reconexão e detecção off-line do dispositivo\nOtimize a análise de pacotes\nCorrigir o manuseio de imagens\nAdicionar relatório de falha usando sentinela no js.controller 3+",
+        "nl": "Opnieuw verbinden en offline detectie van apparaat toevoegen\nPakketparsing optimaliseren\nFix Beeldverwerking Image\nVoeg crashrapportage toe met behulp van schildwacht in js.controller 3+",
+        "fr": "Ajouter la reconnexion et la détection hors ligne de l'appareil\nOptimiser l'analyse des paquets\nCorrection de la gestion des images\nAjouter des rapports de plantage à l'aide de sentinelle dans js.controller 3+",
+        "it": "Aggiungi la riconnessione e il rilevamento offline del dispositivo\nOttimizza l'analisi dei pacchetti\nCorreggi la gestione delle immagini\nAggiungi la segnalazione degli arresti anomali utilizzando sentry in js.controller 3+",
+        "es": "Agregue reconexión y detección de dispositivo fuera de línea\nOptimizar el análisis de paquetes\nCorregir el manejo de imágenes\nAgregue informes de fallas usando sentry en js.controller 3+",
+        "pl": "Dodaj ponowne połączenie i wykrywanie offline urządzenia\nZoptymalizuj parsowanie pakietów\nNapraw obsługę obrazu\nDodaj raportowanie o awariach za pomocą sentry w js.controller 3+",
+        "zh-cn": "添加重连和设备离线检测\n优化数据包解析\n修复图像处理\n在 js.controller 中使用 sentry 添加崩溃报告 3+"
+      },
+      "2.0.5": {
+        "en": "fixed some object properties\nAdded the support of compact mode",
+        "de": "Einige Objekteigenschaften wurden behoben\nUnterstützung des Kompaktmodus hinzugefügt",
+        "ru": "исправлены некоторые свойства объекта\nДобавлена поддержка компактного режима",
+        "pt": "corrigiu algumas propriedades do objeto\nAdicionado o suporte do modo compacto",
+        "nl": "enkele objecteigenschappen gerepareerd\nDe ondersteuning van de compacte modus toegevoegd",
+        "fr": "correction de certaines propriétés d'objet\nAjout du support du mode compact",
+        "it": "risolte alcune proprietà degli oggetti\nAggiunto il supporto della modalità compatta",
+        "es": "se corrigieron algunas propiedades del objeto\nSe agregó el soporte del modo compacto.",
+        "pl": "naprawiono niektóre właściwości obiektów\nDodano obsługę trybu kompaktowego",
+        "zh-cn": "修复了一些对象属性\n增加了对紧凑模式的支持"
+      },
+      "2.0.4": {
+        "en": "fixed some object issues",
+        "de": "Fehlerkorrektur",
+        "ru": "исправлены некоторые проблемы с объектами",
+        "pt": "corrigiu alguns problemas de objeto",
+        "nl": "enkele objectproblemen opgelost",
+        "fr": "correction de quelques problèmes d'objets",
+        "it": "risolto alcuni problemi con gli oggetti",
+        "es": "solucionó algunos problemas de objetos",
+        "pl": "naprawiono niektóre problemy z obiektami",
+        "zh-cn": "修复了一些对象问题"
+      },
+      "2.0.3": {
+        "en": "now support zone3",
+        "de": "Unterstützung Zone3",
+        "ru": "теперь поддержка zone3",
+        "pt": "agora suporta zone3",
+        "nl": "nu ondersteuning zone3",
+        "fr": "supporte maintenant zone3",
+        "it": "ora supporta la zona3",
+        "es": "ahora es compatible con zone3",
+        "pl": "teraz obsługuje strefę3",
+        "zh-cn": "现在支持zone3"
+      },
+      "2.0.2": {
+        "en": "fix double .js",
+        "de": "Doppelte .js entfernt",
+        "ru": "исправить двойной .js",
+        "pt": "consertar .js duplo",
+        "nl": "dubbele .js . repareren",
+        "fr": "corriger le double .js",
+        "it": "correggi il doppio .js",
+        "es": "arreglar doble .js",
+        "pl": "napraw podwójne .js",
+        "zh-cn": "修复双 .js"
+      },
+      "2.0.1": {
+        "en": "Major version - structure changes!",
+        "de": "Strukturänderungen!",
+        "ru": "Основная версия - изменения в структуре!",
+        "pt": "Versão principal - alterações de estrutura!",
+        "nl": "Grote versie - structuurwijzigingen!",
+        "fr": "Version majeure - changements de structure !",
+        "it": "Versione principale: modifiche alla struttura!",
+        "es": "Versión principal: cambios de estructura.",
+        "pl": "Wersja główna - zmiany w strukturze!",
+        "zh-cn": "主要版本 - 结构变化！"
+      }
     },
-    "native": {
-        "avrAddress": "",
-        "avrPort": 60128,
-        "maxvolzone1": 40,
-        "maxvolzone2": 40,
-        "aliveCheckInterval": 15000,
-        "discoveryInterval": 30000
+    "title": "Onkyo Pioneer EISCP - VIS",
+    "titleLang": {
+      "en": "Onkyo Pioneer EISCP - VIS compatible",
+      "de": "Onkyo Pioneer EISCP - VIS kompatibel",
+      "ru": "Onkyo Pioneer EISCP - совместимый с VIS",
+      "pt": "Onkyo Pioneer EISCP - compatível com VIS",
+      "nl": "Onkyo Pioneer EISCP - VIS-compatibel",
+      "fr": "Onkyo Pioneer EISCP - Compatible VIS",
+      "it": "Onkyo Pioneer EISCP - compatibile con VIS",
+      "es": "Onkyo Pioneer EISCP - Compatible con VIS",
+      "pl": "Onkyo Pioneer EISCP - kompatybilny z VIS",
+      "zh-cn": "Onkyo Pioneer EISCP - 兼容 VIS"
     },
-    "objects": [],
-    "instanceObjects": [
-        {
-            "_id": "info",
-            "type": "channel",
-            "common": {
-                "name": "Information"
-            },
-            "native": {}
-        },
-        {
-            "_id": "info.connection",
-            "type": "state",
-            "common": {
-                "role": "indicator.connected",
-                "name": "If connected to MiHome gateway",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "Zone1",
-            "type": "channel",
-            "common": {
-                "name": "Zone1"
-            },
-            "native": {
-                "command": "Zone1"
-            }
-        },
-        {
-            "_id": "Zone1.Power",
-            "type": "state",
-            "common": {
-                "name": "Power",
-                "type": "boolean",
-                "role": "switch",
-                "read": true,
-                "write": true
-            }
-        },
-        {
-            "_id": "Zone1.Volume",
-            "type": "state",
-            "common": {
-                "name": "Volume",
-                "type": "number",
-                "role": "level.volume",
-                "read": true,
-                "write": true
-            }
-        },
-        {
-            "_id": "Zone1.Tune",
-            "type": "state",
-            "common": {
-                "name": "Tune",
-                "type": "number",
-                "role": "state",
-                "read": true,
-                "write": true
-            }
-        },
-        {
-            "_id": "Zone1.NetRadioPreset",
-            "type": "state",
-            "common": {
-                "name": "Net Radio Preset",
-                "type": "string",
-                "role": "state",
-                "read": true,
-                "write": true
-            }
-        },
-        {
-            "_id": "Zone1.InputSelect",
-            "type": "state",
-            "common": {
-                "name": "Input Select",
-                "type": "string",
-                "role": "media.input",
-                "read": true,
-                "write": true
-            }
-        },
-        {
-            "_id": "Zone1.Mute",
-            "type": "state",
-            "common": {
-                "name": "Input Mute",
-                "type": "boolean",
-                "role": "switch",
-                "read": true,
-                "write": true
-            }
-        },
-        {
-            "_id": "Zone1.TunerPreset",
-            "type": "state",
-            "common": {
-                "name": "Tuner Preset",
-                "type": "number",
-                "role": "state",
-                "read": true,
-                "write": true
-            }
-        },
-        {
-            "_id": "Zone2",
-            "type": "channel",
-            "common": {
-                "name": "Zone2"
-            },
-            "native": {
-                "command": "Zone2"
-            }
-        },
-        {
-            "_id": "Zone2.Power",
-            "type": "state",
-            "common": {
-                "name": "Power",
-                "type": "boolean",
-                "role": "switch.power.zone",
-                "read": true,
-                "write": true
-            }
-        },
-        {
-            "_id": "Zone2.Volume",
-            "type": "state",
-            "common": {
-                "name": "Volume",
-                "type": "number",
-                "role": "level.volume",
-                "read": true,
-                "write": true
-            }
-        },
-        {
-            "_id": "Zone2.Tune",
-            "type": "state",
-            "common": {
-                "name": "Tune",
-                "type": "number",
-                "role": "state",
-                "read": true,
-                "write": true
-            }
-        },
-        {
-            "_id": "Zone2.NetRadioPreset",
-            "type": "state",
-            "common": {
-                "name": "Net Radio Preset",
-                "type": "string",
-                "role": "state",
-                "read": true,
-                "write": true
-            }
-        },
-        {
-            "_id": "Zone2.InputSelect",
-            "type": "state",
-            "common": {
-                "name": "Input Select",
-                "type": "string",
-                "role": "media.input",
-                "read": true,
-                "write": true
-            }
-        },
-        {
-            "_id": "Zone2.Mute",
-            "type": "state",
-            "common": {
-                "name": "Input Mute",
-                "type": "boolean",
-                "role": "media.mute",
-                "read": true,
-                "write": true
-            }
-        },
-        {
-            "_id": "Zone2.TunerPreset",
-            "type": "state",
-            "common": {
-                "name": "Tuner Preset",
-                "type": "number",
-                "role": "state",
-                "read": true,
-                "write": true
-            }
-        },
-        {
-            "_id": "Zone3",
-            "type": "channel",
-            "common": {
-                "name": "Zone3"
-            },
-            "native": {
-                "command": "Zone3"
-            }
-        },
-        {
-            "_id": "Zone3.Power",
-            "type": "state",
-            "common": {
-                "name": "Power",
-                "type": "boolean",
-                "role": "switch.power.zone",
-                "read": true,
-                "write": true
-            }
-        },
-        {
-            "_id": "Zone3.Volume",
-            "type": "state",
-            "common": {
-                "name": "Volume",
-                "type": "number",
-                "role": "level.volume",
-                "read": true,
-                "write": true
-            }
-        },
-        {
-            "_id": "Zone3.Tune",
-            "type": "state",
-            "common": {
-                "name": "Tune",
-                "type": "number",
-                "role": "state",
-                "read": true,
-                "write": true
-            }
-        },
-        {
-            "_id": "Zone3.NetRadioPreset",
-            "type": "state",
-            "common": {
-                "name": "Net Radio Preset",
-                "type": "string",
-                "role": "state",
-                "read": true,
-                "write": true
-            }
-        },
-        {
-            "_id": "Zone3.InputSelect",
-            "type": "state",
-            "common": {
-                "name": "Input Select",
-                "type": "string",
-                "role": "media.input",
-                "read": true,
-                "write": true
-            }
-        },
-        {
-            "_id": "Zone3.Mute",
-            "type": "state",
-            "common": {
-                "name": "Input Mute",
-                "type": "string",
-                "role": "media.mute",
-                "read": true,
-                "write": true
-            }
-        },
-        {
-            "_id": "Zone3.TunerPreset",
-            "type": "state",
-            "common": {
-                "name": "Tuner Preset",
-                "type": "number",
-                "role": "state",
-                "read": true,
-                "write": true
-            }
-        },
-        {
-            "_id": "Device",
-            "type": "device",
-            "common": {
-                "name": "Device",
-                "type": "device",
-                "role": "",
-                "read": true,
-                "write": false,
-                "def": ""
-            },
-            "native": {
-                "command": "Device"
-            }
-        },
-        {
-            "_id": "Device.ListeningMode",
-            "type": "state",
-            "common": {
-                "name": "Listening Mode",
-                "type": "string",
-                "role": "state",
-                "read": true,
-                "write": false,
-                "def": ""
-            },
-            "native": {
-                "command": "ListeningMode"
-            }
-        },
-        {
-            "_id": "Device.AudioInformation",
-            "type": "state",
-            "common": {
-                "name": "Audio Information",
-                "type": "string",
-                "role": "state",
-                "read": true,
-                "write": false,
-                "def": ""
-            },
-            "native": {
-                "command": "AudioInformation"
-            }
-        },
-        {
-            "_id": "Device.VideoInformation",
-            "type": "state",
-            "common": {
-                "name": "Video Information",
-                "type": "string",
-                "role": "state",
-                "read": true,
-                "write": false,
-                "def": ""
-            },
-            "native": {
-                "command": "VideoInformation"
-            }
-        },
-        {
-            "_id": "Device.MediaArtistNameInfo",
-            "type": "state",
-            "common": {
-                "name": "Media Artist Name Info",
-                "type": "string",
-                "role": "media.artist",
-                "read": true,
-                "write": false,
-                "def": ""
-            },
-            "native": {
-                "command": "MediaArtistNameInfo"
-            }
-        },
-        {
-            "_id": "Device.MediaTitelName",
-            "type": "state",
-            "common": {
-                "name": "Media Titel Name",
-                "type": "string",
-                "role": "media.title",
-                "read": true,
-                "write": false,
-                "def": ""
-            },
-            "native": {
-                "command": "MediaTitelName"
-            }
-        },
-        {
-            "_id": "Device.MediaTimeInfo",
-            "type": "state",
-            "common": {
-                "name": "Media Time Info",
-                "type": "string",
-                "role": "media.duration.text",
-                "read": true,
-                "write": false,
-                "def": ""
-            },
-            "native": {
-                "command": "MediaTimeInfo"
-            }
-        },
-        {
-            "_id": "Device.MediaTimeCurrent",
-            "type": "state",
-            "common": {
-                "name": "Media Time Current",
-                "type": "number",
-                "role": "media.elapsed.text",
-                "read": true,
-                "write": false,
-                "def": ""
-            },
-            "native": {
-                "command": "MediaTimeCurrent"
-            }
-        },
-        {
-            "_id": "Device.MediaTime",
-            "type": "state",
-            "common": {
-                "name": "Media Time",
-                "type": "number",
-                "role": "media.elapsed.text",
-                "read": true,
-                "write": false,
-                "def": ""
-            },
-            "native": {
-                "command": "MediaTime"
-            }
-        },
-        {
-            "_id": "Device.MediaAlbumName",
-            "type": "state",
-            "common": {
-                "name": "Media Album Name",
-                "type": "string",
-                "role": "media.album",
-                "read": true,
-                "write": false,
-                "def": ""
-            },
-            "native": {
-                "command": "MediaAlbumName"
-            }
-        },
-        {
-            "_id": "Device.MediaTrack",
-            "type": "state",
-            "common": {
-                "name": "Media Track",
-                "type": "string",
-                "role": "media.track",
-                "read": true,
-                "write": false,
-                "def": ""
-            },
-            "native": {
-                "command": "MediaTrack"
-            }
-        },
-        {
-            "_id": "Device.MediaStop",
-            "type": "state",
-            "common": {
-                "name": "Media Stop",
-                "type": "boolean",
-                "role": "button.stop",
-                "read": true,
-                "write": true,
-                "def": "false"
-            },
-            "native": {
-                "command": "MediaStop"
-            }
-        },
-        {
-            "_id": "Device.MediaPlay",
-            "type": "state",
-            "common": {
-                "name": "Media Play",
-                "type": "boolean",
-                "role": "button.play",
-                "read": true,
-                "write": true,
-                "def": "false"
-            },
-            "native": {
-                "command": "MediaPlay"
-            }
-        },
-        {
-            "_id": "Device.MediaPause",
-            "type": "state",
-            "common": {
-                "name": "Media Pause",
-                "type": "boolean",
-                "role": "button.pause",
-                "read": true,
-                "write": true,
-                "def": "false"
-            },
-            "native": {
-                "command": "MediaPause"
-            }
-        },
-        {
-            "_id": "Device.MediaForward",
-            "type": "state",
-            "common": {
-                "name": "Media Forward",
-                "type": "boolean",
-                "role": "button.forward",
-                "read": true,
-                "write": true,
-                "def": "false"
-            },
-            "native": {
-                "command": "MediaForward"
-            }
-        },
-        {
-            "_id": "Device.MediaFastForward",
-            "type": "state",
-            "common": {
-                "name": "Media Fast Forward",
-                "type": "boolean",
-                "role": "button.fastforward",
-                "read": true,
-                "write": true,
-                "def": "false"
-            },
-            "native": {
-                "command": "MediaFastForward"
-            }
-        },
-        {
-            "_id": "Device.MediaReverse",
-            "type": "state",
-            "common": {
-                "name": "Media Reverse",
-                "type": "boolean",
-                "role": "button.reverse",
-                "read": true,
-                "write": true,
-                "def": "false"
-            },
-            "native": {
-                "command": "MediaReverse"
-            }
-        },
-        {
-            "_id": "Device.MediaFastReverse",
-            "type": "state",
-            "common": {
-                "name": "Media Fast Reverse",
-                "type": "boolean",
-                "role": "button.fastreverse",
-                "read": true,
-                "write": true,
-                "def": "false"
-            },
-            "native": {
-                "command": "MediaFastReverse"
-            }
-        },
-        {
-            "_id": "Device.MediaRepeat",
-            "type": "state",
-            "common": {
-                "name": "Media Repeat",
-                "type": "boolean",
-                "role": "media.mode.repeat",
-                "read": true,
-                "write": false,
-                "def": "false"
-            },
-            "native": {
-                "command": "MediaRepeat"
-            }
-        },
-        {
-            "_id": "Device.MediaState",
-            "type": "state",
-            "common": {
-                "name": "Media State",
-                "type": "string",
-                "role": "media.state",
-                "read": true,
-                "write": false,
-                "def": "-"
-            },
-            "native": {
-                "command": "MediaState"
-            }
-        },
-        {
-            "_id": "Device.MediaModeShuffle",
-            "type": "state",
-            "common": {
-                "name": "Media Mode Shuffle",
-                "type": "string",
-                "role": "media.mode.shuffle",
-                "read": true,
-                "write": false,
-                "def": "0"
-            },
-            "native": {
-                "command": "MediaModeShuffle"
-            }
-        },
-        {
-            "_id": "Device.MediaModeShuffleStatus",
-            "type": "state",
-            "common": {
-                "name": "Media Mode Shuffle Status",
-                "type": "string",
-                "role": "state",
-                "read": true,
-                "write": false,
-                "def": "-"
-            },
-            "native": {
-                "command": "MediaModeShuffleStatus"
-            }
-        },
-        {
-            "_id": "Device.MediaTrackUp",
-            "type": "state",
-            "common": {
-                "name": "Media Track Up",
-                "type": "boolean",
-                "role": "button",
-                "read": true,
-                "write": true,
-                "def": "-"
-            }
-        },
-        {
-            "_id": "Device.MediaTrackDown",
-            "type": "state",
-            "common": {
-                "name": "Media Track Down",
-                "type": "boolean",
-                "role": "button",
-                "read": true,
-                "write": true,
-                "def": "-"
-            }
-        },
-        {
-            "_id": "Device.MediaRight",
-            "type": "state",
-            "common": {
-                "name": "Media Right",
-                "type": "boolean",
-                "role": "button",
-                "read": true,
-                "write": true,
-                "def": "-"
-            }
-        },
-        {
-            "_id": "Device.MediaLeft",
-            "type": "state",
-            "common": {
-                "name": "Media Left",
-                "type": "boolean",
-                "role": "button",
-                "read": true,
-                "write": true,
-                "def": "-"
-            }
-        },
-        {
-            "_id": "Device.MediaUp",
-            "type": "state",
-            "common": {
-                "name": "Media Up",
-                "type": "boolean",
-                "role": "button",
-                "read": true,
-                "write": true,
-                "def": "-"
-            }
-        },
-        {
-            "_id": "Device.MediaDown",
-            "type": "state",
-            "common": {
-                "name": "Media Down",
-                "type": "boolean",
-                "role": "button",
-                "read": true,
-                "write": true,
-                "def": "-"
-            }
-        },
-        {
-            "_id": "Device.MediaSelect",
-            "type": "state",
-            "common": {
-                "name": "Media Select",
-                "type": "boolean",
-                "role": "button",
-                "read": true,
-                "write": true,
-                "def": "-"
-            }
-        },
-        {
-            "_id": "Device.MediaDelete",
-            "type": "state",
-            "common": {
-                "name": "Media Delete",
-                "type": "boolean",
-                "role": "button",
-                "read": true,
-                "write": true,
-                "def": "-"
-            }
-        },
-        {
-            "_id": "Device.MediaReturn",
-            "type": "state",
-            "common": {
-                "name": "Media Return",
-                "type": "boolean",
-                "role": "button",
-                "read": true,
-                "write": true,
-                "def": "-"
-            }
-        },
-        {
-            "_id": "Device.MediaMenu",
-            "type": "state",
-            "common": {
-                "name": "Media Menu",
-                "type": "boolean",
-                "role": "button",
-                "read": true,
-                "write": true,
-                "def": "-"
-            }
-        },
-        {
-            "_id": "Device.MediaTop",
-            "type": "state",
-            "common": {
-                "name": "Media Top Menu",
-                "type": "boolean",
-                "role": "button",
-                "read": true,
-                "write": true,
-                "def": "-"
-            }
-        },
-        {
-            "_id": "Device.CoverBase64",
-            "type": "state",
-            "common": {
-                "name": "Cover Base64",
-                "type": "string",
-                "role": "media.cover",
-                "read": true,
-                "write": false,
-                "def": ""
-            }
-        },
-        {
-            "_id": "Device.CoverURL",
-            "type": "state",
-            "common": {
-                "name": "Cover URL",
-                "type": "string",
-                "role": "media.cover",
-                "read": true,
-                "write": false,
-                "def": ""
-            }
-        },
-        {
-            "_id": "Device.NavInfo",
-            "type": "state",
-            "common": {
-                "name": "Navigation Info as XML",
-                "type": "string",
-                "role": "state",
-                "read": true,
-                "write": false,
-                "def": ""
-            }
-        },
-        {
-            "_id": "Device.NavSequence",
-            "type": "state",
-            "common": {
-                "name": "Navigation Sequence as XML",
-                "type": "string",
-                "role": "state",
-                "read": true,
-                "write": false,
-                "def": ""
-            }
-        },
-        {
-            "_id": "Device.NavListInfo",
-            "type": "state",
-            "common": {
-                "name": "Navigation List Info",
-                "type": "string",
-                "role": "state",
-                "read": true,
-                "write": false,
-                "def": ""
-            }
-        },
-        {
-            "_id": "Device.Navigation",
-            "type": "state",
-            "common": {
-                "name": "Navigation",
-                "type": "string",
-                "role": "state",
-                "read": true,
-                "write": false,
-                "def": ""
-            }
-        },
-        {
-            "_id": "Device.NavPositionSumm",
-            "type": "state",
-            "common": {
-                "name": "Navigation Summary",
-                "type": "string",
-                "role": "state",
-                "read": true,
-                "write": false,
-                "def": ""
-            }
-        },
-        {
-            "_id": "Device.NavCountItems",
-            "type": "state",
-            "common": {
-                "name": "Navigation Count Items",
-                "type": "string",
-                "role": "state",
-                "read": true,
-                "write": false,
-                "def": ""
-            }
-        },
-        {
-            "_id": "Device.NavLayer",
-            "type": "state",
-            "common": {
-                "name": "Navigation Layer",
-                "type": "string",
-                "role": "state",
-                "read": true,
-                "write": false,
-                "def": ""
-            }
-        },
-        {
-            "_id": "Device.RAW",
-            "type": "state",
-            "common": {
-                "name": "RAW",
-                "type": "string",
-                "role": "state",
-                "read": true,
-                "write": true,
-                "def": ""
-            },
-            "native": {
-                "command": "RAW"
-            }
-        },
-        {
-            "_id": "Device.command",
-            "type": "state",
-            "common": {
-                "name": "Command",
-                "type": "string",
-                "role": "media.command",
-                "read": true,
-                "write": true,
-                "def": ""
-            },
-            "native": {
-                "command": "command"
-            }
-        },
-        {
-            "_id": "Device.connected",
-            "type": "state",
-            "common": {
-                "name": "connected",
-                "type": "boolean",
-                "role": "state",
-                "read": true,
-                "write": false
-            }
-        },
-        {
-            "_id": "NET_Shuffle_Status",
-            "type": "state",
-            "common": {
-                "name": "NET_Shuffle_Status",
-                "type": "string",
-                "role": "value",
-                "read": true,
-                "write": false
-            }
-        }
-    ]
+    "desc": {
+      "en": "Control Onkyo and Pioneer AVRs with EISCP protocol and VIS support",
+      "de": "Control Onkyo and Pioneer AVRs with EISCP protocol and VIS support",
+      "ru": "Управляйте AVR Onkyo и Pioneer с помощью протокола EISCP и поддержки VIS",
+      "pt": "Controle AVRs Onkyo e Pioneer com protocolo EISCP e suporte VIS",
+      "nl": "Bedien Onkyo en Pioneer AVR's met EISCP-protocol en VIS-ondersteuning",
+      "fr": "Contrôlez les AVR Onkyo et Pioneer avec le protocole EISCP et la prise en charge VIS",
+      "it": "Controlla gli AVR Onkyo e Pioneer con protocollo EISCP e supporto VIS",
+      "es": "Controle los AVR de Onkyo y Pioneer con el protocolo EISCP y compatibilidad con VIS",
+      "pl": "Kontroluj amplitunery Onkyo i Pioneer za pomocą protokołu EISCP i obsługi VIS",
+      "zh-cn": "使用 EISCP 协议和 VIS 支持控制 Onkyo 和 Pioneer AVR"
+    },
+    "authors": [
+      "Oliver Wagner <owagner@tellerulam.com>",
+      "Lars Weimar <Eisbaeeer@gmail.com>"
+    ],
+    "platform": "Javascript/Node.js",
+    "mode": "daemon",
+    "materialize": true,
+    "loglevel": "info",
+    "icon": "onkyo.png",
+    "enabled": true,
+    "compact": true,
+    "extIcon": "https://raw.githubusercontent.com/ioBroker/ioBroker.onkyo/master/admin/onkyo.png",
+    "keywords": [
+      "Onkyo",
+      "Pioneer",
+      "AVR",
+      "eiscp"
+    ],
+    "readme": "https://github.com/ioBroker/ioBroker.onkyo/blob/master/README.md",
+    "type": "multimedia",
+    "license": "MIT",
+    "dataSource": "poll",
+    "connectionType": "local",
+    "tier": 2,
+    "plugins": {
+      "sentry": {
+        "dsn": "https://8b7d0092e3aa4b6b877b73a4e84d589c@sentry.iobroker.net/134"
+      }
+    }
+  },
+  "native": {
+    "avrAddress": "",
+    "avrPort": 60128,
+    "maxvolzone1": 40,
+    "maxvolzone2": 40,
+    "aliveCheckInterval": 15000,
+    "discoveryInterval": 30000
+  },
+  "objects": [],
+  "instanceObjects": [
+    {
+      "_id": "info",
+      "type": "channel",
+      "common": {
+        "name": "Information"
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.connection",
+      "type": "state",
+      "common": {
+        "role": "indicator.connected",
+        "name": "If connected to MiHome gateway",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "Zone1",
+      "type": "channel",
+      "common": {
+        "name": "Zone1"
+      },
+      "native": {
+        "command": "Zone1"
+      }
+    },
+    {
+      "_id": "Zone1.Power",
+      "type": "state",
+      "common": {
+        "name": "Power",
+        "type": "boolean",
+        "role": "switch",
+        "read": true,
+        "write": true
+      }
+    },
+    {
+      "_id": "Zone1.Volume",
+      "type": "state",
+      "common": {
+        "name": "Volume",
+        "type": "number",
+        "role": "level.volume",
+        "read": true,
+        "write": true
+      }
+    },
+    {
+      "_id": "Zone1.Tune",
+      "type": "state",
+      "common": {
+        "name": "Tune",
+        "type": "number",
+        "role": "state",
+        "read": true,
+        "write": true
+      }
+    },
+    {
+      "_id": "Zone1.NetRadioPreset",
+      "type": "state",
+      "common": {
+        "name": "Net Radio Preset",
+        "type": "string",
+        "role": "state",
+        "read": true,
+        "write": true
+      }
+    },
+    {
+      "_id": "Zone1.InputSelect",
+      "type": "state",
+      "common": {
+        "name": "Input Select",
+        "type": "string",
+        "role": "media.input",
+        "read": true,
+        "write": true
+      }
+    },
+    {
+      "_id": "Zone1.Mute",
+      "type": "state",
+      "common": {
+        "name": "Input Mute",
+        "type": "boolean",
+        "role": "switch",
+        "read": true,
+        "write": true
+      }
+    },
+    {
+      "_id": "Zone1.TunerPreset",
+      "type": "state",
+      "common": {
+        "name": "Tuner Preset",
+        "type": "number",
+        "role": "state",
+        "read": true,
+        "write": true
+      }
+    },
+    {
+      "_id": "Zone2",
+      "type": "channel",
+      "common": {
+        "name": "Zone2"
+      },
+      "native": {
+        "command": "Zone2"
+      }
+    },
+    {
+      "_id": "Zone2.Power",
+      "type": "state",
+      "common": {
+        "name": "Power",
+        "type": "boolean",
+        "role": "switch.power.zone",
+        "read": true,
+        "write": true
+      }
+    },
+    {
+      "_id": "Zone2.Volume",
+      "type": "state",
+      "common": {
+        "name": "Volume",
+        "type": "number",
+        "role": "level.volume",
+        "read": true,
+        "write": true
+      }
+    },
+    {
+      "_id": "Zone2.Tune",
+      "type": "state",
+      "common": {
+        "name": "Tune",
+        "type": "number",
+        "role": "state",
+        "read": true,
+        "write": true
+      }
+    },
+    {
+      "_id": "Zone2.NetRadioPreset",
+      "type": "state",
+      "common": {
+        "name": "Net Radio Preset",
+        "type": "string",
+        "role": "state",
+        "read": true,
+        "write": true
+      }
+    },
+    {
+      "_id": "Zone2.InputSelect",
+      "type": "state",
+      "common": {
+        "name": "Input Select",
+        "type": "string",
+        "role": "media.input",
+        "read": true,
+        "write": true
+      }
+    },
+    {
+      "_id": "Zone2.Mute",
+      "type": "state",
+      "common": {
+        "name": "Input Mute",
+        "type": "boolean",
+        "role": "media.mute",
+        "read": true,
+        "write": true
+      }
+    },
+    {
+      "_id": "Zone2.TunerPreset",
+      "type": "state",
+      "common": {
+        "name": "Tuner Preset",
+        "type": "number",
+        "role": "state",
+        "read": true,
+        "write": true
+      }
+    },
+    {
+      "_id": "Zone3",
+      "type": "channel",
+      "common": {
+        "name": "Zone3"
+      },
+      "native": {
+        "command": "Zone3"
+      }
+    },
+    {
+      "_id": "Zone3.Power",
+      "type": "state",
+      "common": {
+        "name": "Power",
+        "type": "boolean",
+        "role": "switch.power.zone",
+        "read": true,
+        "write": true
+      }
+    },
+    {
+      "_id": "Zone3.Volume",
+      "type": "state",
+      "common": {
+        "name": "Volume",
+        "type": "number",
+        "role": "level.volume",
+        "read": true,
+        "write": true
+      }
+    },
+    {
+      "_id": "Zone3.Tune",
+      "type": "state",
+      "common": {
+        "name": "Tune",
+        "type": "number",
+        "role": "state",
+        "read": true,
+        "write": true
+      }
+    },
+    {
+      "_id": "Zone3.NetRadioPreset",
+      "type": "state",
+      "common": {
+        "name": "Net Radio Preset",
+        "type": "string",
+        "role": "state",
+        "read": true,
+        "write": true
+      }
+    },
+    {
+      "_id": "Zone3.InputSelect",
+      "type": "state",
+      "common": {
+        "name": "Input Select",
+        "type": "string",
+        "role": "media.input",
+        "read": true,
+        "write": true
+      }
+    },
+    {
+      "_id": "Zone3.Mute",
+      "type": "state",
+      "common": {
+        "name": "Input Mute",
+        "type": "string",
+        "role": "media.mute",
+        "read": true,
+        "write": true
+      }
+    },
+    {
+      "_id": "Zone3.TunerPreset",
+      "type": "state",
+      "common": {
+        "name": "Tuner Preset",
+        "type": "number",
+        "role": "state",
+        "read": true,
+        "write": true
+      }
+    },
+    {
+      "_id": "Device",
+      "type": "device",
+      "common": {
+        "name": "Device",
+        "type": "device",
+        "role": "",
+        "read": true,
+        "write": false,
+        "def": ""
+      },
+      "native": {
+        "command": "Device"
+      }
+    },
+    {
+      "_id": "Device.ListeningMode",
+      "type": "state",
+      "common": {
+        "name": "Listening Mode",
+        "type": "string",
+        "role": "state",
+        "read": true,
+        "write": false,
+        "def": ""
+      },
+      "native": {
+        "command": "ListeningMode"
+      }
+    },
+    {
+      "_id": "Device.AudioInformation",
+      "type": "state",
+      "common": {
+        "name": "Audio Information",
+        "type": "string",
+        "role": "state",
+        "read": true,
+        "write": false,
+        "def": ""
+      },
+      "native": {
+        "command": "AudioInformation"
+      }
+    },
+    {
+      "_id": "Device.VideoInformation",
+      "type": "state",
+      "common": {
+        "name": "Video Information",
+        "type": "string",
+        "role": "state",
+        "read": true,
+        "write": false,
+        "def": ""
+      },
+      "native": {
+        "command": "VideoInformation"
+      }
+    },
+    {
+      "_id": "Device.MediaArtistNameInfo",
+      "type": "state",
+      "common": {
+        "name": "Media Artist Name Info",
+        "type": "string",
+        "role": "media.artist",
+        "read": true,
+        "write": false,
+        "def": ""
+      },
+      "native": {
+        "command": "MediaArtistNameInfo"
+      }
+    },
+    {
+      "_id": "Device.MediaTitelName",
+      "type": "state",
+      "common": {
+        "name": "Media Titel Name",
+        "type": "string",
+        "role": "media.title",
+        "read": true,
+        "write": false,
+        "def": ""
+      },
+      "native": {
+        "command": "MediaTitelName"
+      }
+    },
+    {
+      "_id": "Device.MediaTimeInfo",
+      "type": "state",
+      "common": {
+        "name": "Media Time Info",
+        "type": "string",
+        "role": "media.duration.text",
+        "read": true,
+        "write": false,
+        "def": ""
+      },
+      "native": {
+        "command": "MediaTimeInfo"
+      }
+    },
+    {
+      "_id": "Device.MediaTimeCurrent",
+      "type": "state",
+      "common": {
+        "name": "Media Time Current",
+        "type": "number",
+        "role": "media.elapsed.text",
+        "read": true,
+        "write": false,
+        "def": ""
+      },
+      "native": {
+        "command": "MediaTimeCurrent"
+      }
+    },
+    {
+      "_id": "Device.MediaTime",
+      "type": "state",
+      "common": {
+        "name": "Media Time",
+        "type": "number",
+        "role": "media.elapsed.text",
+        "read": true,
+        "write": false,
+        "def": ""
+      },
+      "native": {
+        "command": "MediaTime"
+      }
+    },
+    {
+      "_id": "Device.MediaAlbumName",
+      "type": "state",
+      "common": {
+        "name": "Media Album Name",
+        "type": "string",
+        "role": "media.album",
+        "read": true,
+        "write": false,
+        "def": ""
+      },
+      "native": {
+        "command": "MediaAlbumName"
+      }
+    },
+    {
+      "_id": "Device.MediaTrack",
+      "type": "state",
+      "common": {
+        "name": "Media Track",
+        "type": "string",
+        "role": "media.track",
+        "read": true,
+        "write": false,
+        "def": ""
+      },
+      "native": {
+        "command": "MediaTrack"
+      }
+    },
+    {
+      "_id": "Device.MediaStop",
+      "type": "state",
+      "common": {
+        "name": "Media Stop",
+        "type": "boolean",
+        "role": "button.stop",
+        "read": true,
+        "write": true,
+        "def": "false"
+      },
+      "native": {
+        "command": "MediaStop"
+      }
+    },
+    {
+      "_id": "Device.MediaPlay",
+      "type": "state",
+      "common": {
+        "name": "Media Play",
+        "type": "boolean",
+        "role": "button.play",
+        "read": true,
+        "write": true,
+        "def": "false"
+      },
+      "native": {
+        "command": "MediaPlay"
+      }
+    },
+    {
+      "_id": "Device.MediaPause",
+      "type": "state",
+      "common": {
+        "name": "Media Pause",
+        "type": "boolean",
+        "role": "button.pause",
+        "read": true,
+        "write": true,
+        "def": "false"
+      },
+      "native": {
+        "command": "MediaPause"
+      }
+    },
+    {
+      "_id": "Device.MediaForward",
+      "type": "state",
+      "common": {
+        "name": "Media Forward",
+        "type": "boolean",
+        "role": "button.forward",
+        "read": true,
+        "write": true,
+        "def": "false"
+      },
+      "native": {
+        "command": "MediaForward"
+      }
+    },
+    {
+      "_id": "Device.MediaFastForward",
+      "type": "state",
+      "common": {
+        "name": "Media Fast Forward",
+        "type": "boolean",
+        "role": "button.fastforward",
+        "read": true,
+        "write": true,
+        "def": "false"
+      },
+      "native": {
+        "command": "MediaFastForward"
+      }
+    },
+    {
+      "_id": "Device.MediaReverse",
+      "type": "state",
+      "common": {
+        "name": "Media Reverse",
+        "type": "boolean",
+        "role": "button.reverse",
+        "read": true,
+        "write": true,
+        "def": "false"
+      },
+      "native": {
+        "command": "MediaReverse"
+      }
+    },
+    {
+      "_id": "Device.MediaFastReverse",
+      "type": "state",
+      "common": {
+        "name": "Media Fast Reverse",
+        "type": "boolean",
+        "role": "button.fastreverse",
+        "read": true,
+        "write": true,
+        "def": "false"
+      },
+      "native": {
+        "command": "MediaFastReverse"
+      }
+    },
+    {
+      "_id": "Device.MediaRepeat",
+      "type": "state",
+      "common": {
+        "name": "Media Repeat",
+        "type": "boolean",
+        "role": "media.mode.repeat",
+        "read": true,
+        "write": false,
+        "def": "false"
+      },
+      "native": {
+        "command": "MediaRepeat"
+      }
+    },
+    {
+      "_id": "Device.MediaState",
+      "type": "state",
+      "common": {
+        "name": "Media State",
+        "type": "string",
+        "role": "media.state",
+        "read": true,
+        "write": false,
+        "def": "-"
+      },
+      "native": {
+        "command": "MediaState"
+      }
+    },
+    {
+      "_id": "Device.MediaModeShuffle",
+      "type": "state",
+      "common": {
+        "name": "Media Mode Shuffle",
+        "type": "string",
+        "role": "media.mode.shuffle",
+        "read": true,
+        "write": false,
+        "def": "0"
+      },
+      "native": {
+        "command": "MediaModeShuffle"
+      }
+    },
+    {
+      "_id": "Device.MediaModeShuffleStatus",
+      "type": "state",
+      "common": {
+        "name": "Media Mode Shuffle Status",
+        "type": "string",
+        "role": "state",
+        "read": true,
+        "write": false,
+        "def": "-"
+      },
+      "native": {
+        "command": "MediaModeShuffleStatus"
+      }
+    },
+    {
+      "_id": "Device.MediaTrackUp",
+      "type": "state",
+      "common": {
+        "name": "Media Track Up",
+        "type": "boolean",
+        "role": "button",
+        "read": true,
+        "write": true,
+        "def": "-"
+      }
+    },
+    {
+      "_id": "Device.MediaTrackDown",
+      "type": "state",
+      "common": {
+        "name": "Media Track Down",
+        "type": "boolean",
+        "role": "button",
+        "read": true,
+        "write": true,
+        "def": "-"
+      }
+    },
+    {
+      "_id": "Device.MediaRight",
+      "type": "state",
+      "common": {
+        "name": "Media Right",
+        "type": "boolean",
+        "role": "button",
+        "read": true,
+        "write": true,
+        "def": "-"
+      }
+    },
+    {
+      "_id": "Device.MediaLeft",
+      "type": "state",
+      "common": {
+        "name": "Media Left",
+        "type": "boolean",
+        "role": "button",
+        "read": true,
+        "write": true,
+        "def": "-"
+      }
+    },
+    {
+      "_id": "Device.MediaUp",
+      "type": "state",
+      "common": {
+        "name": "Media Up",
+        "type": "boolean",
+        "role": "button",
+        "read": true,
+        "write": true,
+        "def": "-"
+      }
+    },
+    {
+      "_id": "Device.MediaDown",
+      "type": "state",
+      "common": {
+        "name": "Media Down",
+        "type": "boolean",
+        "role": "button",
+        "read": true,
+        "write": true,
+        "def": "-"
+      }
+    },
+    {
+      "_id": "Device.MediaSelect",
+      "type": "state",
+      "common": {
+        "name": "Media Select",
+        "type": "boolean",
+        "role": "button",
+        "read": true,
+        "write": true,
+        "def": "-"
+      }
+    },
+    {
+      "_id": "Device.MediaDelete",
+      "type": "state",
+      "common": {
+        "name": "Media Delete",
+        "type": "boolean",
+        "role": "button",
+        "read": true,
+        "write": true,
+        "def": "-"
+      }
+    },
+    {
+      "_id": "Device.MediaReturn",
+      "type": "state",
+      "common": {
+        "name": "Media Return",
+        "type": "boolean",
+        "role": "button",
+        "read": true,
+        "write": true,
+        "def": "-"
+      }
+    },
+    {
+      "_id": "Device.MediaMenu",
+      "type": "state",
+      "common": {
+        "name": "Media Menu",
+        "type": "boolean",
+        "role": "button",
+        "read": true,
+        "write": true,
+        "def": "-"
+      }
+    },
+    {
+      "_id": "Device.MediaTop",
+      "type": "state",
+      "common": {
+        "name": "Media Top Menu",
+        "type": "boolean",
+        "role": "button",
+        "read": true,
+        "write": true,
+        "def": "-"
+      }
+    },
+    {
+      "_id": "Device.CoverBase64",
+      "type": "state",
+      "common": {
+        "name": "Cover Base64",
+        "type": "string",
+        "role": "media.cover",
+        "read": true,
+        "write": false,
+        "def": ""
+      }
+    },
+    {
+      "_id": "Device.CoverURL",
+      "type": "state",
+      "common": {
+        "name": "Cover URL",
+        "type": "string",
+        "role": "media.cover",
+        "read": true,
+        "write": false,
+        "def": ""
+      }
+    },
+    {
+      "_id": "Device.NavInfo",
+      "type": "state",
+      "common": {
+        "name": "Navigation Info as XML",
+        "type": "string",
+        "role": "state",
+        "read": true,
+        "write": false,
+        "def": ""
+      }
+    },
+    {
+      "_id": "Device.NavSequence",
+      "type": "state",
+      "common": {
+        "name": "Navigation Sequence as XML",
+        "type": "string",
+        "role": "state",
+        "read": true,
+        "write": false,
+        "def": ""
+      }
+    },
+    {
+      "_id": "Device.NavListInfo",
+      "type": "state",
+      "common": {
+        "name": "Navigation List Info",
+        "type": "string",
+        "role": "state",
+        "read": true,
+        "write": false,
+        "def": ""
+      }
+    },
+    {
+      "_id": "Device.Navigation",
+      "type": "state",
+      "common": {
+        "name": "Navigation",
+        "type": "string",
+        "role": "state",
+        "read": true,
+        "write": false,
+        "def": ""
+      }
+    },
+    {
+      "_id": "Device.NavPositionSumm",
+      "type": "state",
+      "common": {
+        "name": "Navigation Summary",
+        "type": "string",
+        "role": "state",
+        "read": true,
+        "write": false,
+        "def": ""
+      }
+    },
+    {
+      "_id": "Device.NavCountItems",
+      "type": "state",
+      "common": {
+        "name": "Navigation Count Items",
+        "type": "string",
+        "role": "state",
+        "read": true,
+        "write": false,
+        "def": ""
+      }
+    },
+    {
+      "_id": "Device.NavLayer",
+      "type": "state",
+      "common": {
+        "name": "Navigation Layer",
+        "type": "string",
+        "role": "state",
+        "read": true,
+        "write": false,
+        "def": ""
+      }
+    },
+    {
+      "_id": "Device.RAW",
+      "type": "state",
+      "common": {
+        "name": "RAW",
+        "type": "string",
+        "role": "state",
+        "read": true,
+        "write": true,
+        "def": ""
+      },
+      "native": {
+        "command": "RAW"
+      }
+    },
+    {
+      "_id": "Device.command",
+      "type": "state",
+      "common": {
+        "name": "Command",
+        "type": "string",
+        "role": "media.command",
+        "read": true,
+        "write": true,
+        "def": ""
+      },
+      "native": {
+        "command": "command"
+      }
+    },
+    {
+      "_id": "Device.connected",
+      "type": "state",
+      "common": {
+        "name": "connected",
+        "type": "boolean",
+        "role": "state",
+        "read": true,
+        "write": false
+      }
+    },
+    {
+      "_id": "NET_Shuffle_Status",
+      "type": "state",
+      "common": {
+        "name": "NET_Shuffle_Status",
+        "type": "string",
+        "role": "value",
+        "read": true,
+        "write": false
+      }
+    }
+  ]
 }

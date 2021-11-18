@@ -46,8 +46,7 @@ Example of VIS view
 	### __WORK IN PROGRESS__
 -->
 ## Changelog
-
-### __WORK IN PROGRESS__
+### 2.1.1 (2021-11-18)
 * (Apollon77) Fix some crash cases reported by Sentry
 
 ### 2.1.0 (2021-07-05)
@@ -64,22 +63,22 @@ Example of VIS view
 * (bluefox) Added the support of compact mode
 
 ### 2.0.3   
-* (Eisbaeeer) now support zone3   
+* (Eisbaeeer) now support zone3
 
 ### 2.0.2
-* (Eisbaeeer) fix double .js 
+* (Eisbaeeer) fix double .js
 
 ### 2.0.0
 * (Eisbaeeer) Major update iobroker.onkyo
 
 ### 1.1.5
-* (Eisbaeeer) Zones will be powered if tune preset selected   
+* (Eisbaeeer) Zones will be powered if tune preset selected
 
 ### 1.1.4  
 * (Eisbaeeer) Added direct tuning in zones (issue #2)
 
 ### 1.1.3
-* (Eisbaeeer) Adding Navigation Items   
+* (Eisbaeeer) Adding Navigation Items
 
 ### 1.1.2
 * (Eisbaeeer) Adding CoverArt
