@@ -548,8 +548,7 @@
         "type": "number",
         "role": "media.elapsed.text",
         "read": true,
-        "write": false,
-        "def": ""
+        "write": false
       },
       "native": {
         "command": "MediaTimeCurrent"
@@ -563,8 +562,7 @@
         "type": "number",
         "role": "media.elapsed.text",
         "read": true,
-        "write": false,
-        "def": ""
+        "write": false
       },
       "native": {
         "command": "MediaTime"
@@ -609,7 +607,7 @@
         "role": "button.stop",
         "read": true,
         "write": true,
-        "def": "false"
+        "def": false
       },
       "native": {
         "command": "MediaStop"
@@ -624,7 +622,7 @@
         "role": "button.play",
         "read": true,
         "write": true,
-        "def": "false"
+        "def": false
       },
       "native": {
         "command": "MediaPlay"
@@ -639,7 +637,7 @@
         "role": "button.pause",
         "read": true,
         "write": true,
-        "def": "false"
+        "def": false
       },
       "native": {
         "command": "MediaPause"
@@ -654,7 +652,7 @@
         "role": "button.forward",
         "read": true,
         "write": true,
-        "def": "false"
+        "def": false
       },
       "native": {
         "command": "MediaForward"
@@ -669,7 +667,7 @@
         "role": "button.fastforward",
         "read": true,
         "write": true,
-        "def": "false"
+        "def": false
       },
       "native": {
         "command": "MediaFastForward"
@@ -684,7 +682,7 @@
         "role": "button.reverse",
         "read": true,
         "write": true,
-        "def": "false"
+        "def": false
       },
       "native": {
         "command": "MediaReverse"
@@ -699,7 +697,7 @@
         "role": "button.fastreverse",
         "read": true,
         "write": true,
-        "def": "false"
+        "def": false
       },
       "native": {
         "command": "MediaFastReverse"
@@ -714,7 +712,7 @@
         "role": "media.mode.repeat",
         "read": true,
         "write": false,
-        "def": "false"
+        "def": false
       },
       "native": {
         "command": "MediaRepeat"
@@ -774,7 +772,7 @@
         "role": "button",
         "read": true,
         "write": true,
-        "def": "-"
+        "def": false
       }
     },
     {
@@ -786,7 +784,7 @@
         "role": "button",
         "read": true,
         "write": true,
-        "def": "-"
+        "def": false
       }
     },
     {
@@ -798,7 +796,7 @@
         "role": "button",
         "read": true,
         "write": true,
-        "def": "-"
+        "def": false
       }
     },
     {
@@ -810,7 +808,7 @@
         "role": "button",
         "read": true,
         "write": true,
-        "def": "-"
+        "def": false
       }
     },
     {
@@ -822,7 +820,7 @@
         "role": "button",
         "read": true,
         "write": true,
-        "def": "-"
+        "def": false
       }
     },
     {
@@ -834,7 +832,7 @@
         "role": "button",
         "read": true,
         "write": true,
-        "def": "-"
+        "def": false
       }
     },
     {
@@ -846,7 +844,7 @@
         "role": "button",
         "read": true,
         "write": true,
-        "def": "-"
+        "def": false
       }
     },
     {
@@ -858,7 +856,7 @@
         "role": "button",
         "read": true,
         "write": true,
-        "def": "-"
+        "def": false
       }
     },
     {
@@ -870,7 +868,7 @@
         "role": "button",
         "read": true,
         "write": true,
-        "def": "-"
+        "def": false
       }
     },
     {
@@ -882,7 +880,7 @@
         "role": "button",
         "read": true,
         "write": true,
-        "def": "-"
+        "def": false
       }
     },
     {
@@ -894,7 +892,7 @@
         "role": "button",
         "read": true,
         "write": true,
-        "def": "-"
+        "def": false
       }
     },
     {
