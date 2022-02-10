@@ -46,6 +46,9 @@ Example of VIS view
 	### __WORK IN PROGRESS__
 -->
 ## Changelog
+### 2.1.2 (2022-02-10)
+* (Diginix) set object defaults with correct data type
+
 ### 2.1.1 (2021-11-18)
 * (Apollon77) Fix some crash cases reported by Sentry
 
