@@ -319,6 +319,7 @@ function startAdapter(options) {
                         ];
 
                         setTimeout(() => {
+                            if (unloading) return;
                             // send array to command object
                             for (let i = 0; i < arr.length; i++) {
                                 adapter.log.debug('Tune to: ' + arr[i]);
@@ -344,6 +345,7 @@ function startAdapter(options) {
                         ];
 
                         setTimeout(() => {
+                            if (unloading) return;
                             // send array to command object
                             for (let i = 0; i < arr.length; i++) {
                                 adapter.log.debug('Tune to: ' + arr[i]);
@@ -581,6 +583,7 @@ function devicePowerQuery() {
 }
 
 function sendInitialCommands(idx) {
+    if (unloading) return;
     // Try to read initial values
     if (idx === DATAPOINTS.length) {
         return;
@@ -630,7 +633,10 @@ function main() {
         connectionInterval = setInterval(() => {
             eiscp.close();
             // Connect to receiver
-            setTimeout(() => eiscp.connect(connectionOptions), 200);
+            setTimeout(() => {
+                if (unloading) return;
+                eiscp.connect(connectionOptions);
+            }, 200);
         }, adapter.config.discoveryInterval);
     });
 
@@ -643,7 +649,10 @@ function main() {
         devicePowerQuery();
 
         // Query some initial information
-        setTimeout(() => sendInitialCommands(), 5000);
+        setTimeout(() => {
+            if (unloading) return;
+            sendInitialCommands();
+        }, 5000);
     });
 
     eiscp.on('close', () => {
@@ -656,7 +665,10 @@ function main() {
             connectionInterval = setInterval(() => {
                 eiscp.close();
                 // Connect to receiver
-                setTimeout(() => eiscp.connect(connectionOptions), 200);
+                setTimeout(() => {
+                    if (unloading) return;
+                    eiscp.connect(connectionOptions);
+                }, 200);
             }, adapter.config.discoveryInterval);
         }
     });

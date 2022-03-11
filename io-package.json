@@ -141,7 +141,12 @@
       "sentry": {
         "dsn": "https://8b7d0092e3aa4b6b877b73a4e84d589c@sentry.iobroker.net/134"
       }
-    }
+    },
+    "dependencies": [
+      {
+        "js-controller": ">=2.0.0"
+      }
+    ]
   },
   "native": {
     "avrAddress": "",
@@ -440,11 +445,6 @@
       "type": "device",
       "common": {
         "name": "Device",
-        "type": "device",
-        "role": "",
-        "read": true,
-        "write": false,
-        "def": ""
       },
       "native": {
         "command": "Device"
@@ -1041,7 +1041,8 @@
         "type": "boolean",
         "role": "state",
         "read": true,
-        "write": false
+        "write": false,
+        "def": false
       }
     },
     {
@@ -1052,7 +1053,8 @@
         "type": "string",
         "role": "value",
         "read": true,
-        "write": false
+        "write": false,
+        "def": ""
       }
     }
   ]
