@@ -46,7 +46,7 @@ Example of VIS view
 	### __WORK IN PROGRESS__
 -->
 ## Changelog
-### __WORK IN PROGRESS__
+### 2.1.2 (2022-03-11)
 * (Diginix/Apollon77) set object defaults with correct data type
 
 ### 2.1.1 (2021-11-18)

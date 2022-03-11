@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "onkyo",
-    "version": "2.1.1",
+    "version": "2.1.2",
     "news": {
+      "2.1.2": {
+        "en": "set object defaults with correct data type",
+        "de": "Objektvoreinstellungen mit dem richtigen Datentyp festlegen",
+        "ru": "установить значения по умолчанию для объекта с правильным типом данных",
+        "pt": "definir padrões de objeto com o tipo de dados correto",
+        "nl": "stel de standaardwaarden van objecten in met het juiste gegevenstype",
+        "fr": "définir les valeurs par défaut de l'objet avec le type de données correct",
+        "it": "imposta i valori predefiniti degli oggetti con il tipo di dati corretto",
+        "es": "establecer los valores predeterminados del objeto con el tipo de datos correcto",
+        "pl": "ustaw wartości domyślne obiektu z poprawnym typem danych",
+        "zh-cn": "使用正确的数据类型设置对象默认值"
+      },
       "2.1.1": {
         "en": "Fix some crash cases reported by Sentry",
         "de": "Beheben Sie einige von Sentry gemeldete Absturzfälle",
@@ -74,18 +86,6 @@
         "es": "arreglar doble .js",
         "pl": "napraw podwójne .js",
         "zh-cn": "修复双 .js"
-      },
-      "2.0.1": {
-        "en": "Major version - structure changes!",
-        "de": "Strukturänderungen!",
-        "ru": "Основная версия - изменения в структуре!",
-        "pt": "Versão principal - alterações de estrutura!",
-        "nl": "Grote versie - structuurwijzigingen!",
-        "fr": "Version majeure - changements de structure !",
-        "it": "Versione principale: modifiche alla struttura!",
-        "es": "Versión principal: cambios de estructura.",
-        "pl": "Wersja główna - zmiany w strukturze!",
-        "zh-cn": "主要版本 - 结构变化！"
       }
     },
     "title": "Onkyo Pioneer EISCP - VIS",
