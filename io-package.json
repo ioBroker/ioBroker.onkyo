@@ -444,7 +444,7 @@
       "_id": "Device",
       "type": "device",
       "common": {
-        "name": "Device",
+        "name": "Device"
       },
       "native": {
         "command": "Device"
