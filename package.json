@@ -26,7 +26,7 @@
     }
   ],
   "dependencies": {
-    "@iobroker/adapter-core": "^2.6.0",
+    "@iobroker/adapter-core": "^2.6.6",
     "eiscp": "https://github.com/GermanBluefox/node-eiscp/tarball/master/",
     "xml2js": "^0.4.23"
   },
