@@ -166,5 +166,5 @@ Example of VIS view
 
 ## License
 The MIT License (MIT)
-Copyright (c) 2014-2022 bluefox <dogafox@gmail.com>,
+Copyright (c) 2014-2025 bluefox <dogafox@gmail.com>,
               2014-2015 Oliver Wagner <owagner@tellerulam.com>
