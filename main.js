@@ -5,7 +5,7 @@
 
 const eiscp       = require('eiscp');
 const xml2js      = require('xml2js');
-const fs          = require('fs');
+const fs          = require('node:fs');
 const parser      = new xml2js.Parser({explicitArray: true});
 const adapterName = require('./package.json').name.split('.').pop();
 
