@@ -119,7 +119,6 @@
     ],
     "platform": "Javascript/Node.js",
     "mode": "daemon",
-    "materialize": true,
     "loglevel": "info",
     "icon": "onkyo.png",
     "enabled": true,
@@ -144,9 +143,12 @@
     },
     "dependencies": [
       {
-        "js-controller": ">=2.0.0"
+        "js-controller": ">=6.0.11"
       }
-    ]
+    ],
+    "adminUI": {
+      "config": "materialize"
+    }
   },
   "native": {
     "avrAddress": "",
