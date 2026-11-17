@@ -49,6 +49,7 @@ Example of VIS view
 
 ### **WORK IN PROGRESS**
 - (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+- (@GermanBluefox) Migrated admin settings to jsonConfig (responsive design) (#185)
 
 ### 2.1.2 (2022-03-11)
 * (Diginix/Apollon77) set object defaults with correct data type

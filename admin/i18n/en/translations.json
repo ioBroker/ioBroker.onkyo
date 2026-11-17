@@ -4,9 +4,12 @@
     "AVR EISCP Port": "AVR EISCP Port",
     "Device alive check interval (ms)": "Device alive check interval (ms)",
     "Device discovery interval (ms)": "Device discovery interval (ms)",
+    "Fill in the hostname or ip-address": "Fill in the hostname or IP address",
+    "Fill in the port of AVR": "Fill in the port of AVR",
     "Max Volume Zone1": "Max volume of zone1",
     "Max Volume Zone2": "Max volume of zone2",
     "ONKYO adapter settings": "ONKYO adapter settings",
     "Onkyo AVR Address": "Onkyo AVR Address",
+    "leave it empty for autodiscovery": "Leave it empty for autodiscovery",
     "on save adapter restarts with new config immediately": "On save adapter restarts with new config immediately!"
 }

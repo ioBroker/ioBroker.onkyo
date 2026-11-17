@@ -4,9 +4,12 @@
     "AVR EISCP Port": "AVR EISCP-poort",
     "Device alive check interval (ms)": "Apparaat actief check-interval (ms)",
     "Device discovery interval (ms)": "Interval voor apparaatdetectie (ms)",
-    "Max Volume Zone1": "Max volume van zone1",
+    "Fill in the hostname or ip-address": "Vul de hostnaam of het IP-adres in",
+    "Fill in the port of AVR": "Vul de poort van de AVR in",
+    "Max Volume Zone1":"Max volume van zone1",
     "Max Volume Zone2": "Maximaal volume van zone2",
     "ONKYO adapter settings": "ONKYO-adapterinstellingen",
     "Onkyo AVR Address": "Onkyo AVR-adres",
+    "leave it empty for autodiscovery": "Leeg laten voor Autodiscovery",
     "on save adapter restarts with new config immediately": "Bij opslaan start adapter onmiddellijk opnieuw op met nieuwe configuratie!"
 }
