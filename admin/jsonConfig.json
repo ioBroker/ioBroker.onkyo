@@ -1,0 +1,77 @@
+{
+    "type": "panel",
+    "i18n": true,
+    "items": {
+        "avrAddress": {
+            "type": "text",
+            "label": "Fill in the hostname or ip-address",
+            "help": "leave it empty for autodiscovery",
+            "xs": 12,
+            "sm": 12,
+            "md": 6,
+            "lg": 4,
+            "xl": 4
+        },
+        "avrPort": {
+            "type": "number",
+            "label": "Fill in the port of AVR",
+            "min": 1,
+            "max": 65535,
+            "xs": 12,
+            "sm": 12,
+            "md": 6,
+            "lg": 4,
+            "xl": 4
+        },
+        "maxvolzone1": {
+            "type": "number",
+            "label": "Max Volume Zone1",
+            "min": 0,
+            "xs": 12,
+            "sm": 12,
+            "md": 6,
+            "lg": 4,
+            "xl": 4
+        },
+        "maxvolzone2": {
+            "type": "number",
+            "label": "Max Volume Zone2",
+            "min": 0,
+            "xs": 12,
+            "sm": 12,
+            "md": 6,
+            "lg": 4,
+            "xl": 4
+        },
+        "discoveryInterval": {
+            "type": "number",
+            "label": "Device discovery interval (ms)",
+            "min": 0,
+            "xs": 12,
+            "sm": 12,
+            "md": 6,
+            "lg": 4,
+            "xl": 4
+        },
+        "aliveCheckInterval": {
+            "type": "number",
+            "label": "Device alive check interval (ms)",
+            "min": 0,
+            "xs": 12,
+            "sm": 12,
+            "md": 6,
+            "lg": 4,
+            "xl": 4
+        },
+        "_restartHint": {
+            "type": "staticText",
+            "text": "on save adapter restarts with new config immediately",
+            "newLine": true,
+            "xs": 12,
+            "sm": 12,
+            "md": 12,
+            "lg": 12,
+            "xl": 12
+        }
+    }
+}

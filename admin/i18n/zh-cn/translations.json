@@ -4,9 +4,12 @@
     "AVR EISCP Port": "AVR EISCP 端口",
     "Device alive check interval (ms)": "设备存活检查间隔（毫秒）",
     "Device discovery interval (ms)": "设备发现间隔（毫秒）",
-    "Max Volume Zone1": "zone1 的最大体积",
+    "Fill in the hostname or ip-address": "填写主机名或 IP 地址",
+    "Fill in the port of AVR": "填写 AVR 的端口",
+    "Max Volume Zone1":"zone1 的最大体积",
     "Max Volume Zone2": "zone2 的最大体积",
     "ONKYO adapter settings": "ONKYO 适配器设置",
     "Onkyo AVR Address": "Onkyo AVR 地址",
+    "leave it empty for autodiscovery": "留空以自动发现",
     "on save adapter restarts with new config immediately": "保存适配器立即使用新配置重新启动！"
 }

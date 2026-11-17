@@ -4,9 +4,12 @@
     "AVR EISCP Port": "Porta AVR EISCP",
     "Device alive check interval (ms)": "Intervalo de verificação de funcionamento do dispositivo (ms)",
     "Device discovery interval (ms)": "Intervalo de descoberta de dispositivo (ms)",
-    "Max Volume Zone1": "Volume máximo da zona 1",
+    "Fill in the hostname or ip-address": "Preencha o nome do host ou o endereço IP",
+    "Fill in the port of AVR": "Preencha a porta do AVR",
+    "Max Volume Zone1":"Volume máximo da zona 1",
     "Max Volume Zone2": "Volume máximo da zona 2",
     "ONKYO adapter settings": "Configurações do adaptador ONKYO",
     "Onkyo AVR Address": "Endereço Onkyo AVR",
+    "leave it empty for autodiscovery": "Deixe em branco para descoberta automática",
     "on save adapter restarts with new config immediately": "Ao salvar, o adaptador é reiniciado com a nova configuração imediatamente!"
 }
